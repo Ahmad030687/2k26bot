@@ -3,7 +3,6 @@
 .runner
 replit.nix
 .config
-node_modules
 Choru-Mirai
 config.json.temp
 LICENSE
