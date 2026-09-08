@@ -1,0 +1,41 @@
+module.exports.config = {
+    name: "nameLock",
+    eventType: ["log:thread-name"],
+    version: "1.0.0",
+    credits: "Ahmad RDX"
+};
+
+const fs = require("fs");
+const path = require("path");
+const dataPath = path.join(__dirname, "..", "data", "nameLockData.json");
+
+module.exports.run = async function({ api, event }) {
+    const { threadID, author } = event;
+    
+    if (!author || author === api.getCurrentUserID()) return;
+
+    let data = {};
+    try {
+        if (fs.existsSync(dataPath)) {
+            data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
+        }
+    } catch(e) {}
+
+    const lockData = data[threadID];
+    if (lockData && lockData.locked) {
+        try {
+            await api.setTitle(lockData.name, threadID);
+            
+            let name = "Someone";
+            try {
+                const info = await api.getUserInfo(author);
+                name = info[author]?.name || "Someone";
+            } catch(e) {}
+
+            api.sendMessage(
+                `🚫 **AHMAD RDX NAME LOCK**\n\n👤 ${name} tried to change name!\n📛 Reverted: ${lockData.name}`,
+                threadID
+            );
+        } catch(e) {}
+    }
+};

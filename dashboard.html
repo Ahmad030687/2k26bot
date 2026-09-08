@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDX Bot • Premium Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1a 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .bg-animation span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(100, 255, 218, 0.3);
+            border-radius: 50%;
+            box-shadow: 0 0 20px #64ffda;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(145deg, #64ffda, #00b4d8);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(100, 255, 218, 0.3);
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 10px 40px rgba(100, 255, 218, 0.3); }
+            50% { box-shadow: 0 15px 50px rgba(100, 255, 218, 0.6); }
+        }
+
+        .logo-icon i {
+            font-size: 32px;
+            color: #0a0a0a;
+        }
+
+        .logo-text h1 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #64ffda);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            color: #8892b0;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .pulse-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        .pulse-dot.online {
+            background: #00ff88;
+            box-shadow: 0 0 20px #00ff88;
+        }
+
+        .pulse-dot.offline {
+            background: #ff4444;
+            box-shadow: 0 0 20px #ff4444;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .live-badge span {
+            font-weight: 600;
+            font-size: 15px;
+            color: #e6f1ff;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(20, 30, 50, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 24px;
+            padding: 28px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #64ffda, #00b4d8, #64ffda);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(100, 255, 218, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(145deg, rgba(100, 255, 218, 0.15), rgba(0, 180, 216, 0.15));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .card-icon i {
+            font-size: 28px;
+            color: #64ffda;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8892b0;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #e6f1ff;
+            line-height: 1.2;
+        }
+
+        .stat-sub {
+            font-size: 14px;
+            color: #64ffda;
+            margin-top: 8px;
+            opacity: 0.8;
+        }
+
+        /* Main Panel */
+        .main-panel {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 22px;
+            margin-bottom: 30px;
+        }
+
+        .panel-card {
+            background: rgba(20, 30, 50, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 28px;
+            padding: 30px;
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.15);
+        }
+
+        .panel-header i {
+            font-size: 24px;
+            color: #64ffda;
+        }
+
+        .panel-header h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #e6f1ff;
+            letter-spacing: -0.3px;
+        }
+
+        /* Info Row */
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #8892b0;
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-label i {
+            width: 20px;
+            color: #64ffda;
+            font-size: 14px;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: #e6f1ff;
+            font-size: 15px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin: 15px 0 5px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #64ffda, #00b4d8);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.5);
+        }
+
+        /* Bottom Grid */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        /* Refresh Button */
+        .refresh-btn {
+            background: linear-gradient(145deg, rgba(100, 255, 218, 0.1), rgba(0, 180, 216, 0.1));
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            color: #64ffda;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .refresh-btn:hover {
+            background: rgba(100, 255, 218, 0.15);
+            border-color: #64ffda;
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #8892b0;
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-panel {
+                grid-template-columns: 1fr;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation" id="bgAnimation"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>RDX BOT</h1>
+                    <p>PREMIUM DASHBOARD</p>
+                </div>
+            </div>
+            <div class="live-badge">
+                <div class="pulse-dot online" id="statusDot"></div>
+                <span id="statusText">ONLINE</span>
+                <i class="fas fa-chevron-right" style="margin-left: 10px; color: #64ffda; font-size: 12px;"></i>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="card-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-label">Bot Uptime</div>
+                <div class="stat-value" id="botUptime">--</div>
+                <div class="stat-sub" id="botStartTime">Started: --</div>
+            </div>
+            <div class="stat-card">
+                <div class="card-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="stat-label">CPU Cores</div>
+                <div class="stat-value" id="cpuCores">--</div>
+                <div class="stat-sub" id="platform">--</div>
+            </div>
+            <div class="stat-card">
+                <div class="card-icon">
+                    <i class="fas fa-memory"></i>
+                </div>
+                <div class="stat-label">Memory Usage</div>
+                <div class="stat-value" id="memoryPercent">--%</div>
+                <div class="stat-sub" id="memoryDetail">--</div>
+            </div>
+            <div class="stat-card">
+                <div class="card-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <div class="stat-label">Total Restarts</div>
+                <div class="stat-value" id="totalRestarts">--</div>
+                <div class="stat-sub" id="lastRestart">Last: --</div>
+            </div>
+        </div>
+
+        <!-- Main Panel -->
+        <div class="main-panel">
+            <div class="panel-card">
+                <div class="panel-header">
+                    <i class="fas fa-cog"></i>
+                    <h3>Bot Information</h3>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="fas fa-fingerprint"></i> Process ID</span>
+                    <span class="info-value" id="botPid">--</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="fas fa-code-branch"></i> Node.js</span>
+                    <span class="info-value" id="nodeVersion">--</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="fas fa-calendar"></i> Started At</span>
+                    <span class="info-value" id="startedAt">--</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="fas fa-history"></i> Last Restart</span>
+                    <span class="info-value" id="lastRestartDetail">--</span>
+                </div>
+            </div>
+            
+            <div class="panel-card">
+                <div class="panel-header">
+                    <i class="fas fa-server"></i>
+                    <h3>System Resources</h3>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="fas fa-microchip"></i> CPU</span>
+                    <span class="info-value" id="cpuInfo">--</span>
+                </div>
+                <div class="progress-container">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span class="info-label"><i class="fas fa-memory"></i> RAM</span>
+                        <span class="info-value" id="ramPercent">--%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="ramBar" style="width: 0%"></div>
+                    </div>
+                    <span class="info-value" id="ramDetail" style="font-size: 12px;">--</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="fas fa-globe"></i> Hostname</span>
+                    <span class="info-value" id="hostname">--</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label"><i class="fas fa-chart-line"></i> System Uptime</span>
+                    <span class="info-value" id="systemUptime">--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Grid -->
+        <div class="bottom-grid">
+            <div class="panel-card">
+                <div class="panel-header">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Status Monitor</h3>
+                </div>
+                <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; color: #64ffda;" id="statusEmoji">🟢</div>
+                        <div style="margin-top: 10px; font-weight: 600;" id="statusDisplay">Online</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <div class="info-row">
+                            <span class="info-label">Response Time</span>
+                            <span class="info-value" id="responseTime">--</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Last Check</span>
+                            <span class="info-value" id="lastCheck">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-card" style="display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                    <div class="panel-header" style="margin-bottom: 10px; padding-bottom: 0; border: none;">
+                        <i class="fas fa-sync-alt"></i>
+                        <h3>Auto Refresh</h3>
+                    </div>
+                    <p style="color: #8892b0; font-size: 14px;">Updates every 3 seconds</p>
+                </div>
+                <button class="refresh-btn" onclick="refreshData()">
+                    <i class="fas fa-rotate"></i> Refresh Now
+                </button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <i class="fas fa-bolt" style="color: #64ffda; margin-right: 8px;"></i>
+            RDX Bot Dashboard • Powered by Premium Engine • v2.0.0
+        </div>
+    </div>
+
+    <script>
+        // Create animated background stars
+        function createStars() {
+            const bg = document.getElementById('bgAnimation');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('span');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 15 + 's';
+                star.style.animationDuration = (8 + Math.random() * 12) + 's';
+                star.style.width = (2 + Math.random() * 3) + 'px';
+                star.style.height = star.style.width;
+                bg.appendChild(star);
+            }
+        }
+        createStars();
+
+        // Format bytes
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Format uptime
+        function formatUptime(ms) {
+            const seconds = Math.floor(ms / 1000);
+            const days = Math.floor(seconds / 86400);
+            const hours = Math.floor((seconds % 86400) / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            
+            const parts = [];
+            if (days > 0) parts.push(`${days}d`);
+            if (hours > 0) parts.push(`${hours}h`);
+            if (minutes > 0) parts.push(`${minutes}m`);
+            parts.push(`${secs}s`);
+            return parts.join(' ');
+        }
+
+        // Fetch and update data
+        async function fetchStatus() {
+            const startTime = Date.now();
+            try {
+                const response = await fetch('/api/status');
+                const data = await response.json();
+                const responseTime = Date.now() - startTime;
+                
+                // Update UI
+                document.getElementById('statusDot').className = data.bot.status === 'Online' ? 'pulse-dot online' : 'pulse-dot offline';
+                document.getElementById('statusText').textContent = data.bot.status.toUpperCase();
+                document.getElementById('statusDisplay').textContent = data.bot.status;
+                document.getElementById('statusEmoji').textContent = data.bot.status === 'Online' ? '🟢' : '🔴';
+                
+                document.getElementById('botUptime').textContent = data.bot.uptimeFormatted;
+                document.getElementById('botStartTime').textContent = 'Started: ' + data.bot.startTime;
+                document.getElementById('cpuCores').textContent = data.system.cpus;
+                document.getElementById('platform').textContent = data.system.platform + ' ' + data.system.arch;
+                document.getElementById('memoryPercent').textContent = data.system.memoryUsage + '%';
+                document.getElementById('memoryDetail').textContent = formatBytes(data.system.freeMemory) + ' free / ' + formatBytes(data.system.totalMemory);
+                document.getElementById('totalRestarts').textContent = data.bot.totalRestarts;
+                document.getElementById('lastRestart').textContent = 'Last: ' + (data.bot.lastRestart === 'Never' ? 'Never' : data.bot.lastRestart.split(',')[0]);
+                document.getElementById('botPid').textContent = data.bot.pid || 'N/A';
+                document.getElementById('nodeVersion').textContent = data.system.nodeVersion;
+                document.getElementById('startedAt').textContent = data.bot.startTime;
+                document.getElementById('lastRestartDetail').textContent = data.bot.lastRestart;
+                document.getElementById('cpuInfo').textContent = data.system.cpus + ' Cores • ' + data.system.arch;
+                document.getElementById('ramPercent').textContent = data.system.memoryUsage + '%';
+                document.getElementById('ramBar').style.width = data.system.memoryUsage + '%';
+                document.getElementById('ramDetail').textContent = formatBytes(data.system.freeMemory) + ' free of ' + formatBytes(data.system.totalMemory);
+                document.getElementById('hostname').textContent = data.system.hostname;
+                document.getElementById('systemUptime').textContent = data.system.uptimeFormatted;
+                document.getElementById('responseTime').textContent = responseTime + 'ms';
+                document.getElementById('lastCheck').textContent = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Karachi' });
+                
+            } catch (error) {
+                console.error('Error fetching status:', error);
+                document.getElementById('statusDot').className = 'pulse-dot offline';
+                document.getElementById('statusText').textContent = 'OFFLINE';
+                document.getElementById('statusDisplay').textContent = 'Error';
+                document.getElementById('statusEmoji').textContent = '⚠️';
+            }
+        }
+
+        function refreshData() {
+            fetchStatus();
+        }
+
+        // Auto refresh every 3 seconds
+        setInterval(fetchStatus, 3000);
+        fetchStatus();
+    </script>
+</body>
+</html>
