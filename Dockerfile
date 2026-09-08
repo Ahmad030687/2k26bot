@@ -13,9 +13,10 @@ RUN apt-get update && apt-get install -y \
 
 COPY package*.json ./
 RUN npm install
+RUN npm rebuild sqlite3 --update-binary || true
 
 COPY . .
 
 EXPOSE 20054
 
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
