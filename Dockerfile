@@ -2,7 +2,6 @@ FROM node:16-bullseye
 
 WORKDIR /app
 
-# Expired repository check ko bypass karne ke liye flag add ki hai
 RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
@@ -18,7 +17,11 @@ RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y --n
 
 COPY package*.json ./
 
-RUN npm install --build-from-source
+# Pehle normal install karega
+RUN npm install
+
+# YAHAN FIX HAI: Is command se wo GLIBC 2.33 wali file hata kar aapke OS ke hisaab se nayi file banayega
+RUN npm rebuild better-sqlite3 sqlite3 canvas ws --build-from-source
 
 COPY . .
 
@@ -26,4 +29,3 @@ EXPOSE 20054
 ENV PORT=20054
 
 CMD ["node", "--max-old-space-size=1024", "index.js"]
-
