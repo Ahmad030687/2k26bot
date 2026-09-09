@@ -10,7 +10,8 @@ const os = require('os');
 ///////////////////////////////////////////////////////////
 
 const app = express();
-const port = 20054;
+// YAHAN FIX KIYA HAI: Koyeb ka port accept karega warna 20054 chalayega
+const port = process.env.PORT || 20054;
 
 // Bot start time for uptime calculation
 const BOT_START_TIME = Date.now();
@@ -162,3 +163,4 @@ function startBot(message) {
 }
 
 startBot("🚀 Initializing Bot...");
+
