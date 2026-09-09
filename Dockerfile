@@ -2,6 +2,7 @@ FROM node:18-bookworm
 
 WORKDIR /app
 
+# Native C++ binaries aur SQLite headers install karein
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
@@ -13,12 +14,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgif-dev \
     librsvg2-dev \
     fonts-noto-color-emoji \
+    sqlite3 \
+    libsqlite3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY package*.json ./
 
-# Prebuilt binary ke bajaye better-sqlite3 ko local GLIBC par rebuild karega
-RUN npm install --build-from-source=better-sqlite3
+# Packages install karne ke baad better-sqlite3 aur canvas ko source se compile karein
+RUN npm install
+RUN npm rebuild better-sqlite3 canvas --build-from-source
 
 COPY . .
 
