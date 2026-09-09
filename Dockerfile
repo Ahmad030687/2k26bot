@@ -2,8 +2,8 @@ FROM node:16-bullseye
 
 WORKDIR /app
 
-# Sab zaroori system files aur dependencies (Canvas, SQLite ke liye)
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Expired repository check ko bypass karne ke liye flag add ki hai
+RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
     make \
@@ -18,7 +18,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY package*.json ./
 
-# Sab kuch fresh compile karna
 RUN npm install --build-from-source
 
 COPY . .
@@ -26,6 +25,5 @@ COPY . .
 EXPOSE 20054
 ENV PORT=20054
 
-# Memory limit ko thora badha diya hai taake FB login easily ho jaye
 CMD ["node", "--max-old-space-size=1024", "index.js"]
 
