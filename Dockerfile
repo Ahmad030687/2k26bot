@@ -17,7 +17,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY package*.json ./
 
-RUN npm install
+# Prebuilt binary ke bajaye better-sqlite3 ko local GLIBC par rebuild karega
+RUN npm install --build-from-source=better-sqlite3
 
 COPY . .
 
@@ -25,3 +26,4 @@ EXPOSE 20054
 ENV PORT=20054
 
 CMD ["node", "--max-old-space-size=1024", "index.js"]
+
