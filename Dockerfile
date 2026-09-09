@@ -1,21 +1,23 @@
-FROM node:16-bookworm
+FROM node:18-bullseye
 
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
     build-essential \
     python3 \
+    make \
+    g++ \
     libcairo2-dev \
     libpango1.0-dev \
     libjpeg-dev \
     libgif-dev \
     librsvg2-dev
 
-COPY package*.json ./
+COPY package.json ./
 
-# Force packages to compile fresh for Linux (Fixes Segfault 139)
-RUN npm install --build-from-source
-RUN npm rebuild sqlite3 canvas --build-from-source || true
+# better-sqlite3 ko Linux ke mutabiq fresh build karega
+RUN npm install
+RUN npm rebuild better-sqlite3 --build-from-source
 
 COPY . .
 
