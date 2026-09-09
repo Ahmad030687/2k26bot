@@ -1,9 +1,7 @@
-FROM node:18-bookworm
+FROM node:18-slim
 
-WORKDIR /app
-
-RUN apt-get update && apt-get install -y \
-    build-essential \
+# System dependencies for Canvas & SQLite
+RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     make \
     g++ \
@@ -11,16 +9,20 @@ RUN apt-get update && apt-get install -y \
     libpango1.0-dev \
     libjpeg-dev \
     libgif-dev \
-    librsvg2-dev
+    librsvg2-dev \
+    fonts-noto-color-emoji \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY package.json ./
+WORKDIR /app
 
-# better-sqlite3 ko Linux ke mutabiq fresh build karega
-RUN npm install
-RUN npm rebuild better-sqlite3 --build-from-source || true
+COPY package*.json ./
+
+# Cache bypass aur clean install
+RUN npm install --build-from-source
 
 COPY . .
 
 EXPOSE 20054
+ENV PORT=20054
 
-CMD ["node", "--max-old-space-size=400", "index.js"]
+CMD ["node", "--max-old-space-size=512", "index.js"]
