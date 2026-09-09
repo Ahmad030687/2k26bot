@@ -1,9 +1,11 @@
-FROM node:18-bookworm
+FROM ubuntu:22.04
 
-WORKDIR /app
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Native C++ binaries aur SQLite headers install karein
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# 1. Zaroori libraries aur naya OS (GLIBC 2.35)
+RUN apt-get update && apt-get install -y \
+    wget \
+    xz-utils \
     build-essential \
     python3 \
     make \
@@ -14,15 +16,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgif-dev \
     librsvg2-dev \
     fonts-noto-color-emoji \
-    sqlite3 \
-    libsqlite3-dev \
     && rm -rf /var/lib/apt/lists/*
+
+# 2. Node.js 16 install kar rahe hain taake FCA crash na ho
+RUN wget https://nodejs.org/dist/v16.20.2/node-v16.20.2-linux-x64.tar.xz \
+    && tar -xJf node-v16.20.2-linux-x64.tar.xz -C /usr/local --strip-components=1 \
+    && rm node-v16.20.2-linux-x64.tar.xz
+
+WORKDIR /app
 
 COPY package*.json ./
 
-# Packages install karne ke baad better-sqlite3 aur canvas ko source se compile karein
+# 3. Packages install karein
 RUN npm install
-RUN npm rebuild better-sqlite3 canvas --build-from-source
 
 COPY . .
 
