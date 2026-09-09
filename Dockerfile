@@ -2,7 +2,7 @@ FROM node:18-bookworm
 
 WORKDIR /app
 
-# 1. Zaroori libraries install karein
+# SQLite development libraries install kar rahe hain taake source compilation mein masla na ho
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
@@ -14,19 +14,22 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgif-dev \
     librsvg2-dev \
     fonts-noto-color-emoji \
+    sqlite3 \
+    libsqlite3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY package*.json ./
 
-# 2. Packages install karein (Node 18 par prebuilds smoothly lag jayenge)
+# Packages install karein
 RUN npm install
+
+# Asal Jaadu: better-sqlite3 ko forcibly container ke andar compile karo taake Segfault khatam ho
+RUN npm rebuild better-sqlite3 --build-from-source
 
 COPY . .
 
 EXPOSE 20054
 ENV PORT=20054
-
-# 3. YAHAN HAI ASAL JAADU: Yeh flag fca-priyansh ke login crash (Segfault) ko hamesha ke liye rok degi!
 ENV NODE_OPTIONS="--openssl-legacy-provider"
 
 CMD ["node", "--max-old-space-size=1024", "index.js"]
