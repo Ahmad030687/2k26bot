@@ -1,8 +1,7 @@
-FROM node:18-bookworm
+FROM node:16-bullseye
 
 WORKDIR /app
 
-# SQLite development libraries install kar rahe hain taake source compilation mein masla na ho
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
@@ -14,23 +13,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgif-dev \
     librsvg2-dev \
     fonts-noto-color-emoji \
-    sqlite3 \
-    libsqlite3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 COPY package*.json ./
 
-# Packages install karein
 RUN npm install
 
-# Asal Jaadu: better-sqlite3 ko forcibly container ke andar compile karo taake Segfault khatam ho
-RUN npm rebuild better-sqlite3 --build-from-source
+# Asal Fix: Node 16 ke hisaab se better-sqlite3 ko fix kar rahe hain taake NAPI error na aaye
+RUN npm install better-sqlite3@8.5.2 --save
+RUN npm rebuild canvas better-sqlite3 --build-from-source
 
 COPY . .
 
 EXPOSE 20054
 ENV PORT=20054
-ENV NODE_OPTIONS="--openssl-legacy-provider"
 
 CMD ["node", "--max-old-space-size=1024", "index.js"]
 
