@@ -8,6 +8,8 @@
   },
   "scripts": {
     "start": "node --max-old-space-size=400 index.js",
+    "start": "node index.js",
+    "postinstall": "npm rebuild sqlite3 better-sqlite3 canvas",
     "login": "node login"
   },
   "author": "SHAAN-KHAN 🥀",
