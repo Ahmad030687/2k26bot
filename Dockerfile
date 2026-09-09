@@ -1,7 +1,10 @@
-FROM node:18-slim
+FROM node:16-bullseye
 
-# System dependencies for Canvas & SQLite
+WORKDIR /app
+
+# Sab zaroori system files aur dependencies (Canvas, SQLite ke liye)
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
     python3 \
     make \
     g++ \
@@ -13,11 +16,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     fonts-noto-color-emoji \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /app
-
 COPY package*.json ./
 
-# Cache bypass aur clean install
+# Sab kuch fresh compile karna
 RUN npm install --build-from-source
 
 COPY . .
@@ -25,4 +26,6 @@ COPY . .
 EXPOSE 20054
 ENV PORT=20054
 
-CMD ["node", "--max-old-space-size=512", "index.js"]
+# Memory limit ko thora badha diya hai taake FB login easily ho jaye
+CMD ["node", "--max-old-space-size=1024", "index.js"]
+
