@@ -1,8 +1,8 @@
-FROM node:16-bullseye
+FROM node:18-bookworm
 
 WORKDIR /app
 
-RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
     make \
@@ -17,11 +17,7 @@ RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y --n
 
 COPY package*.json ./
 
-# Pehle normal install karega
 RUN npm install
-
-# YAHAN FIX HAI: Is command se wo GLIBC 2.33 wali file hata kar aapke OS ke hisaab se nayi file banayega
-RUN npm rebuild better-sqlite3 sqlite3 canvas ws --build-from-source
 
 COPY . .
 
