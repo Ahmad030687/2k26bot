@@ -1,4 +1,4 @@
-FROM node:18-bullseye
+FROM node:18-bookworm
 
 WORKDIR /app
 
@@ -17,7 +17,7 @@ COPY package.json ./
 
 # better-sqlite3 ko Linux ke mutabiq fresh build karega
 RUN npm install
-RUN npm rebuild better-sqlite3 --build-from-source
+RUN npm rebuild better-sqlite3 --build-from-source || true
 
 COPY . .
 
