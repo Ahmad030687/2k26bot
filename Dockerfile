@@ -1,11 +1,9 @@
-FROM ubuntu:22.04
+FROM node:18-bookworm
 
-ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /app
 
-# 1. Zaroori libraries aur naya OS (GLIBC 2.35)
-RUN apt-get update && apt-get install -y \
-    wget \
-    xz-utils \
+# 1. Zaroori libraries install karein
+RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
     make \
@@ -18,22 +16,18 @@ RUN apt-get update && apt-get install -y \
     fonts-noto-color-emoji \
     && rm -rf /var/lib/apt/lists/*
 
-# 2. Node.js 16 install kar rahe hain taake FCA crash na ho
-RUN wget https://nodejs.org/dist/v16.20.2/node-v16.20.2-linux-x64.tar.xz \
-    && tar -xJf node-v16.20.2-linux-x64.tar.xz -C /usr/local --strip-components=1 \
-    && rm node-v16.20.2-linux-x64.tar.xz
-
-WORKDIR /app
-
 COPY package*.json ./
 
-# 3. Packages install karein
+# 2. Packages install karein (Node 18 par prebuilds smoothly lag jayenge)
 RUN npm install
 
 COPY . .
 
 EXPOSE 20054
 ENV PORT=20054
+
+# 3. YAHAN HAI ASAL JAADU: Yeh flag fca-priyansh ke login crash (Segfault) ko hamesha ke liye rok degi!
+ENV NODE_OPTIONS="--openssl-legacy-provider"
 
 CMD ["node", "--max-old-space-size=1024", "index.js"]
 
