@@ -40,7 +40,7 @@
         "listenEvents": true,
         "pauseLog": true,
         "logLevel": "silent",
-        "selfListen": false,
+        "selfListen": true,
         "autoMarkRead": false,
         "autoMarkDelivery": false,
         "online": true,
