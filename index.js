@@ -1,3 +1,6 @@
+const { ReadableStream } = require('stream/web');
+if (!global.ReadableStream) global.ReadableStream = ReadableStream;
+
 const { spawn, execSync } = require("child_process");
 const axios = require("axios");
 const logger = require("./utils/log");
