@@ -43,7 +43,7 @@
         "selfListen": false,
         "autoMarkRead": false,
         "autoMarkDelivery": false,
-        "online": false,
+        "online": true,
         "emitReady": true,
         "autoReconnect": true,
         "userAgent": "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36"
