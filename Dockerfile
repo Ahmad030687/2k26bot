@@ -1,8 +1,8 @@
-FROM node:18-bookworm
+FROM node:16-bullseye
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
     make \
@@ -17,10 +17,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY package*.json ./
 
+# Node 16 ke liye stable sqlite aur missing tools install karein
+RUN npm install better-sqlite3@8.7.0 image-downloader pastebin-api --save
 RUN npm install
-
-# Jo packages missing the unhein globally force install kar rahe hain taake error na aaye
-RUN npm install image-downloader pastebin-api --save
 
 COPY . .
 
