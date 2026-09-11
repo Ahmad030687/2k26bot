@@ -2,7 +2,8 @@ FROM node:16-bullseye
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Purane Debian archive ka expired release error bypass karne ke liye flag add kar diya hai
+RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
     make \
@@ -17,11 +18,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY package*.json ./
 
+# Node 16 ke liye stable sqlite version
+RUN npm install better-sqlite3@8.7.0 --save
 RUN npm install
-
-# Asal Fix: Node 16 ke hisaab se better-sqlite3 ko fix kar rahe hain taake NAPI error na aaye
-RUN npm install better-sqlite3@8.5.2 --save
-RUN npm rebuild canvas better-sqlite3 --build-from-source
 
 COPY . .
 
@@ -29,4 +28,3 @@ EXPOSE 20054
 ENV PORT=20054
 
 CMD ["node", "--max-old-space-size=1024", "index.js"]
-
