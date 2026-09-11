@@ -30,6 +30,8 @@
     "figlet": "^1.5.2",
     "form-data": "^4.0.0",
     "fs-extra": "^11.2.0",
+    "image-downloader": "^4.3.0",
+    "pastebin-api": "^5.1.2",
     "jimp": "^0.16.13",
     "lodash": "^4.17.21",
     "moment-timezone": "^0.5.37",
