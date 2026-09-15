@@ -1,9 +1,10 @@
-FROM node:16-bullseye
+# Base image ko Node 18 par update kar diya gaya hai
+FROM node:18-bullseye
 
 WORKDIR /app
 
-# Cache clean karke update fix-missing ke sath run kar rahe hain taake 404 error na aaye
-RUN apt-get clean && apt-get update --fix-missing && apt-get install -y --no-install-recommends \
+# Updated image hone ki wajah se ab packages smoothly install ho jayenge
+RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
     make \
@@ -18,7 +19,7 @@ RUN apt-get clean && apt-get update --fix-missing && apt-get install -y --no-ins
 
 COPY package*.json ./
 
-# Node 16 ke hisaab se stable SQLite aur missing modules
+# Dependencies installation
 RUN npm install better-sqlite3@8.7.0 image-downloader pastebin-api --save
 RUN npm install
 
@@ -28,3 +29,4 @@ EXPOSE 20054
 ENV PORT=20054
 
 CMD ["node", "--max-old-space-size=1024", "index.js"]
+
