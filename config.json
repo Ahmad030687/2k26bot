@@ -38,8 +38,8 @@
     "FCAOption": {
         "forceLogin": false,
         "listenEvents": true,
-        "pauseLog": true,
-        "logLevel": "silent",
+        "pauseLog": false,
+        "logLevel": "info",
         "selfListen": true,
         "autoMarkRead": false,
         "autoMarkDelivery": false,
