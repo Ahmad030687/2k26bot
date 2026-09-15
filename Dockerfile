@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY package*.json ./
 
 # Dependencies installation
-RUN npm install better-sqlite3@8.7.0 image-downloader pastebin-api --save
+RUN npm install better-sqlite3@8.7.0 image-downloader pastebin-api ytdl-core --save
+
 RUN npm install
 
 COPY . .
