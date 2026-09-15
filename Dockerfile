@@ -1,9 +1,9 @@
-# Base image ko Node 18 par update kar diya gaya hai
-FROM node:18-bullseye
+# Base image ko latest stable Debian (Bookworm) aur Node 20 par update kar diya hai
+FROM node:20-bookworm
 
 WORKDIR /app
 
-# Updated image hone ki wajah se ab packages smoothly install ho jayenge
+# Bookworm (Debian 12) ke active servers se ab packages bina error ke install honge
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     python3 \
