@@ -79,7 +79,7 @@ module.exports = {
 
       api.sendMessage(
         {
-          body: `🎭 ${emote} Emoji GIF\n✅ 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐒𝐀𝐑𝐃𝐀𝐑 𝐑𝐃𝐗 𝐁𝐎𝐓`,
+          body: `🎭 ${emote} Emoji GIF\n✅ 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐀𝐇𝐌𝐀𝐃 𝐑𝐃𝐗 𝐁𝐎𝐓`,
           attachment: fs.createReadStream(filePath)
         },
         threadID,
