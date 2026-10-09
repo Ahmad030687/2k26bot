@@ -101,7 +101,7 @@ module.exports = {
 
     if (sub === 'owner') {
       const ownerName = args.slice(1).join(' ').trim();
-      if (!ownerName) return send.reply('❌ Owner naam likhna bhool gaye!\nExample: .aisetup owner Sardar RDX');
+      if (!ownerName) return send.reply('❌ Owner naam likhna bhool gaye!\nExample: .aisetup owner AHMAD RDX');
       cfg.AI_OWNER = ownerName;
       saveConfig(cfg);
       return send.reply(
