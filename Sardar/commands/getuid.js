@@ -245,7 +245,7 @@ module.exports = {
       `│ 🔢 UID     : ${uid}\n` +
       (username ? `│ 🔗 Username: @${username}\n` : '') +
       `│\n│ 🌐 Profile :\n│ ${profileUrl}\n│\n` +
-      `│ ✅ SARDAR RDX BOT\n` +
+      `│ ✅ AHMAD RDX BOT\n` +
       `╰───────────────────────⟡`
     );
   }
