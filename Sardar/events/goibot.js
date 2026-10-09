@@ -42,7 +42,7 @@ module.exports = {
       "Aik jhapar lgy ga Sara bot nikl JYE ga 👋",
       "ary yarr busy hu abhi 🕵️‍♂️",
       "AJ phr mujha pa peyar Aya hy 🙈",
-      "Sardar ya dekh lo mujha Cher rhy hy 🥺",
+      "Ahmad ya dekh lo mujha Cher rhy hy 🥺",
       "Abhi kholly pase nhi hy 😒 Kal ana Kal",
       "han Janam number Dena hy kia 🙈",
       "Tu hath dhokay baat kr 😏",
