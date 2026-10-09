@@ -41,7 +41,7 @@ module.exports = {
 
       try {
         await api.sendMessage(
-          `╭─── « ⚠️ SPAM ALERT » ───⟡\n│\n│ ⚠️ Bot ko is group mein ${bold('SPAM')} mark ho gaya!\n│\n│ ◈ 🏠 Group : ${groupName}\n│ ◈ 🆔 TID   : ${threadID}\n│ ◈ ⏰ Time   : ${time}\n│\n│ 💡 Bot is group mein messages nahi bhej sakta.\n│ 👑 SARDAR RDX BOT\n╰───────────────⟡`,
+          `╭─── « ⚠️ SPAM ALERT » ───⟡\n│\n│ ⚠️ Bot ko is group mein ${bold('SPAM')} mark ho gaya!\n│\n│ ◈ 🏠 Group : ${groupName}\n│ ◈ 🆔 TID   : ${threadID}\n│ ◈ ⏰ Time   : ${time}\n│\n│ 💡 Bot is group mein messages nahi bhej sakta.\n│ 👑 AHMAD RDX BOT\n╰───────────────⟡`,
           notifyTid
         );
       } catch {}
