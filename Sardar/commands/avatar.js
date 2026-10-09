@@ -54,7 +54,7 @@ module.exports = {
           `│ ◈ ${bold('Name')} : ${name}\n` +
           `│ ◈ ${bold('UID')}  : ${uid}\n` +
           `│\n` +
-          `│ ${config.AI_OWNER || 'SARDAR RDX'} BOT 👑\n` +
+          `│ ${config.AI_OWNER || 'AHMAD RDX'} BOT 👑\n` +
           `╰────────────⟡`,
         attachment: fs.createReadStream(avatarPath)
       }, event.threadID, event.messageID);
