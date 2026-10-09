@@ -45,16 +45,16 @@ module.exports = {
             const msg2 =
                 `┏━━━ ⚡ 𝐑𝐃𝐗 𝐁𝐎𝐓 ⚡ ━━━┓\n` +
                 `┃                           \n` +
-                `┃  🌹 ꧁𝐒𝐀𝐑𝐃𝐀𝐑 𝐑𝐃𝐗꧂ 🌹  \n` +
+                `┃  🌹 ꧁𝐀𝐇𝐌𝐀𝐃 𝐑𝐃𝐗꧂ 🌹  \n` +
                 `┃                           \n` +
                 `┃   ✨ 𝐒𝐘𝐒𝐓𝐄𝐌 𝐋𝐈𝐕𝐄 ✨    \n` +
                 `┃                           \n` +
                 `┣━━━━━━━━━━━━━━━━━━┫\n` +
                 `┃ 👑 𝐎𝐖𝐍𝐄𝐑 𝐈𝐍𝐅𝐎            \n` +
-                `┃ 👤 Sardar RDX             \n` +
-                `┃ 🌐 fb.com/Sardar.RDX.786  ┃\n` +
-                ` 📞 +923301068874          \n` +
-                `✈️ Telegram: @SardarRDX7  \n` +
+                `┃ 👤 AHMAD RDX             \n` +
+                `┃ 🌐 fb.com/ahmadhooyar.26  ┃\n` +
+                ` 📞 +92320050****          \n` +
+                `✈️ Telegram: @ahmadalisafdar3  \n` +
                 `┣━━━━━━━━━━━━━━━━━━━┫\n` +
                 `┃ 🏠 Group : ${threadName.slice(0, 18)}\n` +
                 `┃ 📅 Date  : ${date}\n` +
@@ -65,7 +65,7 @@ module.exports = {
                 `┃ 📍 Add dev to keep bot    \n` +
                 `┃ 📍 ${config.PREFIX}help — all commands     \n` +
                 `┗━━━━━━━━━━━━━━━━━━━┛\n` +
-                `  🎀🌸 𝐒𝐀𝐑𝐃𝐀𝐑 𝐑𝐃𝐗 𝐁𝐎𝐓 🌸🎀`;
+                `  🎀🌸 𝐀𝐇𝐌𝐀𝐃 𝐑𝐃𝐗 𝐁𝐎𝐓 🌸🎀`;
 
             const videoPath = path.join(__dirname, 'cache', 'botjoin.mp4');
 
@@ -104,7 +104,7 @@ module.exports = {
                 `⏱️ Uptime : ${h}h ${m}m\n` +
                 `🧠 RAM    : ${ramUsed}GB / ${ramTotal}GB\n` +
                 `🚀 Status : Healthy ✅\n\n` +
-                `👑 SARDAR RDX BOT`;
+                `👑 AHMAD RDX BOT`;
 
             try { await api.sendMessage(adminMsg, notifyTid); } catch {}
 
