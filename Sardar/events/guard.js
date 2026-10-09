@@ -21,16 +21,16 @@ module.exports = {
       if (!admins.includes(botID)) {
         await api.sendMessage(
           `⚠️ 𝐀𝐓𝐓𝐄𝐍𝐓𝐈𝐎𝐍!\n\n` +
-          `🤖 I am SARDAR RDX BOT.\n` +
+          `🤖 I am AHMAD RDX BOT.\n` +
           `👑 Please make me admin to use all features!\n\n` +
-          `📱 Contact: SARDAR RDX\n` +
+          `📱 Contact: AHMAD RDX\n` +
           `🔧 Prefix: ${config.PREFIX || '.'}`,
           threadID
         );
       } else {
         await api.sendMessage(
-          `✅ 𝐒𝐀𝐑𝐃𝐀𝐑 𝐑𝐃𝐗 𝐁𝐎𝐓 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃!\n\n` +
-          `🌟 ${config.BOTNAME || 'SARDAR RDX BOT'} is ready!\n` +
+          `✅ 𝐀𝐇𝐌𝐀𝐃 𝐑𝐃𝐗 𝐁𝐎𝐓 𝐀𝐂𝐓𝐈𝐕𝐀𝐓𝐄𝐃!\n\n` +
+          `🌟 ${config.BOTNAME || 'AHMAD RDX BOT'} is ready!\n` +
           `🔧 Prefix: ${config.PREFIX || '.'}\n` +
           `💡 Type ${config.PREFIX || '.'}help for commands`,
           threadID
