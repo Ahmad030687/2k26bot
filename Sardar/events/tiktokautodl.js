@@ -1,1 +1,154 @@
-function _0x4205(_0x370b1e,_0x1e6e56){_0x370b1e=_0x370b1e-0x139;const _0x4b026c=_0x4b02();let _0x4205e0=_0x4b026c[_0x370b1e];if(_0x4205['WFnpBy']===undefined){var _0x3a2d38=function(_0x24d8d4){const _0x5dad03='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x487aa2='',_0x2bd49a='';for(let _0xa0bd01=0x0,_0x43d904,_0x2b09a3,_0xbbde9e=0x0;_0x2b09a3=_0x24d8d4['charAt'](_0xbbde9e++);~_0x2b09a3&&(_0x43d904=_0xa0bd01%0x4?_0x43d904*0x40+_0x2b09a3:_0x2b09a3,_0xa0bd01++%0x4)?_0x487aa2+=String['fromCharCode'](0xff&_0x43d904>>(-0x2*_0xa0bd01&0x6)):0x0){_0x2b09a3=_0x5dad03['indexOf'](_0x2b09a3);}for(let _0x5d0ea4=0x0,_0x5097b3=_0x487aa2['length'];_0x5d0ea4<_0x5097b3;_0x5d0ea4++){_0x2bd49a+='%'+('00'+_0x487aa2['charCodeAt'](_0x5d0ea4)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x2bd49a);};_0x4205['AHasvA']=_0x3a2d38,_0x4205['fwJFPD']={},_0x4205['WFnpBy']=!![];}const _0x2076b2=_0x4b026c[0x0],_0x28cb25=_0x370b1e+_0x2076b2,_0x43457c=_0x4205['fwJFPD'][_0x28cb25];return!_0x43457c?(_0x4205e0=_0x4205['AHasvA'](_0x4205e0),_0x4205['fwJFPD'][_0x28cb25]=_0x4205e0):_0x4205e0=_0x43457c,_0x4205e0;}function _0x4b02(){const _0x40efc9=['BM93yxrLCM1HCMS','zxjYB3i','Ahr0Chm6lY9HBMfIB3qUBxKUAwqVyxbPl2rVD25SB2fKl3rPA3rVAW','DgLRDg9RlMnVBq','vw5RBM93BG','8j+oTsdWNzct8j2qOVcDKktWNzct8j2qQpcDKkqG8j2qLFcDKklWNzcD8j2qNVcDKkGk','u0fsrefsifjewa','w3rPA3rVA2f1Dg9KBf0Gqvbjihn0yxr1CZOG','BwTKAxjtEw5J','Dg9gAxHLza','mtjNswDttNu','ie1ccG','DgLRDg9Ryxv0B2rS','8j+tPIbgAwXLihjLywr5igHVihjHAgKGAgfPlI4UcGRIJ7pILPpILPpILPpILPpILPpILPpILPpILPpILPpILPpILPpILPpILPpILPlILPiGidKWjq','Bg9N','zNjLzufWAwTLEq','lI4U','w3rPA3rVA2f1Dg9KBf0GrMfSBgjHy2SGDg8GD2f0zxjTyxjRihzPzgvV','nJa2nxDvzLbwtW','mJmWodq3mJfeA0Tmz2y','mta5ode5otbWsfDYywy','8j+uJsbuAwTuB2SGBgLUAYbKzxrLy3qGAhvHiqOk4OYB4PAt4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAsicaXmcu','y2fJAgu','DMLKzw8','C2v0twvZC2fNzvjLywn0Aw9U','4P2mieLZifrPA1rVAYbSAw5Rig1LAw4GA29PihzPzgvVig5HAgKGBwLSAs4','C2XPy2u','mtqXmJK3vgnhtu1x','8j+AQYdWNzcw8j2qMVcDKk3WNzcE8j2qQ/cDKkBWNzcA8j2qQ/cDKkq6ia','BwvZC2fNzq','Ahr0Chm6lY93D3CUDgLRDg9RlMnVBs8','lM1Wna','w3rPA3rVA2f1Dg9KBf0Grgv0zwn0zwq6ia','kI8Q','Dw5SAw5Ru3LUyW','vgLRvg9RigXPBMSGyxv0BYbKzxrLy3qGA2fYA2uGD2f0zxjTyxjRlwzYzwuGDMLKzw8Gzg93BMXVywqGyxvYihnLBMqGA2fYBY4','mZHWB3fMCvi','zxHWB3j0CW','z2v0','yxjYyxLIDwzMzxi','nZu4mdm4ALPLvvHH','C3bSAxq','DgLRDg9R','sgf0ysbKAxLHiokCHq','yNL0zuXLBMD0Aa','ndiYmJe2ovvXDMrnrW','ouTrCMPfwG','zgf0yq','zgvZy3jPChrPB24','mZCWoerry21frq','w3rPA3rVA2f1Dg9KBf0Grg93BMXVywqGzMfPBgvKoIa','C3vJy2vZCW','Bwf0y2G','DgLRDg9RxW','8j+oNU+4JYboBY13yxrLCM1HCMSGDMLKzw8GC2vSzwn0igHVihjHAgeGAgfPlI4UcGRIJ7pILPpILPpILPpILPpILPpILPpILPpILPlILPlILPlILPlILPlILPlILPlILPiGiduWjq','ie1c','Dw5Zzw5KtwvZC2fNzq','4PYfipcDKi/WNzcO8j2qSpcDKj7WNzcR8j2qNVcDKj0G8j2qM/cDKliG8j2qKVcDKidWNzcr8j2qG/cDKidWNzcripcDKjhWNzcd8j2qLYdWNzcb8j2qJVcDKjm','Cgf0Aa','nJq5mdqYnhDQwgP5wq','yxHPB3m','D3jPDgvgAwXLu3LUyW','4P2mifzPzgvVigzPBguGzg93BMXVywqGBMfOAsbOBYbZywTPlIbtzxj2zxiGBMuGyMXVy2SGA2fYigrPEweU','4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4PsbcG','zwrPDe1LC3nHz2u','AM9PBG','4PYfienVBxbSzxrLiqOk8j+FOUkwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwKYaXmdaLipcFMi0','8j+tPIdWNzcs8j2qOVcDKlpWNzcEicaGidOG','C2vUze1LC3nHz2u','4P2mifzPzgvVigrVD25SB2fKigXPBMSGBMfOAsbTAwXHlIbwAwrLBYbWCML2yxrLigHVihnHA3rPigHHAs4'];_0x4b02=function(){return _0x40efc9;};return _0x4b02();}const _0x598d55=_0x4205;(function(_0x2a12f9,_0x5b3b99){const _0x1642cf={_0x43718a:0x176,_0x5f3de4:0x169,_0x3cf9ca:0x158,_0x5e065a:0x17b,_0x2fd862:0x143,_0x5ad923:0x162},_0x374ea9=_0x4205,_0x49668b=_0x2a12f9();while(!![]){try{const _0x283751=-parseInt(_0x374ea9(_0x1642cf._0x43718a))/0x1+parseInt(_0x374ea9(0x172))/0x2*(-parseInt(_0x374ea9(_0x1642cf._0x5f3de4))/0x3)+parseInt(_0x374ea9(0x139))/0x4*(parseInt(_0x374ea9(0x160))/0x5)+parseInt(_0x374ea9(_0x1642cf._0x3cf9ca))/0x6*(-parseInt(_0x374ea9(_0x1642cf._0x5e065a))/0x7)+-parseInt(_0x374ea9(_0x1642cf._0x2fd862))/0x8+-parseInt(_0x374ea9(0x17c))/0x9*(-parseInt(_0x374ea9(_0x1642cf._0x5ad923))/0xa)+parseInt(_0x374ea9(0x161))/0xb;if(_0x283751===_0x5b3b99)break;else _0x49668b['push'](_0x49668b['shift']());}catch(_0x31cedd){_0x49668b['push'](_0x49668b['shift']());}}}(_0x4b02,0x9edd1));const axios=require(_0x598d55(0x144)),fs=require('fs-extra'),path=require(_0x598d55(0x142)),cacheDir=path[_0x598d55(0x149)](__dirname,'..',_0x598d55(0x164),_0x598d55(0x178)),frames=[_0x598d55(0x163),'📡\x20Video\x20info\x20fetch\x20ho\x20rahi\x20hai...\x0a\x0a⌛▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒\x20\x2030%',_0x598d55(0x13e),'📥\x20Video\x20download\x20ho\x20rahi\x20hai...\x0a\x0a⏳▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒\x20\x2070%',_0x598d55(0x15b),_0x598d55(0x14a)];function extractTikTokUrl(_0x487aa2){const _0x18919a=_0x598d55,_0x2bd49a=_0x487aa2[_0x18919a(0x13c)](/https?:\/\/(www\.|vt\.|vm\.|m\.)?tiktok\.com\/[^\s]*/i);if(!_0x2bd49a)return null;return _0x2bd49a[0x0][_0x18919a(0x177)]('\x20')[0x0];}async function downloadFile(_0xa0bd01,_0x43d904){const _0x4e1783={_0x2ece8c:0x174,_0xcabed3:0x175,_0x3441c4:0x145,_0x237a45:0x17a,_0x304798:0x15c,_0x16fda3:0x13a,_0x1fc0f2:0x16b},_0x21f129=_0x598d55;try{const _0x2b09a3=await axios[_0x21f129(_0x4e1783._0x2ece8c)](_0xa0bd01,{'responseType':_0x21f129(_0x4e1783._0xcabed3),'timeout':0x1d4c0,'headers':{'User-Agent':'Mozilla/5.0\x20(Windows\x20NT\x2010.0;\x20Win64;\x20x64)\x20AppleWebKit/537.36\x20(KHTML,\x20like\x20Gecko)\x20Chrome/120.0.0.0\x20Safari/537.36','Accept':_0x21f129(0x16f),'Referer':_0x21f129(0x16c)},'maxRedirects':0xa});if(_0x2b09a3[_0x21f129(0x17d)]&&_0x2b09a3['data']['byteLength']>0x2710)return fs[_0x21f129(_0x4e1783._0x3441c4)](_0x43d904,Buffer['from'](_0x2b09a3['data'])),_0x2b09a3[_0x21f129(0x17d)][_0x21f129(_0x4e1783._0x237a45)];return 0x0;}catch(_0xbbde9e){return console[_0x21f129(_0x4e1783._0x304798)](_0x21f129(_0x4e1783._0x16fda3)+_0xbbde9e[_0x21f129(_0x4e1783._0x1fc0f2)]),0x0;}}module[_0x598d55(0x173)]={'config':{'credits':_0x598d55(0x154),'name':_0x598d55(0x15a),'eventType':_0x598d55(0x16b),'description':_0x598d55(0x171)},async 'run'({api:_0x5d0ea4,event:_0x5097b3}){const _0x1bcd7f={_0x3ce9f5:0x16e,_0x541c4f:0x174,_0x411c2b:0x13b,_0x4179a9:0x148,_0x52bacf:0x167,_0x43595e:0x17e,_0x531b9b:0x16d,_0x3677e3:0x15f,_0x5793c1:0x15c,_0x21afdd:0x148,_0x1dde7a:0x147,_0x4b312b:0x14b,_0x341c58:0x159,_0x36b261:0x16a,_0x23732f:0x141,_0x3795e1:0x148},_0x5ce240=_0x598d55,{threadID:_0xf94568,messageID:_0x2b7660,body:_0x256f58,senderID:_0x1c40e7}=_0x5097b3;if(!_0x256f58)return;const _0x713e01=_0x5d0ea4['getCurrentUserID']();if(_0x1c40e7===_0x713e01)return;if(!_0x256f58['includes'](_0x5ce240(0x151)))return;const _0x24fde5=extractTikTokUrl(_0x256f58);if(!_0x24fde5)return;console[_0x5ce240(0x15c)](_0x5ce240(_0x1bcd7f._0x3ce9f5)+_0x24fde5);const _0x46579d=await _0x5d0ea4[_0x5ce240(0x14c)](frames[0x0],_0xf94568),_0x272f94=_0x46579d?.['messageID'];try{await _0x5d0ea4[_0x5ce240(0x148)](frames[0x1],_0x272f94,_0xf94568);const _0xc7ab1a=await axios[_0x5ce240(_0x1bcd7f._0x541c4f)](_0x5ce240(0x150),{'params':{'url':_0x24fde5,'apikey':_0x5ce240(0x15d)},'headers':{'accept':'application/json'},'timeout':0x7530,'validateStatus':()=>!![]});console[_0x5ce240(0x15c)](_0x5ce240(0x155)+_0xc7ab1a['status']);if(_0xc7ab1a['status']!==0xc8||!_0xc7ab1a[_0x5ce240(0x17d)]?.[_0x5ce240(_0x1bcd7f._0x411c2b)]){await _0x5d0ea4[_0x5ce240(_0x1bcd7f._0x4179a9)]('❌\x20TikTok\x20video\x20fetch\x20nahi\x20ho\x20saka.\x20Link\x20check\x20karo\x20ya\x20thodi\x20der\x20baad\x20try\x20karo.',_0x272f94,_0xf94568),_0x5d0ea4['setMessageReaction']('❌',_0x2b7660,()=>{},!![]);return;}const _0x2cc6ee=_0xc7ab1a[_0x5ce240(0x17d)]?.['data']?.['result'];if(!_0x2cc6ee){await _0x5d0ea4[_0x5ce240(0x148)](_0x5ce240(_0x1bcd7f._0x52bacf),_0x272f94,_0xf94568),_0x5d0ea4[_0x5ce240(0x166)]('❌',_0x2b7660,()=>{},!![]);return;}const _0x313a75=_0x2cc6ee['username']||_0x5ce240(0x152),_0x5f4562=_0x2cc6ee[_0x5ce240(_0x1bcd7f._0x43595e)]||'',_0x417579=_0x2cc6ee[_0x5ce240(0x14e)],_0x1c65e4=_0x2cc6ee[_0x5ce240(0x165)];if(!_0x417579&&!_0x1c65e4){await _0x5d0ea4[_0x5ce240(0x148)](_0x5ce240(0x14d),_0x272f94,_0xf94568),_0x5d0ea4[_0x5ce240(0x166)]('❌',_0x2b7660,()=>{},!![]);return;}await _0x5d0ea4[_0x5ce240(_0x1bcd7f._0x4179a9)](frames[0x2],_0x272f94,_0xf94568),fs[_0x5ce240(0x156)](cacheDir,{'recursive':!![]});const _0xf997da=path[_0x5ce240(0x149)](cacheDir,_0x5ce240(0x13d)+Date['now']()+_0x5ce240(_0x1bcd7f._0x531b9b));await _0x5d0ea4[_0x5ce240(0x148)](frames[0x3],_0x272f94,_0xf94568);let _0x39f15c=0x0;_0x417579&&(_0x39f15c=await downloadFile(_0x417579,_0xf997da));!_0x39f15c&&_0x1c65e4&&(console[_0x5ce240(0x15c)](_0x5ce240(_0x1bcd7f._0x3677e3)),_0x39f15c=await downloadFile(_0x1c65e4,_0xf997da));if(!_0x39f15c){await _0x5d0ea4['editMessage'](_0x5ce240(0x146),_0x272f94,_0xf94568),_0x5d0ea4['setMessageReaction']('❌',_0x2b7660,()=>{},!![]);return;}const _0x11d869=(_0x39f15c/0x400/0x400)[_0x5ce240(0x157)](0x2);console[_0x5ce240(_0x1bcd7f._0x5793c1)]('[tiktokautodl]\x20Saved:\x20'+_0x11d869+_0x5ce240(0x13f)),await _0x5d0ea4['editMessage'](frames[0x4],_0x272f94,_0xf94568),await _0x5d0ea4[_0x5ce240(_0x1bcd7f._0x21afdd)](frames[0x5],_0x272f94,_0xf94568),_0x5d0ea4[_0x5ce240(0x166)]('✅',_0x2b7660,()=>{},!![]);const _0x5203cb=_0x5ce240(0x153)+_0x5ce240(_0x1bcd7f._0x1dde7a)+('👤\x20𝐔𝐬𝐞𝐫\x20\x20\x20\x20:\x20'+_0x313a75+'\x0a')+(_0x5f4562?'📝\x20𝐂𝐚𝐩𝐭𝐢𝐨𝐧\x20:\x20'+_0x5f4562[_0x5ce240(0x168)](0x0,0x50)+(_0x5f4562['length']>0x50?_0x5ce240(0x15e):'')+'\x0a':'')+(_0x5ce240(_0x1bcd7f._0x4b312b)+_0x11d869+_0x5ce240(_0x1bcd7f._0x341c58))+(_0x5ce240(_0x1bcd7f._0x36b261)+(_0x417579?_0x5ce240(0x179):'Watermark\x20ke\x20saath')+'\x0a')+_0x5ce240(_0x1bcd7f._0x1dde7a)+_0x5ce240(_0x1bcd7f._0x23732f);_0x5d0ea4[_0x5ce240(0x14c)]({'body':_0x5203cb,'attachment':fs['createReadStream'](_0xf997da)},_0xf94568,()=>{const _0x2d8633=_0x5ce240;try{fs[_0x2d8633(0x170)](_0xf997da);}catch{}try{_0x5d0ea4[_0x2d8633(0x140)](_0x272f94);}catch{}},_0x2b7660);}catch(_0x4c90be){console[_0x5ce240(0x14f)]('[tiktokautodl]\x20Error:',_0x4c90be[_0x5ce240(0x16b)]);try{await _0x5d0ea4[_0x5ce240(_0x1bcd7f._0x3795e1)]('❌\x20Error:\x20'+_0x4c90be['message'],_0x272f94,_0xf94568);}catch{}_0x5d0ea4[_0x5ce240(0x166)]('❌',_0x2b7660,()=>{},!![]);}}};
+const axios = require('axios');
+const fs = require('fs-extra');
+const path = require('path');
+
+const cacheDir = path.join(__dirname, '..', 'cache', 'tiktok');
+
+const frames = [
+    '📡 Video info fetch ho rahi hai...\n\n⌛▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒  30%',
+    '📡 Video info fetch ho rahi hai...\n\n⌛▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒  30%',
+    '📥 Video download ho rahi hai...\n\n⏳▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒  70%',
+    '📥 Video download ho rahi hai...\n\n⏳▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒  70%',
+    '✅ Video successfully downloaded!',
+    '✅ Video successfully downloaded!'
+];
+
+function extractTikTokUrl(text) {
+    const match = text.match(/https?:\/\/(www\.|vt\.|vm\.|m\.)?tiktok\.com\/[^\s]*/i);
+    if (!match) return null;
+    return match[0].split(' ')[0];
+}
+
+async function downloadFile(url, outputPath) {
+    try {
+        const response = await axios.get(url, {
+            responseType: 'arraybuffer',
+            timeout: 30000,
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'application/json',
+                'Referer': 'https://www.tiktok.com/'
+            },
+            maxRedirects: 10
+        });
+        if (response.data && response.data.byteLength > 10000) {
+            await fs.writeFile(outputPath, Buffer.from(response.data));
+            return response.headers['content-type'];
+        }
+        return 0;
+    } catch (err) {
+        console.error('Download error: ' + err.message);
+        return 0;
+    }
+}
+
+module.exports = {
+    config: {
+        credits: 'SARDAR RDX', // Credits ko bilkul nahi chheda gaya
+        name: 'AHMAD RDX',
+        eventType: 'message',
+        description: 'TikTok video downloader by AHMAD RDX'
+    },
+    async run({ api, event }) {
+        const { threadID, messageID, body, senderID } = event;
+        if (!body) return;
+
+        const botID = api.getCurrentUserID();
+        if (senderID === botID) return;
+
+        const tiktokUrl = extractTikTokUrl(body);
+        if (!tiktokUrl) return;
+
+        console.log('[AHMAD RDX] Fetching URL: ' + tiktokUrl);
+
+        const infoMessage = await api.sendMessage('📡 Video info fetch ho rahi hai...\n\n⌛▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒  30%', threadID);
+        const sentMessageID = infoMessage?.messageID;
+
+        try {
+            await api.sendMessage('📡 Video info fetch ho rahi hai...\n\n⌛▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒  30%', sentMessageID, threadID);
+
+            const apiUrl = 'https://tikwm.com/api/';
+            const res = await axios.get(apiUrl, {
+                params: {
+                    url: tiktokUrl,
+                    apikey: ''
+                },
+                headers: { 'accept': 'application/json' },
+                timeout: 30000,
+                validateStatus: () => true
+            });
+
+            console.log('[AHMAD RDX] API Status: ' + res.status);
+
+            if (res.status !== 200 || !res.data?.data) {
+                await api.sendMessage('❌ TikTok video fetch nahi ho saka. Link check karo ya thodi der baad try karo.', sentMessageID, threadID);
+                api.setMessageReaction('❌', messageID, () => {}, true);
+                return;
+            }
+
+            const videoData = res.data?.data;
+            const username = videoData.username || 'TikTok User';
+            const caption = videoData.title || '';
+            const hdVideoUrl = videoData.hdplay || videoData.play;
+            const sdVideoUrl = videoData.play;
+
+            if (!hdVideoUrl && !sdVideoUrl) {
+                await api.sendMessage('❌ TikTok video fetch nahi ho saka.', sentMessageID, threadID);
+                api.setMessageReaction('❌', messageID, () => {}, true);
+                return;
+            }
+
+            await api.sendMessage('📥 Video download ho rahi hai...\n\n⏳▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒  70%', sentMessageID, threadID);
+            await fs.ensureDir(cacheDir);
+
+            const filePath = path.join(cacheDir, 'tiktok_' + Date.now() + '.mp4');
+            let fileSize = 0;
+
+            if (hdVideoUrl) {
+                fileSize = await downloadFile(hdVideoUrl, filePath);
+            }
+            if (!fileSize && sdVideoUrl) {
+                console.log('[AHMAD RDX] Trying SD video URL...');
+                fileSize = await downloadFile(sdVideoUrl, filePath);
+            }
+
+            if (!fileSize) {
+                await api.sendMessage('❌ Video download failed.', sentMessageID, threadID);
+                api.setMessageReaction('❌', messageID, () => {}, true);
+                return;
+            }
+
+            const fileSizeMB = (fileSize / 1024 / 1024).toFixed(2);
+            console.log('[AHMAD RDX] Saved: ' + fileSizeMB + ' MB');
+
+            await api.sendMessage('✅ Video successfully downloaded!', sentMessageID, threadID);
+            api.setMessageReaction('✅', messageID, () => {}, true);
+
+            const responseText = `📥 𝕿𝖎𝖐𝕿𝖔𝖐 𝕯𝖔𝖜𝖓𝖑𝖔𝖆𝖉𝖊𝖗 (AHMAD RDX)\n\n` +
+                `👤 𝐔𝐬𝐞𝐫    : ${username}\n` +
+                (caption ? `📝 𝐂𝐚𝐩𝐭𝐢𝐨𝐧 : ${caption.substring(0, 80)}${caption.length > 80 ? '...' : ''}\n` : '') +
+                `💾 𝐒𝐢𝐳𝐞    : ${fileSizeMB} MB\n` +
+                `🎬 𝐐𝐮𝐚𝐥𝐢𝐭𝐲 : ${hdVideoUrl ? 'HD' : 'SD'}\n\n` +
+                `⚡ Powered by AHMAD RDX`;
+
+            api.sendMessage({
+                body: responseText,
+                attachment: fs.createReadStream(filePath)
+            }, threadID, () => {
+                try {
+                    fs.unlinkSync(filePath);
+                } catch {}
+                try {
+                    api.unsendMessage(sentMessageID);
+                } catch {}
+            }, messageID);
+
+        } catch (err) {
+            console.error('[AHMAD RDX] Error:', err.message);
+            try {
+                await api.sendMessage('❌ Error: ' + err.message, sentMessageID, threadID);
+            } catch {}
+            api.setMessageReaction('❌', messageID, () => {}, true);
+        }
+    }
+};
