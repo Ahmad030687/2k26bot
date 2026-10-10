@@ -10,7 +10,7 @@ module.exports = {
     adminOnly: true
   },
   async run({ api, event, send , config }) {
-    await send.reply('🔄 Restarting SARDAR RDX BOT...\nPlease wait a moment! ⏰');
+    await send.reply('🔄 Restarting AHMAD RDX BOT...\nPlease wait a moment! ⏰');
     setTimeout(() => process.exit(1), 2000);
   }
 };
