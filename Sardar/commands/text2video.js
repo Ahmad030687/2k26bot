@@ -1,1 +1,131 @@
-const _0x460cf1=_0x1874;(function(_0x53f349,_0x151746){const _0xb008d1={_0x4f4ca7:0x152,_0x319292:0x122,_0x28a119:0x138,_0x182a46:0x133,_0x3f01be:0x13b,_0x149e2c:0x128,_0x22f491:0x14e,_0x335fa1:0x164,_0x103828:0x12c},_0x2eaa57=_0x1874,_0x36e2c0=_0x53f349();while(!![]){try{const _0x3f0b75=-parseInt(_0x2eaa57(0x125))/0x1*(-parseInt(_0x2eaa57(_0xb008d1._0x4f4ca7))/0x2)+parseInt(_0x2eaa57(_0xb008d1._0x319292))/0x3*(parseInt(_0x2eaa57(0x13a))/0x4)+-parseInt(_0x2eaa57(_0xb008d1._0x28a119))/0x5*(parseInt(_0x2eaa57(_0xb008d1._0x182a46))/0x6)+parseInt(_0x2eaa57(0x139))/0x7*(-parseInt(_0x2eaa57(_0xb008d1._0x3f01be))/0x8)+-parseInt(_0x2eaa57(_0xb008d1._0x149e2c))/0x9+-parseInt(_0x2eaa57(_0xb008d1._0x22f491))/0xa+-parseInt(_0x2eaa57(_0xb008d1._0x335fa1))/0xb*(-parseInt(_0x2eaa57(_0xb008d1._0x103828))/0xc);if(_0x3f0b75===_0x151746)break;else _0x36e2c0['push'](_0x36e2c0['shift']());}catch(_0x2a7c4c){_0x36e2c0['push'](_0x36e2c0['shift']());}}}(_0x16f5,0x86b47));const axios=require(_0x460cf1(0x157)),fs=require(_0x460cf1(0x141)),path=require('path'),cacheDir=path[_0x460cf1(0x159)](__dirname,'..','cache',_0x460cf1(0x149)),frames=[_0x460cf1(0x153),_0x460cf1(0x12e),_0x460cf1(0x135),'📥\x20Video\x20render\x20ho\x20rahi\x20hai...\x0a\x0a⏳▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒\x20\x2070%',_0x460cf1(0x155),'✅\x20Complete!\x0a\x0a🟢▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\x20100%\x20😍'];function _0x1874(_0x2d43b5,_0x1ee4cc){_0x2d43b5=_0x2d43b5-0x11b;const _0x16f539=_0x16f5();let _0x187417=_0x16f539[_0x2d43b5];if(_0x1874['ERVriH']===undefined){var _0x17aacb=function(_0xa12d2b){const _0x4b7df2='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x5895bb='',_0x321643='';for(let _0x4656e4=0x0,_0x991584,_0x5b98a1,_0x4e339f=0x0;_0x5b98a1=_0xa12d2b['charAt'](_0x4e339f++);~_0x5b98a1&&(_0x991584=_0x4656e4%0x4?_0x991584*0x40+_0x5b98a1:_0x5b98a1,_0x4656e4++%0x4)?_0x5895bb+=String['fromCharCode'](0xff&_0x991584>>(-0x2*_0x4656e4&0x6)):0x0){_0x5b98a1=_0x4b7df2['indexOf'](_0x5b98a1);}for(let _0x461c82=0x0,_0x44de74=_0x5895bb['length'];_0x461c82<_0x44de74;_0x461c82++){_0x321643+='%'+('00'+_0x5895bb['charCodeAt'](_0x461c82)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x321643);};_0x1874['FttiaM']=_0x17aacb,_0x1874['SXLAqp']={},_0x1874['ERVriH']=!![];}const _0x3c284e=_0x16f539[0x0],_0x167bbb=_0x2d43b5+_0x3c284e,_0x3f6cc7=_0x1874['SXLAqp'][_0x167bbb];return!_0x3f6cc7?(_0x187417=_0x1874['FttiaM'](_0x187417),_0x1874['SXLAqp'][_0x167bbb]=_0x187417):_0x187417=_0x3f6cc7,_0x187417;}module[_0x460cf1(0x142)]={'config':{'credits':_0x460cf1(0x14c),'name':_0x460cf1(0x149),'aliases':[_0x460cf1(0x15a),_0x460cf1(0x150),_0x460cf1(0x160)],'description':_0x460cf1(0x12d),'usage':'text2video\x20[prompt]','category':'AI','prefix':!![],'adminOnly':![],'cooldowns':0x1e},async 'run'({api:_0x5895bb,event:_0x321643,args:_0x4656e4,send:_0x991584}){const _0x3b1f51={_0x2223d7:0x162,_0x56e636:0x12a,_0x2b5af2:0x121,_0x223e74:0x154,_0x53e13d:0x13f,_0x146760:0x156,_0xfc77f1:0x14b,_0x40823a:0x130,_0x28584b:0x163,_0x119a8a:0x136,_0x3a3fc2:0x151,_0x3762ce:0x14d,_0x2a63f6:0x12f,_0x121586:0x159,_0x2fe571:0x140,_0x39ad16:0x158,_0x1c047f:0x163,_0x399d92:0x13c,_0x261dfe:0x126,_0x13e8ab:0x163,_0x3e8744:0x147,_0x5c2ba3:0x163,_0xdadd2a:0x11d,_0x11e722:0x14d,_0x5366f6:0x14d,_0x755472:0x14f,_0x1d052b:0x13e,_0x10378e:0x134,_0x17a5db:0x15d,_0xe22d04:0x13d,_0x13613d:0x15b,_0x43d5de:0x11b,_0x301b02:0x120,_0x3679ce:0x143,_0x4d4a55:0x127},_0x3e44e1=_0x460cf1,{threadID:_0x5b98a1,messageID:_0x4e339f}=_0x321643;if(!_0x4656e4[_0x3e44e1(0x15d)])return _0x991584[_0x3e44e1(_0x3b1f51._0x2223d7)](_0x3e44e1(_0x3b1f51._0x56e636)+'│\x0a'+_0x3e44e1(0x129)+'│\x20\x20generate\x20karta\x20hai!\x0a'+'│\x0a'+_0x3e44e1(0x161)+_0x3e44e1(0x11e)+_0x3e44e1(_0x3b1f51._0x2b5af2)+'│\x0a'+_0x3e44e1(0x148)+_0x3e44e1(0x137)+_0x3e44e1(_0x3b1f51._0x223e74)+'│\x0a'+_0x3e44e1(_0x3b1f51._0x53e13d));const _0x461c82=_0x4656e4[_0x3e44e1(0x159)]('\x20'),_0x44de74=await _0x5895bb['sendMessage'](frames[0x0],_0x5b98a1),_0x1f6611=_0x44de74?.[_0x3e44e1(_0x3b1f51._0x146760)];try{await _0x5895bb['editMessage'](frames[0x1],_0x1f6611,_0x5b98a1);const _0x5016fa=await axios[_0x3e44e1(0x140)](_0x3e44e1(_0x3b1f51._0xfc77f1),{'params':{'prompt':_0x461c82,'apikey':_0x3e44e1(0x11f)},'headers':{'accept':_0x3e44e1(0x145)},'timeout':0x1d4c0,'validateStatus':()=>!![]});if(_0x5016fa[_0x3e44e1(_0x3b1f51._0x40823a)]!==0xc8||!_0x5016fa['data']?.['success']||!_0x5016fa['data']?.[_0x3e44e1(_0x3b1f51._0x28584b)]?.[_0x3e44e1(0x151)]){try{_0x5895bb['unsendMessage'](_0x1f6611);}catch{}return _0x991584[_0x3e44e1(0x162)](_0x3e44e1(_0x3b1f51._0x119a8a));}const _0x1b17a9=_0x5016fa[_0x3e44e1(0x163)][_0x3e44e1(_0x3b1f51._0x28584b)][_0x3e44e1(_0x3b1f51._0x3a3fc2)];console['log']('[text2video]\x20URL:\x20'+_0x1b17a9),await _0x5895bb[_0x3e44e1(_0x3b1f51._0x3762ce)](frames[0x2],_0x1f6611,_0x5b98a1),fs[_0x3e44e1(_0x3b1f51._0x2a63f6)](cacheDir,{'recursive':!![]});const _0x1879f5=path[_0x3e44e1(_0x3b1f51._0x121586)](cacheDir,_0x3e44e1(0x132)+Date[_0x3e44e1(0x144)]()+_0x3e44e1(0x15e));await _0x5895bb[_0x3e44e1(_0x3b1f51._0x3762ce)](frames[0x3],_0x1f6611,_0x5b98a1);const _0x29f8dd=await axios[_0x3e44e1(_0x3b1f51._0x2fe571)](_0x1b17a9,{'responseType':_0x3e44e1(0x14a),'timeout':0x1d4c0,'headers':{'User-Agent':_0x3e44e1(_0x3b1f51._0x39ad16)},'maxRedirects':0x5});if(!_0x29f8dd[_0x3e44e1(0x163)]||_0x29f8dd[_0x3e44e1(_0x3b1f51._0x1c047f)][_0x3e44e1(_0x3b1f51._0x399d92)]<0x3e8){try{_0x5895bb[_0x3e44e1(_0x3b1f51._0x261dfe)](_0x1f6611);}catch{}return _0x991584[_0x3e44e1(0x162)](_0x3e44e1(0x11c));}const _0x2ac21f=(_0x29f8dd[_0x3e44e1(_0x3b1f51._0x13e8ab)][_0x3e44e1(0x13c)]/0x400/0x400)['toFixed'](0x2);fs[_0x3e44e1(_0x3b1f51._0x3e8744)](_0x1879f5,Buffer['from'](_0x29f8dd[_0x3e44e1(_0x3b1f51._0x5c2ba3)])),console[_0x3e44e1(_0x3b1f51._0xdadd2a)](_0x3e44e1(0x12b)+_0x2ac21f+'\x20MB'),await _0x5895bb[_0x3e44e1(_0x3b1f51._0x11e722)](frames[0x4],_0x1f6611,_0x5b98a1),await _0x5895bb[_0x3e44e1(_0x3b1f51._0x5366f6)](frames[0x5],_0x1f6611,_0x5b98a1),_0x5895bb['setMessageReaction']('✅',_0x4e339f,()=>{},!![]),_0x5895bb[_0x3e44e1(_0x3b1f51._0x755472)]({'body':_0x3e44e1(0x146)+'━━━━━━━━━━━━━━━━━━━━\x0a'+(_0x3e44e1(_0x3b1f51._0x1d052b)+_0x461c82[_0x3e44e1(_0x3b1f51._0x10378e)](0x0,0x3c)+(_0x461c82[_0x3e44e1(_0x3b1f51._0x17a5db)]>0x3c?_0x3e44e1(0x123):'')+'\x0a')+(_0x3e44e1(0x15c)+_0x2ac21f+_0x3e44e1(_0x3b1f51._0xe22d04))+_0x3e44e1(_0x3b1f51._0x13613d)+_0x3e44e1(0x124)+'✅\x20𝐏𝐨𝐰𝐞𝐫𝐞𝐝\x20𝐛𝐲\x20𝐒𝐀𝐑𝐃𝐀𝐑\x20𝐑𝐃𝐗\x20𝐁𝐎𝐓','attachment':fs[_0x3e44e1(0x15f)](_0x1879f5)},_0x5b98a1,()=>{try{fs['unlinkSync'](_0x1879f5);}catch{}try{_0x5895bb['unsendMessage'](_0x1f6611);}catch{}},_0x4e339f);}catch(_0x412af8){console[_0x3e44e1(0x131)](_0x3e44e1(_0x3b1f51._0x43d5de),_0x412af8[_0x3e44e1(_0x3b1f51._0x301b02)]);try{_0x5895bb[_0x3e44e1(_0x3b1f51._0x11e722)](_0x3e44e1(_0x3b1f51._0x3679ce)+_0x412af8['message'],_0x1f6611,_0x5b98a1);}catch{}_0x5895bb[_0x3e44e1(_0x3b1f51._0x4d4a55)]('❌',_0x4e339f,()=>{},!![]);}}};function _0x16f5(){const _0x1d5f28=['yxjYyxLIDwzMzxi','Ahr0Chm6lY9HBMfIB3qUBxKUAwqVyxbPl2fPl3rLEhqYDMLKzw8','u0fsrefsifjewa','zwrPDe1LC3nHz2u','mZi2ndCZmgDgt2L3zG','C2vUze1LC3nHz2u','BwfRzxzPzgvV','CMvZDwX0','mtC5nK10B21iwa','8j+oRcbwAwrLBYbNzw5LCMf0zsbOBYbYywHPigHHAs4UlGOk4OYB4PAt4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAsicaXmcu','4PscicdIGkiGu2HVCNqGjIbJBgvHCIbSAwTOBWO','8j+tPIbgAwXLihjLywr5igHVihjHAgKGAgfPlI4UcGRIJ7pILPpILPpILPpILPpILPpILPpILPpILPpILPpILPpILPpILPpILPpILPlILPiGidKWjq','BwvZC2fNzuLe','yxHPB3m','tw96AwXSys81lJa','AM9PBG','Ddj2','8j+KLIdWNzca8j2qIcaGicaGoIbhzw1PBMKGug93zxjLzaO','8j+tPIdWNzcs8j2qOVcDKlpWNzcEicaGoIa','BgvUz3rO','lM1Wna','y3jLyxrLuMvHzfn0CMvHBq','DMLKz2vU','4PscicdWN5omifvZywDLoGO','CMvWBhK','zgf0yq','mtm2mZGXmtLjv25KveK','w3rLEhqYDMLKzw9DievYCM9YoG','4P2mifzPzgvVigzPBguGzw1WDhKGywf5As4Grg9IyxjHihrYEsbRyxjVlG','Bg9N','4PscicaUDgv4Ddj2AwrLBYbJyxqGCgXHEwLUzWO','zNjLzufWAwTLEq','BwvZC2fNzq','4PscicaGicaGicaGicaGicbMB290yMfSBaO','mJy3odq2wNDqwuPg','lI4U','4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4PsbcG','mJaWChz2AKjZ','Dw5Zzw5KtwvZC2fNzq','C2v0twvZC2fNzvjLywn0Aw9U','nde4ode0mvjpv1rQDG','4PscicbuzxH0ihnLiefjihzPzgvVcG','4PwT4Psa4Psa4Psa4PsaipcFJQWGvevyvdjwsurftYdILidILidILidILidILA4k','w3rLEhqYDMLKzw9DifnHDMvKoIa','mtj1qvjJDxG','vgv4DcbZzsbbssb2AwrLBYbNzw5LCMf0zsbRyxjVlG','8j+KLIbbssbWCM9TChqGChjVy2vZCYbRyxiGCMfOysbOywKUlI4kcUkmM+kwK+kwK+kwK+kwK+kwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKIaGmZaL','BwTKAxjtEw5J','C3rHDhvZ','zxjYB3i','Ddj2xW','mJq3ntaWnMflz0Htwa','C2XPy2u','8j+oNU+4JYbty2vUzxmGyMfUysbYywHHigHHAs4UlGOk4O+Z4PAt4PAt4PAt4PAt4PAt4PAt4PAt4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAsica1mcu','4P2mifzPzgvVigDLBMvYyxrLig5HAgKGAg8GC2fRAs4GvgHVzgeGyxvYihDHAxqGA2fYA2uGzg9IyxjHihrYEsbRyxjVlG','4PscicdIGkiGrw5NBgLZAcbWCM9TChqGzgfSBWO','nwHjwwrMzq','mtqZmZGXswjLqLHo','mtzvCKfXDNO','oe1hCNH3vq','yNL0zuXLBMD0Aa','ie1ccG','8j+tNsdWNzcp8j2qQ/cDKkJWNzcM8j2qQFcDKk0GoIa','4PwW4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4PwV','z2v0','zNmTzxH0CMe','zxHWB3j0CW','4P2mievYCM9YoIa','BM93','yxbWBgLJyxrPB24VANnVBG','8j+oRcdWNzca8j2qIcdWNzcv8j2qOVcDKj3WNzcE8j2qQcdWNzcr8j2qNVcDKjRWNzcD8j2qSIek','D3jPDgvgAwXLu3LUyW','4PscicdWN5kHifrPChm6cG','Dgv4Ddj2AwrLBW'];_0x16f5=function(){return _0x1d5f28;};return _0x16f5();}
+const axios = require('axios');
+const fs = require('fs-extra');
+const path = require('path');
+
+const cacheDir = path.join(__dirname, '..', 'cache', 'vidgen');
+const frames = [
+    '🎬 Video generate ho rahi hai...\n\n⌛▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒  10%',
+    '🎞️ Scenes bana raha hai...\n\n⏳▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒  50%',
+    '📦 File ready ho rahi hai...\n\n⏳▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒  90%',
+    '📥 Video render ho rahi hai...\n\n⏳▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒  70%',
+    '🤖 AI prompt process kar raha hai...\n\n⌛▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒  30%',
+    '✅ Complete!\n\n🟢▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 100% 😍'
+];
+
+module.exports = {
+    config: {
+        credits: 'SARDAR RDX',
+        name: 'vidgen',
+        aliases: ['t2v', 'makevideo', 'text2video'],
+        description: 'Text se AI video generate karo.',
+        usage: 'text2video [prompt]',
+        category: 'AI',
+        prefix: true,
+        adminOnly: false,
+        cooldowns: 30
+    },
+    async run({ api, event, args, send }) {
+        const { threadID, messageID } = event;
+        if (!args[0]) {
+            return send(
+                '╭──── 🎬 TEXT2VIDEO ────╮\n' +
+                '│  Text se AI video\n' +
+                '│  generate karta hai!\n' +
+                '│\n' +
+                '│  📌 Usage:\n' +
+                '│  text2video [prompt]\n' +
+                '│  📌 Examples:\n' +
+                '│  • .text2video cat playing\n' +
+                '│              football\n' +
+                '│  💡 Tips:\n' +
+                '│  • Short & clear likho\n' +
+                '│  • English prompt dalo\n' +
+                '╰────────────────────╯'
+            );
+        }
+
+        const prompt = args.join(' ');
+        const initialMessage = await api.sendMessage(frames[0], threadID);
+        const messageId = initialMessage?.messageID;
+
+        try {
+            await api.editMessage(frames[1], messageId, threadID);
+            const response = await axios.get('https://anabot.my.id/api/ai/text2video', {
+                params: {
+                    'prompt': prompt,
+                    'apikey': 'freeApikey'
+                },
+                headers: {
+                    'accept': 'application/json'
+                },
+                timeout: 120000,
+                validateStatus: () => true
+            });
+
+            if (response.status !== 200 || !response.data?.success || !response.data?.result?.url) {
+                try {
+                    api.unsendMessage(messageId);
+                } catch {}
+                return send('❌ Video generate nahi ho saki. Thoda aur wait karke dobara try karo.');
+            }
+
+            const videoUrl = response.data.result.url;
+            console.log('[text2video] URL: ' + videoUrl);
+
+            await api.editMessage(frames[2], messageId, threadID);
+            fs.mkdirSync(cacheDir, { 'recursive': true });
+
+            const filePath = path.join(cacheDir, 't2v_' + Date.now() + '.mp4');
+            await api.editMessage(frames[3], messageId, threadID);
+
+            const videoResponse = await axios.get(videoUrl, {
+                'responseType': 'arraybuffer',
+                'timeout': 120000,
+                'headers': {
+                    'User-Agent': 'Mozilla/5.0'
+                },
+                'maxRedirects': 5
+            });
+
+            if (!videoResponse.data || videoResponse.data.byteLength < 1000) {
+                try {
+                    api.unsendMessage(messageId);
+                } catch {}
+                return send('❌ Video file empty aayi. Dobara try karo.');
+            }
+
+            const fileSizeMB = (videoResponse.data.byteLength / 1024 / 1024).toFixed(2);
+            fs.writeFileSync(filePath, Buffer.from(videoResponse.data));
+            console.log('[text2video] Saved: ' + fileSizeMB + ' MB');
+
+            await api.editMessage(frames[4], messageId, threadID);
+            await api.editMessage(frames[5], messageId, threadID);
+
+            api.setMessageReaction('✅', messageID, () => {}, true);
+
+            api.sendMessage({
+                'body': '🎬 𝐀𝐈 𝐕𝐢𝐝𝐞𝐨 𝐑𝐞𝐚𝐝𝐲!\n' +
+                        '━━━━━━━━━━━━━━━━━━━━\n' +
+                        ('📝 𝐏𝐫𝐨𝐦𝐩𝐭 : ' + prompt.slice(0, 60) + (prompt.length > 60 ? '...' : '') + '\n') +
+                        ('📦 𝐒𝐢𝐳𝐞   : ' + fileSizeMB + ' MB\n') +
+                        '🤖 𝐀𝐈     : Gemini Powered\n' +
+                        '✅ 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐀𝐇𝐌𝐀𝐃 𝐑𝐃𝐗 𝐁𝐎𝐓',
+                'attachment': fs.createReadStream(filePath)
+            }, threadID, () => {
+                try {
+                    fs.unlinkSync(filePath);
+                } catch {}
+                try {
+                    api.unsendMessage(messageId);
+                } catch {}
+            }, messageID);
+
+        } catch (error) {
+            console.log('[text2video] Error: ', error.message);
+            try {
+                api.editMessage('❌ Error: ' + error.message, messageId, threadID);
+            } catch {}
+            api.setMessageReaction('❌', messageID, () => {}, true);
+        }
+    }
+};
