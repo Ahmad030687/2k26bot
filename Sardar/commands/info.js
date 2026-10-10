@@ -25,9 +25,9 @@ module.exports = {
     await send.reply(
       `╭── 🤖 BOT INFORMATION ─╮\n` +
       `│\n` +
-      `│ 🌟 ${config.BOTNAME || 'SARDAR RDX BOT'}\n` +
+      `│ 🌟 ${config.BOTNAME || 'AHMAD RDX BOT'}\n` +
       `│\n` +
-      `│ 👑 Owner: ${config.ADMIN_NAME || config.AI_OWNER || 'SARDAR RDX'}\n` +
+      `│ 👑 Owner: ${config.ADMIN_NAME || config.AI_OWNER || 'AHMAD RDX'}\n` +
       `│ 🔧 Prefix: ${config.PREFIX || '.'}\n` +
       `│ 📊 Commands: ${cmdCount}\n` +
       `│ ⚡ Events: ${client.events.size}\n` +
@@ -37,7 +37,7 @@ module.exports = {
       `│ 🚀 FCA: rdx-fca v2\n` +
       `│\n` +
       `│ 👤 User: ${userName}\n` +
-      `│ 📱 WhatsApp: +923301068874\n` +
+      `│ 📱 WhatsApp: +92320050****\n` +
       `╰───────────────────╯`
     );
   }
