@@ -4,9 +4,9 @@
   "BOTNAME": "🩷𓆩๛⃝𝐌𝐀𝐍𝐎𓆪𓆤",
   "PREFIX": ".",
   "ADMINBOT": [],
-  "ADMIN_NAME": "Sardar RDX",
+  "ADMIN_NAME": "AHMAD RDX",
   "ADMINBOT_NAMES": {
-    "61577647262557": "Sardar RDX"
+    "61577647262557": "AHMAD RDX"
   },
   "PREFIX_ENABLED": true,
   "REACT_DELETE_EMOJI": "😡",
@@ -24,8 +24,8 @@
   "DISABLED_COMMANDS": [],
   "NOTIFY_TID": "947123558188847",
   "AI_NAME": "Mano",
-  "AI_OWNER": "Sardar RDX",
-  "AI_OWNER_UID": "61577647262557",
+  "AI_OWNER": "AHMAD RDX",
+  "AI_OWNER_UID": "100002944872037",
   "AI_MODEL": "gpt-oss-120b",
   "AI_ENABLED": true,
   "AI_API_KEY": "",
