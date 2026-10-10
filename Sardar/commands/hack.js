@@ -217,7 +217,7 @@ module.exports = {
               `│ ⚠️ Owner ko bhej diya gaya!\n` +
               `│ 😈 Next time careful rehna!\n` +
               `│\n` +
-              `│ 💻 — ${config?.AI_OWNER || 'SARDAR RDX'} BOT\n` +
+              `│ 💻 — ${config?.AI_OWNER || 'AHMAD RDX'} BOT\n` +
               `╰───────────────⟡`,
             attachment: fs.createReadStream(imgPath),
             mentions: [{ tag: targetName, id: targetID }]
