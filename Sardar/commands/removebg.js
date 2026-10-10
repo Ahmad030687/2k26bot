@@ -1,1 +1,125 @@
-const _0x294e34=_0x47f4;function _0x47f4(_0x33ed3f,_0x1a9bf7){_0x33ed3f=_0x33ed3f-0x15b;const _0x8bb51b=_0x8bb5();let _0x47f40c=_0x8bb51b[_0x33ed3f];if(_0x47f4['VVPtJG']===undefined){var _0x600d1e=function(_0x4f484b){const _0x198f7e='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x400b24='',_0x476332='';for(let _0x596355=0x0,_0x51d51d,_0x580e03,_0x12617c=0x0;_0x580e03=_0x4f484b['charAt'](_0x12617c++);~_0x580e03&&(_0x51d51d=_0x596355%0x4?_0x51d51d*0x40+_0x580e03:_0x580e03,_0x596355++%0x4)?_0x400b24+=String['fromCharCode'](0xff&_0x51d51d>>(-0x2*_0x596355&0x6)):0x0){_0x580e03=_0x198f7e['indexOf'](_0x580e03);}for(let _0x3e16ba=0x0,_0x2083f7=_0x400b24['length'];_0x3e16ba<_0x2083f7;_0x3e16ba++){_0x476332+='%'+('00'+_0x400b24['charCodeAt'](_0x3e16ba)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x476332);};_0x47f4['ujYXBo']=_0x600d1e,_0x47f4['hvHhPe']={},_0x47f4['VVPtJG']=!![];}const _0x29eb6e=_0x8bb51b[0x0],_0x5b4d39=_0x33ed3f+_0x29eb6e,_0x523f59=_0x47f4['hvHhPe'][_0x5b4d39];return!_0x523f59?(_0x47f40c=_0x47f4['ujYXBo'](_0x47f40c),_0x47f4['hvHhPe'][_0x5b4d39]=_0x47f40c):_0x47f40c=_0x523f59,_0x47f40c;}(function(_0x257b8b,_0xf60611){const _0x40c110={_0x40b2fa:0x18e,_0x4c3ed3:0x190,_0x3ff808:0x160,_0x3afe78:0x177,_0x5714e9:0x199},_0x9b4e7f=_0x47f4,_0x4f9f37=_0x257b8b();while(!![]){try{const _0x5c835f=parseInt(_0x9b4e7f(_0x40c110._0x40b2fa))/0x1*(-parseInt(_0x9b4e7f(_0x40c110._0x4c3ed3))/0x2)+parseInt(_0x9b4e7f(0x16a))/0x3*(parseInt(_0x9b4e7f(0x162))/0x4)+-parseInt(_0x9b4e7f(_0x40c110._0x3ff808))/0x5*(-parseInt(_0x9b4e7f(_0x40c110._0x3afe78))/0x6)+parseInt(_0x9b4e7f(0x15d))/0x7*(-parseInt(_0x9b4e7f(_0x40c110._0x5714e9))/0x8)+parseInt(_0x9b4e7f(0x191))/0x9+-parseInt(_0x9b4e7f(0x175))/0xa+parseInt(_0x9b4e7f(0x186))/0xb;if(_0x5c835f===_0xf60611)break;else _0x4f9f37['push'](_0x4f9f37['shift']());}catch(_0x208cc5){_0x4f9f37['push'](_0x4f9f37['shift']());}}}(_0x8bb5,0x512a5));function _0x8bb5(){const _0x35f6c2=['y3jLyxrLuMvHzfn0CMvHBq','CMvTB3zLyMC','CM1Iz18','4PYfipcDKi/WNzcO8j2qSpcDKj7WNzcR8j2qNVcDKj0G8j2qM/cDKliG8j2qKVcDKidWNzcr8j2qG/cDKidWNzcripcDKjhWNzcd8j2qLYdWNzcb8j2qJVcDKjm','4PscicbqAg90BYbRysbIywnRz3jVDw5KcG','ChjLDMLLD1vYBezHBgXIywnR','ChjLDMLLD1vYBa','mty3nJm0vu1RBhv4','tw96AwXSys81lJa','C3vJy2vZCW','Ahr0Chm6lY9HBMfIB3qUBxKUAwqVyxbPl2fPl3jLBw92zwjN','yNL0zuXLBMD0Aa','yxHPB3m','yxbWBgLJyxrPB24VANnVBG','4P2miejHy2TNCM91BMqGBMfOAsbOyxrHihnHA2eUieTVAsbHDxiGCgHVDg8GDhj5igTHCM8U','twvKAwe','AM9PBG','4PYfipcDKihWNzcA8j2qNpcDKktWNzcG8j2qQ/cDKkJWNzcU8j2qP/cDKj0G8j2qH/cDKjRWNzcT8j2qMIdWNzcd8j2qOVcDKllWNzcAiqO','mZe3otaXmevjBfHlEq','lNbUzW','mZCWmdC0yLfcBMnv','z2v0','Dw5SAw5Ru3LUyW','BM93','4P2mievYCM9YoIa','zxHWB3j0CW','CgHVDg8','CMvWBhK','BM9IzW','4PwW4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4Psa4PwV','4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4PsbcG','D3jPDgvgAwXLu3LUyW','yxjYyxLIDwzMzxi','4PscicaYlIbzysbWAg90BYbRzsbZywf0AaO','Bg9N','nduWotG1n3LWvNjhCW','CMvZDwX0','yxr0ywnOBwvUDhm','yMDYzw1VDMu','DhLWzq','4PscicaXlIblAxnPihbOB3rVihbLihjLCgX5cG','C3rPy2TLCG','BwvZC2fNzq','mJCWnJnQBe1gtKG','zNjLzufWAwTLEq','ndrWswjlsNK','mZC4ody5ng9bqNDRsq','zNmTzxH0CMe','DxjS','4P2mifjLC3vSDcbPBwfNzsbLBxb0EsbHyxLPlIbeB2jHCMeGDhj5igTHCM8U','4PscicbOyxrHigrLDgeGAgfPiqO','zNjVBq','zgf0yq','4PscicdWN5omieTHAxnLihvZzsbRyxjLAw46cG','mtiWAvH3Ewrd','s2LZAsbIAgKGCgHVDg8GA2eGyMfJA2DYB3vUzcbOyxrHigrVlG','4PscicaGicaUCMvTB3zLyMCGyMHLAM8k','mty3mdGZsuThAuDW','w3jLBw92zwjNxsbfCNjVCJO','BwTKAxjtEw5J','ndbsuKvVvvq','Dw5Zzw5KtwvZC2fNzq','mJbxEwfSt2K'];_0x8bb5=function(){return _0x35f6c2;};return _0x8bb5();}const axios=require(_0x294e34(0x16f)),fs=require(_0x294e34(0x192)),path=require('path'),cacheDir=path[_0x294e34(0x173)](__dirname,'..','cache',_0x294e34(0x164));module[_0x294e34(0x17c)]={'config':{'credits':'SARDAR\x20RDX','name':'removebg','aliases':['rmbg',_0x294e34(0x17f),_0x294e34(0x189)],'description':_0x294e34(0x15b),'usage':'removebg\x20(image\x20attach\x20karo\x20ya\x20reply\x20karo)','category':_0x294e34(0x172),'prefix':!![],'adminOnly':![],'cooldowns':0xa},async 'run'({api:_0x400b24,event:_0x476332,send:_0x596355}){const _0x5a29a7={_0x1efdcd:0x198,_0x2eb3b8:0x18b,_0x36e77e:0x184,_0x147975:0x180,_0x52b8e3:0x16d,_0x217f3a:0x18f,_0x3bc1a4:0x170,_0x4b2b2e:0x197,_0x50fb68:0x187,_0x2329fa:0x171,_0x3116b5:0x185,_0x577780:0x165,_0x1c436f:0x17a,_0x5272c6:0x176,_0x19c3f3:0x16b,_0xb0ef7:0x16e,_0x3b06ef:0x17e,_0x203d92:0x194,_0x21937a:0x182,_0x3a65c6:0x196,_0x402cdb:0x161,_0x3aea9c:0x181,_0x23a653:0x166,_0x340998:0x163,_0x428d94:0x15e,_0x1e97b9:0x18d,_0x664260:0x161,_0x489a0e:0x17b,_0x5f003b:0x18d},_0x4e4db6={_0x599709:0x179},_0x31c76d={_0x52bc71:0x17d,_0x38d270:0x168},_0x4533c1=_0x294e34,{threadID:_0x51d51d,messageID:_0x580e03,messageReply:_0x12617c}=_0x476332;let _0x3e16ba=null;const _0x2083f7=_0x4a5ebb=>{const _0x4f1d76=_0x47f4;if(!_0x4a5ebb?.['length'])return null;for(const _0x109db4 of _0x4a5ebb){if(_0x109db4['type']===_0x4f1d76(_0x31c76d._0x52bc71)||_0x109db4[_0x4f1d76(0x18a)]===_0x4f1d76(0x18c))return _0x109db4[_0x4f1d76(0x193)]||_0x109db4[_0x4f1d76(0x169)]||_0x109db4[_0x4f1d76(_0x31c76d._0x38d270)]||null;}return null;};_0x3e16ba=_0x2083f7(_0x476332['attachments']);!_0x3e16ba&&_0x12617c&&(_0x3e16ba=_0x2083f7(_0x12617c[_0x4533c1(0x188)]));if(!_0x3e16ba)return _0x596355[_0x4533c1(0x17e)]('╭────\x20🖼️\x20REMOVE\x20BG\x20────╮\x0a'+'│\x0a'+_0x4533c1(0x167)+_0x4533c1(0x195)+'│\x0a'+_0x4533c1(_0x5a29a7._0x1efdcd)+_0x4533c1(_0x5a29a7._0x2eb3b8)+'│\x20\x20\x20\x20\x20karke\x20.removebg\x20likho\x0a'+_0x4533c1(_0x5a29a7._0x36e77e)+_0x4533c1(0x15c)+'│\x0a'+_0x4533c1(_0x5a29a7._0x147975));const _0x939f4b=await _0x400b24['sendMessage']('🔄\x20Background\x20hata\x20raha\x20hun...\x0a⏳\x20Thoda\x20wait\x20karo...',_0x51d51d),_0x113ada=_0x939f4b?.['messageID'];try{const _0x1cafcc=await axios[_0x4533c1(0x178)](_0x4533c1(_0x5a29a7._0x52b8e3),{'params':{'imageUrl':_0x3e16ba,'apikey':_0x4533c1(_0x5a29a7._0x217f3a)},'headers':{'accept':_0x4533c1(_0x5a29a7._0x3bc1a4)},'timeout':0xea60,'validateStatus':()=>!![]});if(_0x1cafcc['status']!==0xc8||!_0x1cafcc[_0x4533c1(_0x5a29a7._0x4b2b2e)]?.[_0x4533c1(0x16c)]||!_0x1cafcc['data']?.[_0x4533c1(0x197)]?.[_0x4533c1(_0x5a29a7._0x50fb68)]){try{_0x400b24['unsendMessage'](_0x113ada);}catch{}return _0x596355['reply'](_0x4533c1(_0x5a29a7._0x2329fa));}const _0x3b0987=_0x1cafcc[_0x4533c1(0x197)][_0x4533c1(0x197)]['result'];console[_0x4533c1(_0x5a29a7._0x3116b5)]('[removebg]\x20Result:\x20'+_0x3b0987),fs[_0x4533c1(0x15f)](cacheDir,{'recursive':!![]});const _0x34e93b=path[_0x4533c1(0x173)](cacheDir,_0x4533c1(_0x5a29a7._0x577780)+Date[_0x4533c1(_0x5a29a7._0x1c436f)]()+_0x4533c1(_0x5a29a7._0x5272c6)),_0x331e3b=await axios[_0x4533c1(0x178)](_0x3b0987,{'responseType':_0x4533c1(0x183),'timeout':0x7530,'headers':{'User-Agent':_0x4533c1(_0x5a29a7._0x19c3f3)},'maxRedirects':0x5});if(!_0x331e3b['data']||_0x331e3b['data'][_0x4533c1(_0x5a29a7._0xb0ef7)]<0x64){try{_0x400b24[_0x4533c1(0x161)](_0x113ada);}catch{}return _0x596355[_0x4533c1(_0x5a29a7._0x3b06ef)](_0x4533c1(_0x5a29a7._0x203d92));}fs[_0x4533c1(_0x5a29a7._0x21937a)](_0x34e93b,Buffer[_0x4533c1(_0x5a29a7._0x3a65c6)](_0x331e3b[_0x4533c1(_0x5a29a7._0x4b2b2e)]));try{_0x400b24[_0x4533c1(_0x5a29a7._0x402cdb)](_0x113ada);}catch{}_0x400b24['sendMessage']({'body':_0x4533c1(0x174)+_0x4533c1(_0x5a29a7._0x3aea9c)+'🖼️\x20Format\x20:\x20PNG\x20(Transparent)\x0a'+'🤖\x20AI\x20\x20\x20\x20\x20:\x20Gemini\x20Powered\x0a'+'━━━━━━━━━━━━━━━━━━━━\x0a'+_0x4533c1(_0x5a29a7._0x23a653),'attachment':fs[_0x4533c1(_0x5a29a7._0x340998)](_0x34e93b)},_0x51d51d,()=>{const _0x4c773d=_0x4533c1;try{fs[_0x4c773d(_0x4e4db6._0x599709)](_0x34e93b);}catch{}},_0x580e03);}catch(_0x4121a5){console['error'](_0x4533c1(_0x5a29a7._0x428d94),_0x4121a5[_0x4533c1(_0x5a29a7._0x1e97b9)]);try{_0x400b24[_0x4533c1(_0x5a29a7._0x664260)](_0x113ada);}catch{}_0x596355['reply'](_0x4533c1(_0x5a29a7._0x489a0e)+_0x4121a5[_0x4533c1(_0x5a29a7._0x5f003b)]);}}};
+const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+const cacheDir = path.join(__dirname, '..', 'cache', 'removebg');
+
+module.exports = {
+    'config': {
+        'credits': 'SARDAR RDX',
+        'name': 'removebg',
+        'aliases': ['rmbg', 'nobg', 'bgremove'],
+        'description': 'Kisi bhi photo ka background hata do.',
+        'usage': 'removebg (image attach karo ya reply karo)',
+        'category': 'tools',
+        'prefix': true,
+        'adminOnly': false,
+        'cooldowns': 10
+    },
+    async 'run'({ api, event, send }) {
+        const { threadID, messageID, messageReply } = event;
+        let imageURL = null;
+
+        const findImage = (attachments) => {
+            if (!attachments?.length) return null;
+            for (const att of attachments) {
+                if (att.type === 'photo' || att.type === 'image' || att.type === 'sticker') {
+                    return att.url || att.previewUrl || att.largeImage || null;
+                }
+            }
+            return null;
+        };
+
+        imageURL = findImage(event.attachments);
+        if (!imageURL && messageReply) {
+            imageURL = findImage(messageReply.attachments);
+        }
+
+        if (!imageURL) {
+            return send(
+                '╭──── 🖼️ REMOVE BG ────╮\n' +
+                '│\n' +
+                '│  Photo ka background\n' +
+                '│  hata deta hai!\n' +
+                '│\n' +
+                '│  📌 Kaise use karein:\n' +
+                '│  1. Kisi photo pe reply\n' +
+                '│     karke .removebg bhejo\n' +
+                '│  2. Ya photo ke saath\n' +
+                '╰────────────────────╯'
+            );
+        }
+
+        const waitMsg = await api.sendMessage('🔄 Background hata raha hun...\n⏳ Thoda wait karo...', threadID);
+        const waitMsgID = waitMsg?.messageID;
+
+        try {
+            const response = await axios.get('https://anabot.my.id/api/ai/removebg', {
+                'params': {
+                    'imageUrl': imageURL,
+                    'apikey': 'freeApikey'
+                },
+                'headers': {
+                    'accept': 'application/json'
+                },
+                'timeout': 60000,
+                'validateStatus': () => true
+            });
+
+            if (response.status !== 200 || !response.data?.status || !response.data?.result) {
+                try {
+                    api.unsendMessage(waitMsgID);
+                } catch {}
+                return send('❌ Background nahi hata saka. Koi aur photo try karo.');
+            }
+
+            const resultImgUrl = response.data.result;
+            console.log('[removebg] Result: ' + resultImgUrl);
+
+            fs.mkdirSync(cacheDir, { 'recursive': true });
+            const filePath = path.join(cacheDir, 'rmbg_' + Date.now() + '.png');
+            
+            const imgResponse = await axios.get(resultImgUrl, {
+                'responseType': 'arraybuffer',
+                'timeout': 30000,
+                'headers': {
+                    'User-Agent': 'Mozilla/5.0'
+                },
+                'maxRedirects': 5
+            });
+
+            if (!imgResponse.data || imgResponse.data.byteLength < 100) {
+                try {
+                    api.unsendMessage(waitMsgID);
+                } catch {}
+                return send('❌ Result image empty aayi. Dobara try karo.');
+            }
+
+            fs.writeFileSync(filePath, Buffer.from(imgResponse.data));
+
+            try {
+                api.unsendMessage(waitMsgID);
+            } catch {}
+
+            await api.sendMessage({
+                'body': '✅ 𝐁𝐚𝐜𝐤𝐠𝐫𝐨𝐮𝐧𝐝 𝐇𝐚𝐭𝐚 𝐃𝐢𝐲𝐚!\n' +
+                        '━━━━━━━━━━━━━━━━━━━\n' +
+                        '🖼️ Format : PNG (Transparent)\n' +
+                        '🤖 AI     : Gemini Powered\n' +
+                        '━━━━━━━━━━━━━━━━━━━\n' +
+                        '✅ 𝐏𝐨𝐰𝐞𝐫𝐞𝐝 𝐛𝐲 𝐀𝐇𝐌𝐀𝐃 𝐑𝐃𝐗 𝐁𝐎𝐓',
+                'attachment': fs.createReadStream(filePath)
+            }, threadID, () => {
+                try {
+                    fs.unlinkSync(filePath);
+                } catch {}
+            }, messageID);
+
+        } catch (err) {
+            console.error('[removebg] Error:', err.message);
+            try {
+                api.unsendMessage(waitMsgID);
+            } catch {}
+            send('❌ Error: ' + err.message);
+        }
+    }
+};
