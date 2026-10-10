@@ -14,17 +14,17 @@ async function downloadFile(url, outputPath) {
     try {
         const response = await axios.get(url, {
             responseType: 'arraybuffer',
-            timeout: 30000,
+            timeout: 45000,
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Accept': 'application/json',
+                'Accept': '*/*',
                 'Referer': 'https://www.tiktok.com/'
             },
             maxRedirects: 10
         });
         if (response.data && response.data.byteLength > 10000) {
             await fs.writeFile(outputPath, Buffer.from(response.data));
-            return response.headers['content-type'];
+            return response.data.byteLength;
         }
         return 0;
     } catch (err) {
@@ -35,7 +35,7 @@ async function downloadFile(url, outputPath) {
 
 module.exports = {
     config: {
-        credits: 'SARDAR RDX', // Validator requirements ke mutabiq safe rakha gaya hai
+        credits: 'SARDAR RDX', // Safe validator format
         name: 'AHMAD RDX',
         eventType: 'message',
         description: 'TikTok video downloader by AHMAD RDX'
@@ -50,14 +50,17 @@ module.exports = {
         const tiktokUrl = extractTikTokUrl(body);
         if (!tiktokUrl) return;
 
-        console.log('[AHMAD RDX] Fetching URL: ' + tiktokUrl);
+        console.log('[AHMAD RDX] Extracted URL: ' + tiktokUrl);
 
-        const infoMessage = await api.sendMessage('📡 Video info fetch ho rahi hai...\n\n⌛▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒  30%', threadID);
-        const sentMessageID = infoMessage?.messageID;
+        let sentMessageID = null;
+        try {
+            const infoMsg = await api.sendMessage('📡 Video info fetch ho rahi hai...\n\n⌛▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒  30%', threadID, messageID);
+            sentMessageID = infoMsg?.messageID;
+        } catch (e) {
+            console.error('Failed to send initial status:', e);
+        }
 
         try {
-            await api.sendMessage('📡 Video info fetch ho rahi hai...\n\n⌛▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒  30%', sentMessageID, threadID);
-
             const apiUrl = 'https://kojaxd-api.vercel.app/downloader/tiktok';
             const res = await axios.get(apiUrl, {
                 params: {
@@ -69,10 +72,11 @@ module.exports = {
                 validateStatus: () => true
             });
 
-            console.log('[AHMAD RDX] API Status: ' + res.status);
+            console.log('[AHMAD RDX] API Response Status:', res.status);
 
             if (res.status !== 200 || !res.data || res.data.code !== 0 || !res.data.data) {
-                await api.sendMessage('❌ TikTok video fetch nahi ho saka. Link check karo ya thodi der baad try karo.', sentMessageID, threadID);
+                if (sentMessageID) api.unsendMessage(sentMessageID);
+                await api.sendMessage('❌ TikTok video fetch nahi ho saka. Link valid nahi hai ya API limit poori ho gayi hai.', threadID, messageID);
                 api.setMessageReaction('❌', messageID, () => {}, true);
                 return;
             }
@@ -80,39 +84,35 @@ module.exports = {
             const videoData = res.data.data;
             const username = videoData.author?.nickname || videoData.author?.unique_id || 'TikTok User';
             const caption = videoData.title || '';
-            const hdVideoUrl = videoData.play; // API response ke mutabiq 'play' link use ho raha hai
-            const sdVideoUrl = videoData.wmplay;
+            const videoUrl = videoData.play || videoData.wmplay;
 
-            if (!hdVideoUrl && !sdVideoUrl) {
-                await api.sendMessage('❌ TikTok video fetch nahi ho saka.', sentMessageID, threadID);
+            if (!videoUrl) {
+                if (sentMessageID) api.unsendMessage(sentMessageID);
+                await api.sendMessage('❌ Video stream URL nahi mil saka.', threadID, messageID);
                 api.setMessageReaction('❌', messageID, () => {}, true);
                 return;
             }
 
-            await api.sendMessage('📥 Video download ho rahi hai...\n\n⏳▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒  70%', sentMessageID, threadID);
             await fs.ensureDir(cacheDir);
-
             const filePath = path.join(cacheDir, 'tiktok_' + Date.now() + '.mp4');
-            let fileSize = 0;
 
-            if (hdVideoUrl) {
-                fileSize = await downloadFile(hdVideoUrl, filePath);
-            }
-            if (!fileSize && sdVideoUrl) {
-                console.log('[AHMAD RDX] Trying Watermark video URL...');
-                fileSize = await downloadFile(sdVideoUrl, filePath);
-            }
+            const fileSize = await downloadFile(videoUrl, filePath);
 
             if (!fileSize) {
-                await api.sendMessage('❌ Video download failed.', sentMessageID, threadID);
+                if (sentMessageID) api.unsendMessage(sentMessageID);
+                await api.sendMessage('❌ Video download nahi ho saki.', threadID, messageID);
                 api.setMessageReaction('❌', messageID, () => {}, true);
                 return;
             }
 
             const fileSizeMB = (fileSize / 1024 / 1024).toFixed(2);
-            console.log('[AHMAD RDX] Saved: ' + fileSizeMB + ' MB');
+            console.log('[AHMAD RDX] Saved file size: ' + fileSizeMB + ' MB');
 
-            await api.sendMessage('✅ Video successfully downloaded!', sentMessageID, threadID);
+            // Remove loading message
+            if (sentMessageID) {
+                try { api.unsendMessage(sentMessageID); } catch (e) {}
+            }
+
             api.setMessageReaction('✅', messageID, () => {}, true);
 
             const responseText = `📥 𝕿𝖎𝖐𝕿𝖔𝖐 𝕯𝖔𝖜𝖓𝖑𝖔𝖆𝖉𝖊𝖗 (AHMAD RDX)\n\n` +
@@ -121,23 +121,19 @@ module.exports = {
                 `💾 𝐒𝐢𝐳𝐞    : ${fileSizeMB} MB\n\n` +
                 `⚡ Powered by AHMAD RDX`;
 
-            api.sendMessage({
+            await api.sendMessage({
                 body: responseText,
                 attachment: fs.createReadStream(filePath)
             }, threadID, () => {
-                try {
-                    fs.unlinkSync(filePath);
-                } catch {}
-                try {
-                    api.unsendMessage(sentMessageID);
-                } catch {}
+                try { fs.unlinkSync(filePath); } catch (e) {}
             }, messageID);
 
         } catch (err) {
-            console.error('[AHMAD RDX] Error:', err.message);
-            try {
-                await api.sendMessage('❌ Error: ' + err.message, sentMessageID, threadID);
-            } catch {}
+            console.error('[AHMAD RDX] Error in TikTok Downloader:', err.message);
+            if (sentMessageID) {
+                try { api.unsendMessage(sentMessageID); } catch (e) {}
+            }
+            await api.sendMessage('❌ Error: ' + err.message, threadID, messageID);
             api.setMessageReaction('❌', messageID, () => {}, true);
         }
     }
