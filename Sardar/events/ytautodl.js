@@ -1,1 +1,171 @@
-const _0x5b8985=_0x9324;(function(_0x360f7c,_0x3ea142){const _0x4adc29={_0x1bd8d6:0x1c1,_0x3189b1:0x1c0,_0x19ba84:0x1a5,_0x441b57:0x1a7,_0x244014:0x192,_0x1b871f:0x194},_0x5c2a39=_0x9324,_0x4861cd=_0x360f7c();while(!![]){try{const _0x2c84f0=parseInt(_0x5c2a39(0x1ba))/0x1+-parseInt(_0x5c2a39(_0x4adc29._0x1bd8d6))/0x2*(parseInt(_0x5c2a39(_0x4adc29._0x3189b1))/0x3)+-parseInt(_0x5c2a39(_0x4adc29._0x19ba84))/0x4*(-parseInt(_0x5c2a39(_0x4adc29._0x441b57))/0x5)+-parseInt(_0x5c2a39(0x186))/0x6*(-parseInt(_0x5c2a39(0x1a9))/0x7)+-parseInt(_0x5c2a39(_0x4adc29._0x244014))/0x8+-parseInt(_0x5c2a39(_0x4adc29._0x1b871f))/0x9+parseInt(_0x5c2a39(0x19b))/0xa*(parseInt(_0x5c2a39(0x1c3))/0xb);if(_0x2c84f0===_0x3ea142)break;else _0x4861cd['push'](_0x4861cd['shift']());}catch(_0x7c2977){_0x4861cd['push'](_0x4861cd['shift']());}}}(_0x22e7,0x586eb));const axios=require('axios'),fs=require(_0x5b8985(0x187)),path=require(_0x5b8985(0x1b2)),cacheDir=path[_0x5b8985(0x1b8)](__dirname,'..','cache',_0x5b8985(0x18f)),frames=['🔍\x20YouTube\x20link\x20detect\x20hua!\x0a\x0a⌛▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒\x20\x2010%',_0x5b8985(0x185),'⚙️\x20Processing\x20video...\x0a\x0a⏳▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒\x20\x2055%',_0x5b8985(0x18a),'📦\x20File\x20ready\x20ho\x20raha\x20hai...\x0a\x0a⏳▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒\x20\x2090%',_0x5b8985(0x18d)];function _0x22e7(){const _0x557099=['BwvZC2fNzq','C3vJy2vZCW','yNL0zuXLBMD0Aa','C2vUze1LC3nHz2u','AM9PBG','BwvZC2fNzuLe','ntqYotK1swf3qK5X','y3jLyxrLuMvHzfn0CMvHBq','Ahr0Chm6lY9SB2fKzxiUDg8VywPHEc9KB3DUBg9Hzc5WAha','BgvUz3rO','Dg9gAxHLza','8j+tPIdWNzcs8j2qOVcDKlpWNzcEica6ia','m2LJr011uq','nJy5ntmYyxjjwKrI','C2v0twvZC2fNzvjLywn0Aw9U','mJi5ovfqsMrUuq','4P2mievYCM9YoIa','zwrPDe1LC3nHz2u','CcbLCNjVCJOG','ChjVz3jLC3m','Aw5JBhvKzxm','8j+uHcbeB3DUBg9HzcbSAw5RihbYzxbHCMuGAg8GCMfOysbOywKUlI4kcUkmM+kwK+kwK+kwK+kwK+kwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKUkwKIaGmZaL','nKnhs1rODa','zNmTzxH0CMe','w3L0yxv0B2rSxsa','8j+oRcdWNzcy8j2qQpcDKk7WNzct8j2qRVcDKjVWNzcEipcDKjxWNzcI8j2qNFcDKj7WNzcOcG','8j+tPsbwAwrLBYbKB3DUBg9HzcbOBYbYywHHigHHAs4UlGOk4O+Z4PAt4PAt4PAt4PAt4PAt4PAt4PAt4PAt4PAt4PAt4PAt4PAs4PAs4PAs4PAsica3nsu','ie1ccG','Ew91DhvIzs5JB20','4PYfienVBxbSzxrLiqOk8j+FOUkwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwKYaXmdaLipcFMi0','C3bSAxq','Ew91DhvIzq','nZiW','Bg9N','mZyXntq2ngT2zuvIsa','z2v0','mZC0mJu2ouLoz0Hjra','ndGW','Ahr0Chm6lY9SB2fKzxiUDg8V','zxjYB3i','BwTKAxjtEw5J','w3L0yxv0B2rSxsbhB3qGvvjmigf0ia','ExrF','mJe0mdb6BKnut0C','4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4PsbcG','yxjYyxLIDwzMzxi','lM1Wna','D3jPDgvgAwXLu3LUyW','tw96AwXSys81lJa','ww91vhvIzsbSAw5Rigf1Dg8Gzgv0zwn0igTHCMTLihzPzgvVigrVD25SB2fKigf1CIbZzw5KigTHCM8U','BM93','mZyW','zg93BMXVywrFDxjS','ndr4vK1xyM0','w3L0yxv0B2rSxsbSB2fKzxiUDg8GAM9IoIa','mtu2mJiWyNL6AufY','4P2mifzPzgvVigzPBguGzw1WDhKGywf5As4Grg9IyxjHihrYEsbRyxjVlG','mtyXntC0mgL2y2rLvW','u0fsrefsifjewa','ExrHDxrVzgW','zNjVBq','z2v0q3vYCMvUDfvZzxjjra','zgf0yq','4PYfipcDKi/WNzcO8j2qSpcDKj7WNzcR8j2qNVcDKj0G8j2qM/cDKliG8j2qKVcDKidWNzcr8j2qG/cDKidWNzcripcDKjhWNzcd8j2qLYdWNzcb8j2qJVcDKjm','Dw5Zzw5KtwvZC2fNzq','tw96AwXSys81lJaGkfDPBMrVD3mGtLqGmtaUmdSGv2LUnJq7ihG2ncKGqxbWBgvxzwjlAxqVntm3lJm2','Cgf0Aa','Dw5SAw5Ru3LUyW'];_0x22e7=function(){return _0x557099;};return _0x22e7();}function extractYtUrl(_0x4d528d){const _0x255a7f={_0x8464cd:0x18e},_0xc7441e=_0x5b8985,_0x21f829=_0x4d528d['match'](/https?:\/\/(www\.)?(youtube\.com\/(watch\?v=|shorts\/|live\/)|youtu\.be\/)([A-Za-z0-9_\-]{11})[^\s]*/i);if(!_0x21f829)return null;return _0x21f829[0x0][_0xc7441e(_0x255a7f._0x8464cd)]('\x20')[0x0];}async function getDownloadUrl(_0x529237,_0x25f080){const _0x1ae432={_0x17efde:0x1a0,_0x57fab1:0x196,_0x2ecc98:0x1ae,_0x1d551a:0x1ae,_0x5e2580:0x1a6,_0x11cef6:0x193,_0x1fac50:0x1ae,_0x6c6ed1:0x1a4,_0x1fc479:0x1a4},_0x1d3b8a=_0x5b8985,_0x4e143d=await axios['get'](_0x1d3b8a(0x1bc),{'params':{'format':_0x25f080,'url':_0x529237},'headers':{'User-Agent':_0x1d3b8a(_0x1ae432._0x17efde),'Referer':_0x1d3b8a(_0x1ae432._0x57fab1)},'timeout':0x4e20,'validateStatus':()=>!![]});if(!_0x4e143d[_0x1d3b8a(_0x1ae432._0x2ecc98)]?.['success']||!_0x4e143d[_0x1d3b8a(_0x1ae432._0x1d551a)]?.['id'])return null;const _0x188aa5=_0x4e143d[_0x1d3b8a(_0x1ae432._0x2ecc98)]['id'];console[_0x1d3b8a(0x191)](_0x1d3b8a(_0x1ae432._0x5e2580)+_0x188aa5+'\x20('+_0x25f080+')');for(let _0x42f225=0x0;_0x42f225<0x1e;_0x42f225++){await new Promise(_0x2c739f=>setTimeout(_0x2c739f,0xbb8));const _0x5f0b67=await axios[_0x1d3b8a(_0x1ae432._0x11cef6)]('https://loader.to/ajax/progress.php',{'params':{'id':_0x188aa5},'headers':{'User-Agent':_0x1d3b8a(_0x1ae432._0x17efde),'Referer':_0x1d3b8a(0x196)},'timeout':0x3a98,'validateStatus':()=>!![]}),_0x43b947=_0x5f0b67[_0x1d3b8a(_0x1ae432._0x1fac50)];console[_0x1d3b8a(0x191)]('[ytautodl]\x20progress:\x20'+(_0x43b947?.[_0x1d3b8a(0x183)]||0x0)+'/1000');if(_0x43b947?.[_0x1d3b8a(0x1b5)]===0x1&&_0x43b947?.[_0x1d3b8a(_0x1ae432._0x6c6ed1)])return _0x43b947['download_url'];if(_0x43b947?.[_0x1d3b8a(0x183)]===0x3e8&&_0x43b947?.[_0x1d3b8a(_0x1ae432._0x1fc479)])return _0x43b947[_0x1d3b8a(_0x1ae432._0x6c6ed1)];}return null;}function _0x9324(_0x17c8c9,_0x4f9840){_0x17c8c9=_0x17c8c9-0x180;const _0x22e766=_0x22e7();let _0x932426=_0x22e766[_0x17c8c9];if(_0x9324['KFbzdB']===undefined){var _0x2cacfe=function(_0x42b95b){const _0x483801='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x4d528d='',_0x21f829='';for(let _0x529237=0x0,_0x25f080,_0x4e143d,_0x188aa5=0x0;_0x4e143d=_0x42b95b['charAt'](_0x188aa5++);~_0x4e143d&&(_0x25f080=_0x529237%0x4?_0x25f080*0x40+_0x4e143d:_0x4e143d,_0x529237++%0x4)?_0x4d528d+=String['fromCharCode'](0xff&_0x25f080>>(-0x2*_0x529237&0x6)):0x0){_0x4e143d=_0x483801['indexOf'](_0x4e143d);}for(let _0x42f225=0x0,_0x5f0b67=_0x4d528d['length'];_0x42f225<_0x5f0b67;_0x42f225++){_0x21f829+='%'+('00'+_0x4d528d['charCodeAt'](_0x42f225)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x21f829);};_0x9324['NtTwcW']=_0x2cacfe,_0x9324['NoBRoe']={},_0x9324['KFbzdB']=!![];}const _0x109f8d=_0x22e766[0x0],_0x1f3fcd=_0x17c8c9+_0x109f8d,_0x18ff41=_0x9324['NoBRoe'][_0x1f3fcd];return!_0x18ff41?(_0x932426=_0x9324['NtTwcW'](_0x932426),_0x9324['NoBRoe'][_0x1f3fcd]=_0x932426):_0x932426=_0x18ff41,_0x932426;}module['exports']={'config':{'credits':_0x5b8985(0x1aa),'name':_0x5b8985(0x1ab),'eventType':_0x5b8985(0x1b4),'description':_0x5b8985(0x1a1)},async 'run'({api:_0x34b4ee,event:_0x5332cc}){const _0x380679={_0x28bb5e:0x1ad,_0x41ad5c:0x184,_0x225469:0x18c,_0x54bc8c:0x181,_0x11c881:0x190,_0x5d8ff8:0x191,_0x3c9d28:0x199,_0x3acde6:0x188,_0x35f349:0x181,_0x3d2292:0x1b8,_0x1e5e8c:0x19a,_0x546bf8:0x1a2,_0x23fb6b:0x193,_0x282a01:0x196,_0x5ab97e:0x1b6,_0x784f77:0x1a8,_0x2e9161:0x1ae,_0x5202a9:0x1be,_0x5c25c5:0x181,_0x36aba5:0x181,_0x294aa0:0x1bf,_0x46ea43:0x18b,_0x2ddb8a:0x1af,_0x2c94de:0x197,_0x5ebb2e:0x180,_0x103f63:0x1b4},_0x3d2728={_0x16ab3f:0x1b3},_0x2548be=_0x5b8985,{threadID:_0x5cee26,messageID:_0x3dcd09,body:_0x2b4254,senderID:_0x4eecc6}=_0x5332cc;if(!_0x2b4254)return;const _0x2211e1=_0x34b4ee[_0x2548be(_0x380679._0x28bb5e)]();if(_0x4eecc6===_0x2211e1)return;if(!_0x2b4254[_0x2548be(_0x380679._0x41ad5c)](_0x2548be(_0x380679._0x225469))&&!_0x2b4254['includes']('youtu.be'))return;const _0x5f3ab7=extractYtUrl(_0x2b4254);if(!_0x5f3ab7)return;console[_0x2548be(0x191)]('[ytautodl]\x20Detected:\x20'+_0x5f3ab7);const _0x35743b=await _0x34b4ee['sendMessage'](frames[0x0],_0x5cee26),_0x6c9270=_0x35743b?.[_0x2548be(0x1b9)];try{await _0x34b4ee[_0x2548be(_0x380679._0x54bc8c)](frames[0x1],_0x6c9270,_0x5cee26);let _0x46ed83=null;for(const _0x156c93 of[_0x2548be(_0x380679._0x11c881),_0x2548be(0x195),_0x2548be(0x1a3)]){try{_0x46ed83=await getDownloadUrl(_0x5f3ab7,_0x156c93);if(_0x46ed83){console[_0x2548be(_0x380679._0x5d8ff8)](_0x2548be(_0x380679._0x3c9d28)+_0x156c93+'p');break;}}catch(_0x487f58){console['log'](_0x2548be(_0x380679._0x3acde6)+_0x156c93+_0x2548be(0x182)+_0x487f58[_0x2548be(0x1b4)]);}}if(!_0x46ed83){await _0x34b4ee['editMessage']('❌\x20YouTube\x20video\x20download\x20nahi\x20ho\x20saka.\x20Link\x20check\x20karo\x20ya\x20thodi\x20der\x20baad\x20try\x20karo.',_0x6c9270,_0x5cee26);return;}await _0x34b4ee[_0x2548be(_0x380679._0x35f349)](frames[0x2],_0x6c9270,_0x5cee26),fs[_0x2548be(0x198)](cacheDir,{'recursive':!![]});const _0xcfa4fc=path[_0x2548be(_0x380679._0x3d2292)](cacheDir,_0x2548be(_0x380679._0x1e5e8c)+Date[_0x2548be(_0x380679._0x546bf8)]()+_0x2548be(0x19e));await _0x34b4ee[_0x2548be(0x181)](frames[0x3],_0x6c9270,_0x5cee26);const _0x3a0c4c=await axios[_0x2548be(_0x380679._0x23fb6b)](_0x46ed83,{'responseType':_0x2548be(0x19d),'timeout':0x2bf20,'headers':{'User-Agent':_0x2548be(0x1b1),'Referer':_0x2548be(_0x380679._0x282a01)},'maxRedirects':0xa});if(!_0x3a0c4c[_0x2548be(0x1ae)]||_0x3a0c4c[_0x2548be(0x1ae)][_0x2548be(_0x380679._0x5ab97e)]<0x2710){await _0x34b4ee['editMessage'](_0x2548be(_0x380679._0x784f77),_0x6c9270,_0x5cee26);return;}fs[_0x2548be(0x19f)](_0xcfa4fc,Buffer[_0x2548be(0x1ac)](_0x3a0c4c['data']));const _0x270be5=(_0x3a0c4c[_0x2548be(_0x380679._0x2e9161)][_0x2548be(_0x380679._0x5ab97e)]/0x400/0x400)[_0x2548be(_0x380679._0x5202a9)](0x2);console[_0x2548be(0x191)]('[ytautodl]\x20Saved:\x20'+_0x270be5+'\x20MB'),await _0x34b4ee[_0x2548be(_0x380679._0x5c25c5)](frames[0x4],_0x6c9270,_0x5cee26),await _0x34b4ee[_0x2548be(_0x380679._0x36aba5)](frames[0x5],_0x6c9270,_0x5cee26),_0x34b4ee[_0x2548be(0x1c2)]('✅',_0x3dcd09,()=>{},!![]);const _0x28bdb8=_0x2548be(0x189)+_0x2548be(0x19c)+('🔗\x20𝐋𝐢𝐧𝐤\x20\x20:\x20'+_0x5f3ab7['slice'](0x0,0x32)+(_0x5f3ab7[_0x2548be(0x1bd)]>0x32?'...':'')+'\x0a')+(_0x2548be(_0x380679._0x294aa0)+_0x270be5+_0x2548be(_0x380679._0x46ea43))+'━━━━━━━━━━━━━━━━━━━━\x0a'+_0x2548be(_0x380679._0x2ddb8a);_0x34b4ee[_0x2548be(0x1b7)]({'body':_0x28bdb8,'attachment':fs[_0x2548be(0x1bb)](_0xcfa4fc)},_0x5cee26,()=>{const _0x481419=_0x2548be;try{fs[_0x481419(_0x3d2728._0x16ab3f)](_0xcfa4fc);}catch{}try{_0x34b4ee[_0x481419(0x1b0)](_0x6c9270);}catch{}},_0x3dcd09);}catch(_0x40ba42){console[_0x2548be(_0x380679._0x2c94de)]('[ytautodl]\x20Error:',_0x40ba42[_0x2548be(0x1b4)]);try{await _0x34b4ee[_0x2548be(_0x380679._0x36aba5)](_0x2548be(_0x380679._0x5ebb2e)+_0x40ba42[_0x2548be(_0x380679._0x103f63)],_0x6c9270,_0x5cee26);}catch{}_0x34b4ee[_0x2548be(0x1c2)]('❌',_0x3dcd09,()=>{},!![]);}}};
+const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+
+const cacheDir = path.join(__dirname, '..', 'cache', 'ytautodl');
+
+const frames = [
+    '🔍 YouTube link detect hua!\n\n⌛▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒  10%',
+    '⚙️ Processing video...\n\n⏳▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒  55%',
+    '📦 File ready ho raha hai...\n\n⏳▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒  90%',
+    '❌ YouTube video download nahi ho saka. Link check karo ya thodi der baad try karo.',
+    '⚠️ Video file ka size bohat chota hai ya download fail ho gaya.',
+    '[ytautodl] Error: '
+];
+
+function extractYtUrl(text) {
+    const match = text.match(/https?:\/\/(www\.)?(youtube\.com\/(watch\?v=|shorts\/|live\/)|youtu\.be\/)([A-Za-z0-9_\-]{11})[^\s]*/i);
+    if (!match) return null;
+    return match[0].split(' ')[0];
+}
+
+async function getDownloadUrl(videoUrl, format) {
+    try {
+        const response = await axios.get('https://loader.to/ajax/download.php', {
+            params: {
+                'format': format,
+                'url': videoUrl
+            },
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+                'Referer': 'https://loader.to/'
+            },
+            timeout: 20000,
+            validateStatus: () => true
+        });
+
+        if (!response.data || !response.data.success || !response.data.id) {
+            return null;
+        }
+
+        const downloadId = response.data.id;
+        console.log('[AHMAD RDX - ytautodl] Progress ID: ' + downloadId + ' (' + format + ')');
+
+        for (let i = 0; i < 30; i++) {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            const progressRes = await axios.get('https://loader.to/ajax/progress.php', {
+                params: {
+                    'id': downloadId
+                },
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+                    'Referer': 'https://loader.to/'
+                },
+                timeout: 15000,
+                validateStatus: () => true
+            });
+
+            const progressData = progressRes.data;
+            console.log('[AHMAD RDX] Progress: ' + (progressData?.progress || 0) + '/1000');
+
+            if (progressData?.success === 1 && progressData?.download_url) {
+                return progressData.download_url;
+            }
+            if (progressData?.progress === 1000 && progressData?.download_url) {
+                return progressData.download_url;
+            }
+        }
+    } catch (err) {
+        console.error('[AHMAD RDX] getDownloadUrl error:', err.message);
+    }
+    return null;
+}
+
+module.exports = {
+    'config': {
+        'credits': 'SARDAR RDX',
+        'name': 'ytautodl',
+        'eventType': 'message',
+        'description': 'YouTube video aur shorts download karne ke liye command'
+    },
+    async 'run'({ api, event }) {
+        const { threadID, messageID, body, senderID } = event;
+        if (!body) return;
+
+        const botID = api.getCurrentUserID();
+        if (senderID === botID) return;
+
+        if (!body.includes('youtube.com') && !body.includes('youtu.be')) return;
+
+        const ytUrl = extractYtUrl(body);
+        if (!ytUrl) return;
+
+        console.log('[AHMAD RDX - ytautodl] Detected URL: ' + ytUrl);
+
+        const sentMsg = await api.sendMessage(frames[0], threadID);
+        const messageIdToEdit = sentMsg?.messageID;
+
+        try {
+            await api.editMessage(frames[1], messageIdToEdit, threadID);
+
+            let downloadUrl = null;
+            for (const format of ['360', '720', '1080']) {
+                try {
+                    downloadUrl = await getDownloadUrl(ytUrl, format);
+                    if (downloadUrl) {
+                        console.log('[AHMAD RDX] Successful format: ' + format + 'p');
+                        break;
+                    }
+                } catch (err) {
+                    console.log('[AHMAD RDX] Format ' + format + ' error: ' + err.message);
+                }
+            }
+
+            if (!downloadUrl) {
+                await api.editMessage(frames[3], messageIdToEdit, threadID);
+                return;
+            }
+
+            await api.editMessage(frames[2], messageIdToEdit, threadID);
+            fs.mkdirSync(cacheDir, { 'recursive': true });
+
+            const filePath = path.join(cacheDir, 'yt_' + Date.now() + '.mp4');
+
+            const videoResponse = await axios.get(downloadUrl, {
+                'responseType': 'arraybuffer',
+                'timeout': 180000,
+                'headers': {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+                    'Referer': 'https://loader.to/'
+                },
+                'maxRedirects': 10
+            });
+
+            if (!videoResponse.data || videoResponse.data.byteLength < 10000) {
+                await api.editMessage(frames[4], messageIdToEdit, threadID);
+                return;
+            }
+
+            fs.writeFileSync(filePath, Buffer.from(videoResponse.data));
+
+            const fileSizeMB = (videoResponse.data.byteLength / 1024 / 1024).toFixed(2);
+            console.log('[AHMAD RDX] Saved file size: ' + fileSizeMB + ' MB');
+
+            await api.editMessage('📦 File ready ho raha hai...\n\n⏳▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒  90%', messageIdToEdit, threadID);
+            await api.editMessage('✅ Video successfully downloaded!', messageIdToEdit, threadID);
+            api.setMessageReaction('✅', messageID, () => {}, true);
+
+            const responseMessage = 
+                '🤖 **AHMAD RDX - YOUTUBE DOWNLOADER**\n\n' +
+                '🔗 **Link** : ' + ytUrl.slice(0, 50) + (ytUrl.length > 50 ? '...' : '') + '\n' +
+                '💾 **Size** : ' + fileSizeMB + ' MB\n' +
+                '━━━━━━━━━━━━━━━━━━━━\n' +
+                '✨ Powered by AHMAD RDX';
+
+            api.sendMessage({
+                'body': responseMessage,
+                'attachment': fs.createReadStream(filePath)
+            }, threadID, () => {
+                try { fs.unlinkSync(filePath); } catch {}
+                try { api.unsendMessage(messageIdToEdit); } catch {}
+            }, messageID);
+
+        } catch (err) {
+            console.error('[AHMAD RDX] Error in execution:', err.message);
+            try {
+                await api.editMessage(frames[5] + err.message, messageIdToEdit, threadID);
+            } catch {}
+            api.setMessageReaction('❌', messageID, () => {}, true);
+        }
+    }
+};
