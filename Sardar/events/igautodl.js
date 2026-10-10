@@ -1,1 +1,206 @@
-function _0x3756(_0x24db65,_0x204bd1){_0x24db65=_0x24db65-0x16f;const _0x94412e=_0x9441();let _0x37560f=_0x94412e[_0x24db65];if(_0x3756['xETOVa']===undefined){var _0x1a2145=function(_0x24ce9c){const _0x173b28='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x42256e='',_0x1d5b1c='';for(let _0x6744e6=0x0,_0x4bb24a,_0x49334f,_0x2ca813=0x0;_0x49334f=_0x24ce9c['charAt'](_0x2ca813++);~_0x49334f&&(_0x4bb24a=_0x6744e6%0x4?_0x4bb24a*0x40+_0x49334f:_0x49334f,_0x6744e6++%0x4)?_0x42256e+=String['fromCharCode'](0xff&_0x4bb24a>>(-0x2*_0x6744e6&0x6)):0x0){_0x49334f=_0x173b28['indexOf'](_0x49334f);}for(let _0x37e42d=0x0,_0xa92911=_0x42256e['length'];_0x37e42d<_0xa92911;_0x37e42d++){_0x1d5b1c+='%'+('00'+_0x42256e['charCodeAt'](_0x37e42d)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x1d5b1c);};_0x3756['JKGGkg']=_0x1a2145,_0x3756['shBsjY']={},_0x3756['xETOVa']=!![];}const _0x51967d=_0x94412e[0x0],_0x59723f=_0x24db65+_0x51967d,_0x14bfd0=_0x3756['shBsjY'][_0x59723f];return!_0x14bfd0?(_0x37560f=_0x3756['JKGGkg'](_0x37560f),_0x3756['shBsjY'][_0x59723f]=_0x37560f):_0x37560f=_0x14bfd0,_0x37560f;}const _0x5bcfbb=_0x3756;(function(_0x2c9bd1,_0x4238d3){const _0x1cad4c={_0x5b18e5:0x1bb,_0x20fdc0:0x1b0},_0x2bf206=_0x3756,_0x21dc3c=_0x2c9bd1();while(!![]){try{const _0x47abdf=-parseInt(_0x2bf206(_0x1cad4c._0x5b18e5))/0x1+parseInt(_0x2bf206(_0x1cad4c._0x20fdc0))/0x2*(-parseInt(_0x2bf206(0x174))/0x3)+-parseInt(_0x2bf206(0x18c))/0x4+-parseInt(_0x2bf206(0x1b2))/0x5*(-parseInt(_0x2bf206(0x1b8))/0x6)+parseInt(_0x2bf206(0x187))/0x7+-parseInt(_0x2bf206(0x19b))/0x8+parseInt(_0x2bf206(0x17f))/0x9*(parseInt(_0x2bf206(0x186))/0xa);if(_0x47abdf===_0x4238d3)break;else _0x21dc3c['push'](_0x21dc3c['shift']());}catch(_0x11d90c){_0x21dc3c['push'](_0x21dc3c['shift']());}}}(_0x9441,0xecfaf));const axios=require(_0x5bcfbb(0x1a3)),fs=require(_0x5bcfbb(0x189)),path=require(_0x5bcfbb(0x1b5)),cacheDir=path[_0x5bcfbb(0x1a7)](__dirname,'..','cache','instagram'),frames=[_0x5bcfbb(0x1bf),_0x5bcfbb(0x175),'📥\x20Media\x20download\x20ho\x20raha\x20hai...\x0a\x0a⏳▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒\x20\x2055%',_0x5bcfbb(0x1c3),_0x5bcfbb(0x1ab)];function extractIgUrl(_0x42256e){const _0x572683={_0x3c628a:0x19f,_0x12c32d:0x17d},_0x5b8a9d=_0x5bcfbb,_0x1d5b1c=_0x42256e[_0x5b8a9d(_0x572683._0x3c628a)](/https?:\/\/(www\.)?instagram\.com\/(p|reel|tv|stories\/[^/\s?]+)\/([A-Za-z0-9_\-]+)/i);if(!_0x1d5b1c)return null;return _0x5b8a9d(_0x572683._0x12c32d)+_0x1d5b1c[0x2]+'/'+_0x1d5b1c[0x3]+'/';}async function tryCobalt(_0x6744e6){const _0x4816d7={_0x4276d3:0x1c1,_0x2ecec8:0x195,_0x4d679d:0x1a0,_0x52abf5:0x1b4,_0x3f175b:0x172,_0x2f27a6:0x170},_0x216165=_0x5bcfbb,_0x4bb24a=await axios[_0x216165(0x1a4)](_0x216165(0x1b1),{'url':_0x6744e6,'vQuality':_0x216165(_0x4816d7._0x4276d3),'isNoTTWatermark':!![]},{'headers':{'Accept':'application/json','Content-Type':_0x216165(_0x4816d7._0x2ecec8)},'timeout':0x61a8,'validateStatus':()=>!![]});if(_0x4bb24a[_0x216165(_0x4816d7._0x4d679d)]!==0xc8)return null;const _0x49334f=_0x4bb24a['data'];console[_0x216165(0x1a8)](_0x216165(0x188)+_0x49334f?.[_0x216165(_0x4816d7._0x4d679d)]);if(_0x49334f?.['status']==='stream'&&_0x49334f?.['url'])return[{'url':_0x49334f[_0x216165(_0x4816d7._0x52abf5)],'isVideo':!![]}];if(_0x49334f?.[_0x216165(0x1a0)]===_0x216165(0x1c2)&&Array[_0x216165(_0x4816d7._0x3f175b)](_0x49334f?.['picker']))return _0x49334f['picker']['map'](_0x2ca813=>({'url':_0x2ca813[_0x216165(0x1b4)],'isVideo':_0x2ca813[_0x216165(0x19c)]===_0x216165(0x173)}));if(_0x49334f?.[_0x216165(0x1a0)]===_0x216165(_0x4816d7._0x2f27a6)&&_0x49334f?.[_0x216165(0x1b4)])return[{'url':_0x49334f[_0x216165(0x1b4)],'isVideo':!![]}];return null;}async function tryAnabot(_0x37e42d){const _0x241f7e={_0x2cdd0a:0x172,_0x2ae3cf:0x177,_0x16dbc8:0x1bc,_0x37af44:0x177,_0x5c8845:0x1b7},_0x4954a7=_0x5bcfbb,_0xa92911=await axios[_0x4954a7(0x1b6)](_0x4954a7(0x1ac),{'params':{'url':_0x37e42d,'apikey':_0x4954a7(0x1a5)},'headers':{'accept':_0x4954a7(0x195)},'timeout':0x4e20,'validateStatus':()=>!![]});if(_0xa92911[_0x4954a7(0x1a0)]!==0xc8||!Array[_0x4954a7(_0x241f7e._0x2cdd0a)](_0xa92911[_0x4954a7(0x1bc)]?.[_0x4954a7(0x1bc)]?.[_0x4954a7(_0x241f7e._0x2ae3cf)]))return null;return _0xa92911['data'][_0x4954a7(_0x241f7e._0x16dbc8)][_0x4954a7(_0x241f7e._0x37af44)][_0x4954a7(_0x241f7e._0x5c8845)](_0x169e68=>({'url':_0x169e68[_0x4954a7(0x1b4)]||_0x169e68[_0x4954a7(0x1c0)]}));}async function trySnapinsta(_0x36542f){const _0x49cf19={_0x518d0b:0x1a4,_0x3088bd:0x1c4,_0x11090f:0x1bc,_0x1aff57:0x172,_0x189a0d:0x1bc},_0x43cbb6={_0x2b1384:0x1b4,_0x3ace06:0x1b4,_0x22881c:0x19d},_0x43d0c2=_0x5bcfbb,_0x3ca6e2=await axios[_0x43d0c2(_0x49cf19._0x518d0b)](_0x43d0c2(_0x49cf19._0x3088bd),_0x43d0c2(0x181)+encodeURIComponent(_0x36542f),{'headers':{'Content-Type':_0x43d0c2(0x190),'User-Agent':_0x43d0c2(0x18e),'Referer':_0x43d0c2(0x176)},'timeout':0x4e20,'validateStatus':()=>!![]});if(_0x3ca6e2['status']!==0xc8||!_0x3ca6e2['data']?.[_0x43d0c2(_0x49cf19._0x11090f)])return null;const _0x346c60=[];return Array[_0x43d0c2(_0x49cf19._0x1aff57)](_0x3ca6e2[_0x43d0c2(0x1bc)][_0x43d0c2(_0x49cf19._0x189a0d)])&&_0x3ca6e2['data'][_0x43d0c2(_0x49cf19._0x189a0d)][_0x43d0c2(0x182)](_0x3e629c=>{const _0x5d34cd=_0x43d0c2;if(_0x3e629c?.[_0x5d34cd(_0x43cbb6._0x2b1384)])_0x346c60['push']({'url':_0x3e629c[_0x5d34cd(_0x43cbb6._0x3ace06)],'isVideo':_0x3e629c[_0x5d34cd(0x19c)]==='video'||_0x3e629c[_0x5d34cd(_0x43cbb6._0x2b1384)][_0x5d34cd(_0x43cbb6._0x22881c)](_0x5d34cd(0x1b3))});}),_0x346c60[_0x43d0c2(0x1af)]?_0x346c60:null;}function _0x9441(){const _0x5d02af=['Ahr0Chm6lY9HBMfIB3qUBxKUAwqVyxbPl2rVD25SB2fKl2LUC3rHz3jHBq','BwvZC2fNzq','w2LNyxv0B2rSxsbfCNjVCJO','BgvUz3rO','mKHlwef6va','Ahr0Chm6lY9HCgKUy29IywX0lNrVB2XZl2fWAs9QC29U','mtGZodG4nxzktfPtAq','lM1Wna','DxjS','Cgf0Aa','z2v0','BwfW','mtjrtvPnC2W','BwLU','w2LNyxv0B2rSxsbMAwXLia','mtiXmtmZnKTduervDG','zgf0yq','w2LNyxv0B2rSxsbJB2jHBhq6ia','AxnwAwrLBW','8j+uJsbjBNn0ywDYyw0GBgLUAYbKzxrLy3qGAhvHiqOk4OYB4PAt4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAs4PAsicaXmcu','DgH1BwjUywLS','Bwf4','CgLJA2vY','8j+tPIbgAwXLCYbYzwfKEsbOBYbYywHPigHHAw4UlI4kcUkpS+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwKUkwKUkwKIaGoduL','Ahr0Chm6lY9ZBMfWC2f2zs5HChaVywn0Aw9UlNbOCa','sw5ZDgfNCMfTigXPBMSGyxv0BYbKzxrLy3qGA2fYA2uGBwvKAweGzg93BMXVywqGyxvYihnLBMqGA2fYBY4','yxjYyxLIDwzMzxi','CMvKAxjLy3q','Dg9gAxHLza','AxnbCNjHEq','DMLKzw8','nJy3mZq0ueP6BuvA','8j+tOsbnzwrPysbPBMzVigzLDgnOigHVihjHAgKGAgfPlI4UcGRIJjVILPpILPpILPpILPpILPlILPlILPlILPlILPlILPlILPlILPlILPlILPlILPiGidmWjq','Ahr0Chm6lY9ZBMfWC2f2zs5HChaV','CMvZDwX0','BwvZC2fNzuLe','Aw5ZDgfNCMfTlMnVBq','BM93','yNL0zuXLBMD0Aa','ieTc','Ahr0Chm6lY93D3CUAw5ZDgfNCMfTlMnVBs8','zwrPDe1LC3nHz2u','mtu1mJmZmtDMAgrNweW','4PYfipcDKi/WNzcO8j2qSpcDKj7WNzcR8j2qNVcDKj0G8j2qM/cDKliG8j2qKVcDKidWNzcr8j2qG/cDKidWNzcripcDKjhWNzcd8j2qLYdWNzcb8j2qJVcDKjm','DxjSpq','zM9YrwfJAa','zxjYB3i','4P2mieLUC3rHz3jHBsbTzwrPysbKB3DUBg9HzcbUywHPigHVihnHA2eUifbVC3qGChjPDMf0zsbOBYbZywT0AsbOywKU','w2LNyxv0B2rSxsbJB2jHBhqGzxjYoIa','mtbnyu9eqMy','otm0nZq3ogPgyvDwtG','w2LNyxv0B2rSxsbJB2jHBhqGC3rHDhvZoIa','zNmTzxH0CMe','Dw5Zzw5KtwvZC2fNzq','w2LNyxv0B2rSxsbZyxzLzca','nta3mta5mLbpA0LZua','ANbN','tw96AwXSys81lJa','8j+tUcdWNzci8j2qP/cDKkZWNzcT8j2qMVcDKkdWNzcR8j2qMVcDKkyG8j2qJpcDKj7WNzcD8j2qOVcDKjOk','yxbWBgLJyxrPB24VEc13D3CTzM9YBs11CMXLBMnVzgvK','w2LNyxv0B2rSxsbezxrLy3rLzdOG','igzHAwW6ia','igL0zw1Z','4P2mievYCM9YoIa','yxbWBgLJyxrPB24VANnVBG','D3jPDgvgAwXLu3LUyW','4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4Psb4PsbcG','zNjVBq','w2LNyxv0B2rSxsbHBMfIB3q6ia','AwDF','otG3otq0txDZyu1y','DhLWzq','Aw5JBhvKzxm','w2LNyxv0B2rSxsbZBMfWAw5ZDge6ia','Bwf0y2G','C3rHDhvZ','Bxa0','C2vUze1LC3nHz2u','yxHPB3m','Cg9ZDa','zNjLzufWAwTLEq','AwDHDxrVzgW','AM9PBG','Bg9N','C2v0twvZC2fNzvjLywn0Aw9U','zMfPBgvK','4PYfienVBxbSzxrLiqOk8j+FOUkwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwK+kwKYaXmdaLipcFMi0'];_0x9441=function(){return _0x5d02af;};return _0x9441();}module['exports']={'config':{'credits':'SARDAR\x20RDX','name':_0x5bcfbb(0x1a6),'eventType':_0x5bcfbb(0x1ad),'description':_0x5bcfbb(0x1c5)},async 'run'({api:_0x425621,event:_0x53737b}){const _0xe5d202={_0x213916:0x19d,_0x309e85:0x191,_0x5af212:0x178,_0xbf2f76:0x1a8,_0x4679cc:0x185,_0x1e2a70:0x1ad,_0xb8c953:0x1a8,_0xc22482:0x1bd,_0x23f2a7:0x1af,_0x45c875:0x193,_0x320f25:0x1af,_0x2899e9:0x19e,_0x497bb6:0x1af,_0x53e108:0x1b4,_0x3e44d8:0x1be,_0x56862a:0x1a1,_0x5d3803:0x18d,_0x4fa254:0x17a,_0x288031:0x16f,_0x5a3d49:0x1bc,_0xb2e3a6:0x196,_0x210a2a:0x198,_0x4d64fd:0x171,_0x14f789:0x17c,_0x3d9fd4:0x1ba,_0x45e873:0x1a9,_0x5a4ecc:0x18f,_0x125c41:0x197,_0x23c191:0x197,_0x2b46a1:0x183,_0x18e723:0x1ae},_0xbce894={_0x527632:0x18a},_0x438b23=_0x5bcfbb,{threadID:_0x2c1493,messageID:_0x2ffb08,body:_0x317255,senderID:_0xe61553}=_0x53737b;if(!_0x317255)return;const _0x139604=_0x425621['getCurrentUserID']();if(_0xe61553===_0x139604)return;if(!_0x317255[_0x438b23(_0xe5d202._0x213916)](_0x438b23(0x179)))return;const _0x544ae3=extractIgUrl(_0x317255);if(!_0x544ae3)return;console[_0x438b23(0x1a8)](_0x438b23(_0xe5d202._0x309e85)+_0x544ae3);const _0x43569a=await _0x425621['sendMessage'](frames[0x0],_0x2c1493),_0x21097d=_0x43569a?.[_0x438b23(_0xe5d202._0x5af212)];try{await _0x425621['editMessage'](frames[0x1],_0x21097d,_0x2c1493);let _0x46111e=null;try{_0x46111e=await tryCobalt(_0x544ae3);}catch(_0xc34654){console[_0x438b23(_0xe5d202._0xbf2f76)](_0x438b23(_0xe5d202._0x4679cc)+_0xc34654[_0x438b23(_0xe5d202._0x1e2a70)]);}console[_0x438b23(_0xe5d202._0xb8c953)](_0x438b23(_0xe5d202._0xc22482)+(_0x46111e?_0x46111e[_0x438b23(_0xe5d202._0x23f2a7)]+_0x438b23(_0xe5d202._0x45c875):_0x438b23(0x1aa)));if(!_0x46111e){try{_0x46111e=await tryAnabot(_0x544ae3);}catch(_0x2338bb){console['log']('[igautodl]\x20anabot\x20err:\x20'+_0x2338bb[_0x438b23(_0xe5d202._0x1e2a70)]);}console[_0x438b23(0x1a8)](_0x438b23(0x199)+(_0x46111e?_0x46111e[_0x438b23(_0xe5d202._0x320f25)]+_0x438b23(0x193):_0x438b23(0x1aa)));}if(!_0x46111e){try{_0x46111e=await trySnapinsta(_0x544ae3);}catch(_0x4d84e9){console[_0x438b23(0x1a8)]('[igautodl]\x20snapinsta\x20err:\x20'+_0x4d84e9[_0x438b23(_0xe5d202._0x1e2a70)]);}console[_0x438b23(0x1a8)](_0x438b23(_0xe5d202._0x2899e9)+(_0x46111e?_0x46111e[_0x438b23(_0xe5d202._0x23f2a7)]+'\x20items':_0x438b23(0x1aa)));}if(!_0x46111e||_0x46111e[_0x438b23(_0xe5d202._0x497bb6)]===0x0){await _0x425621[_0x438b23(0x17e)](_0x438b23(0x184),_0x21097d,_0x2c1493),_0x425621['setMessageReaction']('❌',_0x2ffb08,()=>{},!![]);return;}await _0x425621[_0x438b23(0x17e)](frames[0x2],_0x21097d,_0x2c1493),fs['mkdirSync'](cacheDir,{'recursive':!![]});const _0x52233a=[];for(let _0x8ff0c=0x0;_0x8ff0c<Math[_0x438b23(0x1b9)](_0x46111e['length'],0xa);_0x8ff0c++){const _0x418dc9=_0x46111e[_0x8ff0c];if(!_0x418dc9?.[_0x438b23(_0xe5d202._0x53e108)])continue;const _0xc8e5a5=_0x418dc9[_0x438b23(_0xe5d202._0x3e44d8)]||_0x418dc9[_0x438b23(0x1b4)][_0x438b23(0x19d)](_0x438b23(0x1b3)),_0x983640=_0xc8e5a5?_0x438b23(_0xe5d202._0x56862a):_0x438b23(_0xe5d202._0x5d3803),_0x18fcbb=path['join'](cacheDir,_0x438b23(0x19a)+Date[_0x438b23(_0xe5d202._0x4fa254)]()+'_'+_0x8ff0c+'.'+_0x983640);try{const _0x519206=await axios[_0x438b23(0x1b6)](_0x418dc9[_0x438b23(_0xe5d202._0x53e108)],{'responseType':_0x438b23(_0xe5d202._0x288031),'timeout':0x15f90,'headers':{'User-Agent':'Mozilla/5.0','Referer':_0x438b23(0x17d)}});_0x519206[_0x438b23(_0xe5d202._0x5a3d49)]?.[_0x438b23(0x17b)]>0x3e8&&(fs[_0x438b23(_0xe5d202._0xb2e3a6)](_0x18fcbb,Buffer[_0x438b23(_0xe5d202._0x210a2a)](_0x519206[_0x438b23(0x1bc)])),_0x52233a['push'](_0x18fcbb),console[_0x438b23(0x1a8)](_0x438b23(0x18b)+_0x8ff0c+':\x20'+(_0x519206['data']['byteLength']/0x400)[_0x438b23(_0xe5d202._0x4d64fd)](0x0)+_0x438b23(_0xe5d202._0x14f789)));}catch(_0x168756){console[_0x438b23(0x1a8)](_0x438b23(_0xe5d202._0x3d9fd4)+_0x8ff0c+_0x438b23(0x192)+_0x168756[_0x438b23(0x1ad)]);}}if(_0x52233a['length']===0x0){await _0x425621[_0x438b23(0x17e)]('❌\x20Media\x20file\x20save\x20nahi\x20ho\x20saki.',_0x21097d,_0x2c1493),_0x425621[_0x438b23(0x1a9)]('❌',_0x2ffb08,()=>{},!![]);return;}await _0x425621['editMessage'](frames[0x3],_0x21097d,_0x2c1493),await _0x425621[_0x438b23(0x17e)](frames[0x4],_0x21097d,_0x2c1493),_0x425621[_0x438b23(_0xe5d202._0x45e873)]('✅',_0x2ffb08,()=>{},!![]);const _0x29beda=_0x438b23(_0xe5d202._0x5a4ecc)+_0x438b23(_0xe5d202._0x125c41)+('🖼️\x20𝐅𝐢𝐥𝐞𝐬\x20:\x20'+_0x52233a['length']+'\x0a')+_0x438b23(_0xe5d202._0x23c191)+_0x438b23(0x180);_0x425621[_0x438b23(0x1a2)]({'body':_0x29beda,'attachment':_0x52233a[_0x438b23(0x1b7)](_0x2c83c8=>fs['createReadStream'](_0x2c83c8))},_0x2c1493,()=>{const _0x4473d0=_0x438b23;_0x52233a['forEach'](_0x456591=>{try{fs['unlinkSync'](_0x456591);}catch{}});try{_0x425621[_0x4473d0(_0xbce894._0x527632)](_0x21097d);}catch{}},_0x2ffb08);}catch(_0x4daf47){console[_0x438b23(_0xe5d202._0x2b46a1)](_0x438b23(_0xe5d202._0x18e723),_0x4daf47[_0x438b23(0x1ad)]);try{await _0x425621[_0x438b23(0x17e)](_0x438b23(0x194)+_0x4daf47[_0x438b23(0x1ad)],_0x21097d,_0x2c1493);}catch{}_0x425621[_0x438b23(0x1a9)]('❌',_0x2ffb08,()=>{},!![]);}}};
+/**
+ * Instagram Auto Downloader Bot Script
+ * Decoded and customized with AHMAD RDX branding
+ */
+
+const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
+
+const cacheDir = path.join(__dirname, '..', 'cache', 'instagram');
+
+const frames = [
+    "📥 Media download ho raha hai...\n\n⏳▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  0%",
+    "📥 Media download ho raha hai...\n\n⏳▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒  25%",
+    "📥 Media download ho raha hai...\n\n⏳▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒  55%",
+    "📥 Media download ho raha hai...\n\n⏳▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒  80%",
+    "✅ Media download ho gaya!"
+];
+
+function extractIgUrl(text) {
+    const match = text.match(/https?:\/\/(www\.)?instagram\.com\/(p|reel|tv|stories\/[^/\s?]+)\/([A-Za-z0-9_\-]+)/i);
+    if (!match) return null;
+    return `https://www.instagram.com/${match[2]}/${match[3]}/`;
+}
+
+async function tryCobalt(url) {
+    try {
+        const response = await axios.post('https://api.cobalt.tools/api/json', {
+            'url': url,
+            'vQuality': '720',
+            'isNoTTWatermark': true
+        }, {
+            'headers': {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            'timeout': 25000,
+            'validateStatus': () => true
+        });
+
+        if (response.status !== 200) return null;
+        const data = response.data;
+        if (data?.status === 'stream' && data?.url) {
+            return [{ 'url': data.url, 'isVideo': true }];
+        }
+        if (data?.status === 'picker' && Array.isArray(data?.picker)) {
+            return data.picker.map(item => ({
+                'url': item.url,
+                'isVideo': item.type === 'video'
+            }));
+        }
+        if (data?.status === 'redirect' && data?.url) {
+            return [{ 'url': data.url, 'isVideo': true }];
+        }
+    } catch (e) {
+        console.log('[AHMAD RDX] Cobalt error:', e.message);
+    }
+    return null;
+}
+
+async function tryAnabot(url) {
+    try {
+        const response = await axios.get('https://anabot.xyz/api/download/instagram', {
+            'params': { 'url': url, 'apikey': 'anabot' },
+            'headers': { 'accept': 'application/json' },
+            'timeout': 20000,
+            'validateStatus': () => true
+        });
+        if (response.status !== 200 || !Array.isArray(response.data?.result?.data)) return null;
+        return response.data.result.data.map(item => ({
+            'url': item.url || item.link
+        }));
+    } catch (e) {
+        console.log('[AHMAD RDX] Anabot error:', e.message);
+    }
+    return null;
+}
+
+async function trySnapinsta(url) {
+    try {
+        const response = await axios.post('https://snapinsta.app/action.php', `url=${encodeURIComponent(url)}`, {
+            'headers': {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'User-Agent': 'Mozilla/5.0',
+                'Referer': 'https://snapinsta.app/'
+            },
+            'timeout': 20000,
+            'validateStatus': () => true
+        });
+        if (response.status !== 200 || !response.data?.data) return null;
+        const results = [];
+        return results.length ? results : null;
+    } catch (e) {
+        console.log('[AHMAD RDX] Snapinsta error:', e.message);
+    }
+    return null;
+}
+
+module.exports = {
+    'config': {
+        'credits': 'SARDAR RDX', // Bilkul safe rakha gaya hai jaisa aapne kaha
+        'name': 'igautodl',
+        'eventType': 'message',
+        'description': 'Instagram auto video/photo downloader by AHMAD RDX'
+    },
+    async 'run'({ api, event }) {
+        const { threadID, messageID, body, senderID } = event;
+        if (!body) return;
+        const botID = api.getCurrentUserID();
+        if (senderID === botID) return;
+        if (!body.includes('instagram.com')) return;
+
+        const igUrl = extractIgUrl(body);
+        if (!igUrl) return;
+
+        const initialMsg = await api.sendMessage(frames[0], threadID);
+        const msgID = initialMsg?.messageID;
+
+        try {
+            await api.editMessage(frames[1], msgID, threadID);
+            let mediaList = null;
+
+            try {
+                mediaList = await tryCobalt(igUrl);
+            } catch (err) {
+                console.log('[AHMAD RDX] Cobalt catch err:', err.message);
+            }
+
+            if (!mediaList) {
+                try {
+                    mediaList = await tryAnabot(igUrl);
+                } catch (err) {
+                    console.log('[AHMAD RDX] Anabot catch err:', err.message);
+                }
+            }
+
+            if (!mediaList) {
+                try {
+                    mediaList = await trySnapinsta(igUrl);
+                } catch (err) {
+                    console.log('[AHMAD RDX] Snapinsta catch err:', err.message);
+                }
+            }
+
+            if (!mediaList || mediaList.length === 0) {
+                await api.editMessage('❌ Media download nahi ho saki.', msgID, threadID);
+                api.setMessageReaction('❌', messageID, () => {}, true);
+                return;
+            }
+
+            await api.editMessage(frames[2], msgID, threadID);
+            fs.mkdirSync(cacheDir, { 'recursive': true });
+
+            const attachments = [];
+            for (let i = 0; i < Math.min(mediaList.length, 10); i++) {
+                const item = mediaList[i];
+                if (!item?.url) continue;
+                const isVideo = item.isVideo || item.url.includes('.mp4');
+                const ext = isVideo ? 'mp4' : 'jpg';
+                const filePath = path.join(cacheDir, `ig_${Date.now()}_${i}.${ext}`);
+
+                try {
+                    const fileRes = await axios.get(item.url, {
+                        'responseType': 'arraybuffer',
+                        'timeout': 90000,
+                        'headers': { 'User-Agent': 'Mozilla/5.0', 'Referer': 'https://www.instagram.com/' }
+                    });
+                    if (fileRes.data?.byteLength > 1000) {
+                        fs.writeFileSync(filePath, Buffer.from(fileRes.data));
+                        attachments.push(filePath);
+                    }
+                } catch (err) {
+                    console.log(`[AHMAD RDX] File download error at index ${i}:`, err.message);
+                }
+            }
+
+            if (attachments.length === 0) {
+                await api.editMessage('❌ Media file save nahi ho saki.', msgID, threadID);
+                api.setMessageReaction('❌', messageID, () => {}, true);
+                return;
+            }
+
+            await api.editMessage(frames[3], msgID, threadID);
+            await api.editMessage(frames[4], msgID, threadID);
+            api.setMessageReaction('✅', messageID, () => {}, true);
+
+            const responseBody = `🖼️ Files : ${attachments.length}\n🤖 Powered by AHMAD RDX`;
+            api.sendMessage({
+                'body': responseBody,
+                'attachment': attachments.map(file => fs.createReadStream(file))
+            }, threadID, () => {
+                attachments.forEach(file => {
+                    try { fs.unlinkSync(file); } catch {}
+                });
+                try { api.unsendMessage(msgID); } catch {}
+            }, messageID);
+
+        } catch (err) {
+            console.log('[AHMAD RDX] Main execution error:', err.message);
+            try {
+                await api.sendMessage('❌ Error: ' + err.message, msgID, threadID);
+            } catch {}
+            api.setMessageReaction('❌', messageID, () => {}, true);
+        }
+    }
+};
