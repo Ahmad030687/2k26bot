@@ -1,6 +1,7 @@
 /**
- * Instagram Self-Contained Downloader Script
- * Customised with AHMAD RDX branding & Built-in Scraper
+ * Instagram Self-Built API & Auto Downloader Script
+ * No External APIs Required - Direct Instagram Query Engine
+ * Customised with AHMAD RDX branding
  */
 
 const axios = require('axios');
@@ -9,60 +10,96 @@ const path = require('path');
 
 const cacheDir = path.join(__dirname, '..', 'cache', 'instagram');
 
-function extractIgUrl(text) {
+// 1. Extract clean Instagram Post / Reel URL & Shortcode
+function parseIgUrl(text) {
     const match = text.match(/https?:\/\/(www\.)?instagram\.com\/(p|reel|tv|stories\/[^/\s?]+)\/([A-Za-z0-9_\-]+)/i);
     if (!match) return null;
-    return `https://www.instagram.com/${match[2]}/${match[3]}/`;
+    return {
+        fullUrl: `https://www.instagram.com/${match[2]}/${match[3]}/`,
+        type: match[2],
+        shortcode: match[3]
+    };
 }
 
-async function scrapeInstagram(url) {
+// 2. SELF-BUILT INSTAGRAM SCRAPER API ENGINE
+async function selfBuiltIgApi(shortcode, fullUrl) {
+    const headers = {
+        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.55 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
+        'Accept': '*/*',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'X-IG-App-ID': '936619743392459', // Official IG Web App ID
+        'X-Requested-With': 'XMLHttpRequest',
+        'Referer': fullUrl
+    };
+
+    // Method A: Direct GraphQL Web Query Engine
     try {
-        const response = await axios.get(url, {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.55 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                'Accept-Language': 'en-US,en;q=0.5'
-            },
-            timeout: 25000,
+        const queryUrl = `https://www.instagram.com/graphql/query/?query_hash=b3055315caf7d2232bc8463469870052&variables=${encodeURIComponent(JSON.stringify({ shortcode: shortcode }))}`;
+        const res = await axios.get(queryUrl, { headers, timeout: 15000, validateStatus: () => true });
+
+        if (res.status === 200 && res.data?.data?.shortcode_media) {
+            const media = res.data.data.shortcode_media;
+            if (media.is_video && media.video_url) {
+                return [{ url: media.video_url, isVideo: true }];
+            }
+            if (media.display_url) {
+                return [{ url: media.display_url, isVideo: false }];
+            }
+        }
+    } catch (e) {
+        console.log('[AHMAD RDX] Self-API Method A failed:', e.message);
+    }
+
+    // Method B: Direct Internal API v1 Post Info Query
+    try {
+        const infoUrl = `https://www.instagram.com/p/${shortcode}/?__a=1&__d=dis`;
+        const res = await axios.get(infoUrl, { headers, timeout: 15000, validateStatus: () => true });
+
+        if (res.status === 200 && res.data?.items?.[0]) {
+            const item = res.data.items[0];
+            if (item.video_versions && item.video_versions.length > 0) {
+                return [{ url: item.video_versions[0].url, isVideo: true }];
+            }
+            if (item.image_versions2?.candidates?.[0]?.url) {
+                return [{ url: item.image_versions2.candidates[0].url, isVideo: false }];
+            }
+        }
+    } catch (e) {
+        console.log('[AHMAD RDX] Self-API Method B failed:', e.message);
+    }
+
+    // Method C: Embed Page Direct Extraction Engine
+    try {
+        const embedUrl = `https://www.instagram.com/p/${shortcode}/embed/captioned/`;
+        const res = await axios.get(embedUrl, {
+            headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' },
+            timeout: 15000,
             validateStatus: () => true
         });
 
-        if (response.status !== 200 || !response.data) return null;
-        const html = response.data;
-
-        // Clean up escaped unicode characters
-        const unescapeJson = (str) => {
-            try {
-                return str.replace(/\\u0026/g, '&').replace(/\\"/g, '"');
-            } catch (e) {
-                return str;
+        if (res.status === 200 && typeof res.data === 'string') {
+            const html = res.data;
+            const videoMatch = html.match(/class="EmbeddedMediaVideo"\s+src="([^"]+)"/i) ||
+                               html.match(/<video[^>]+src="([^"]+)"/i);
+            if (videoMatch && videoMatch[1]) {
+                const cleanUrl = videoMatch[1].replace(/&amp;/g, '&');
+                return [{ url: cleanUrl, isVideo: true }];
             }
-        };
 
-        // 1. Try extracting direct video URL (Reels or Video Posts)
-        let videoMatch = html.match(/<meta\s+property="og:video"\s+content="([^"]+)"/i) ||
-                         html.match(/"video_url"\s*:\s*"([^"]+)"/i);
-        
-        if (videoMatch && videoMatch[1]) {
-            const videoUrl = unescapeJson(videoMatch[1]);
-            return [{ url: videoUrl, isVideo: true }];
-        }
-
-        // 2. Fallback to image URL if it's a photo post
-        let imageMatch = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i);
-        if (imageMatch && imageMatch[1]) {
-            const imageUrl = unescapeJson(imageMatch[1]);
-            if (!imageUrl.includes('s640x640') && !imageUrl.includes('instagram.com/static')) {
-                return [{ url: imageUrl, isVideo: false }];
+            const imgMatch = html.match(/class="EmbeddedMediaImage"\s+src="([^"]+)"/i);
+            if (imgMatch && imgMatch[1]) {
+                const cleanUrl = imgMatch[1].replace(/&amp;/g, '&');
+                return [{ url: cleanUrl, isVideo: false }];
             }
         }
-
     } catch (e) {
-        console.log('[AHMAD RDX] Self-Scraper error:', e.message);
+        console.log('[AHMAD RDX] Self-API Method C failed:', e.message);
     }
+
     return null;
 }
 
+// 3. Buffer File Downloader
 async function downloadFile(url, outputPath) {
     try {
         const response = await axios.get(url, {
@@ -87,10 +124,10 @@ async function downloadFile(url, outputPath) {
 
 module.exports = {
     config: {
-        credits: 'SARDAR RDX', // Validator requirements ke mutabiq safe
+        credits: 'SARDAR RDX', // Anti-tamper validator protection
         name: 'igautodl',
         eventType: 'message',
-        description: 'Instagram auto downloader with self-scraper by AHMAD RDX'
+        description: 'Instagram Self-API Auto Downloader by AHMAD RDX'
     },
     async run({ api, event }) {
         const { threadID, messageID, body, senderID } = event;
@@ -99,23 +136,24 @@ module.exports = {
         if (senderID === botID) return;
         if (!body.includes('instagram.com')) return;
 
-        const igUrl = extractIgUrl(body);
-        if (!igUrl) return;
+        const igData = parseIgUrl(body);
+        if (!igData) return;
 
-        console.log('[AHMAD RDX] Instagram URL detected:', igUrl);
+        console.log('[AHMAD RDX] Processing Shortcode via Self-API:', igData.shortcode);
 
         let sentMessageID = null;
         try {
-            const initialMsg = await api.sendMessage('📥 Instagram media fetch ho rahi hai...\n\n⏳▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  0%', threadID, messageID);
+            const initialMsg = await api.sendMessage('📥 Instagram media fetch ho rahi hai (Self-API)...\n\n⏳▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  0%', threadID, messageID);
             sentMessageID = initialMsg?.messageID;
         } catch (e) {}
 
         try {
-            let mediaList = await scrapeInstagram(igUrl);
+            // Run Self-Built API Engine
+            let mediaList = await selfBuiltIgApi(igData.shortcode, igData.fullUrl);
 
             if (!mediaList || mediaList.length === 0) {
                 if (sentMessageID) api.unsendMessage(sentMessageID);
-                await api.sendMessage('❌ Instagram media fetch nahi ho saki. Link private ya invalid ho sakta hai.', threadID, messageID);
+                await api.sendMessage('❌ Media fetch nahi ho saka. Link private ho sakta hai.', threadID, messageID);
                 api.setMessageReaction('❌', messageID, () => {}, true);
                 return;
             }
@@ -123,11 +161,10 @@ module.exports = {
             await fs.ensureDir(cacheDir);
             const attachments = [];
 
-            for (let i = 0; i < Math.min(mediaList.length, 5); i++) {
+            for (let i = 0; i < mediaList.length; i++) {
                 const item = mediaList[i];
                 if (!item?.url) continue;
-                const isVideo = item.isVideo;
-                const ext = isVideo ? 'mp4' : 'jpg';
+                const ext = item.isVideo ? 'mp4' : 'jpg';
                 const filePath = path.join(cacheDir, `ig_${Date.now()}_${i}.${ext}`);
 
                 const fileSize = await downloadFile(item.url, filePath);
@@ -138,7 +175,7 @@ module.exports = {
 
             if (attachments.length === 0) {
                 if (sentMessageID) api.unsendMessage(sentMessageID);
-                await api.sendMessage('❌ Media download nahi ho saki.', threadID, messageID);
+                await api.sendMessage('❌ Video file save nahi ho saki.', threadID, messageID);
                 api.setMessageReaction('❌', messageID, () => {}, true);
                 return;
             }
@@ -148,7 +185,7 @@ module.exports = {
             }
             api.setMessageReaction('✅', messageID, () => {}, true);
 
-            const responseBody = `📥 𝕴𝖓𝖘𝖙𝖆𝖌𝖗𝖆𝖒 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 (AHMAD RDX)\n\n` +
+            const responseBody = `📥 𝕴𝖓𝖘𝖙𝖆𝖌𝖗𝖆𝖒 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝖗 (AHMAD RDX Self-API)\n\n` +
                 `🖼️ Files : ${attachments.length}\n\n` +
                 `⚡ Powered by AHMAD RDX`;
 
@@ -162,7 +199,7 @@ module.exports = {
             }, messageID);
 
         } catch (err) {
-            console.log('[AHMAD RDX] Error:', err.message);
+            console.log('[AHMAD RDX] Self-API Main Error:', err.message);
             if (sentMessageID) {
                 try { api.unsendMessage(sentMessageID); } catch (e) {}
             }
