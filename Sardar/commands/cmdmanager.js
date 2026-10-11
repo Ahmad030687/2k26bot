@@ -1,7 +1,7 @@
 /**
  * Command Manager (.addcmd & .editcmd)
  * Path: Sardar/commands/cmdmanager.js
- * Instant Auto-Reload & Global Client Registration Engine
+ * Instant Direct Code Acceptor Engine (No Reply Needed)
  * Powered by AHMAD RDX
  */
 
@@ -11,7 +11,7 @@ const axios = require('axios');
 
 const commandsDir = path.join(__dirname);
 
-// Environment Variable or Hardcoded Fallback
+// GitHub Credentials
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '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';
 const GITHUB_REPO = 'Ahmad030687/2k26bot';
 const GITHUB_BRANCH = 'main';
@@ -60,7 +60,6 @@ async function getGithubFileSha(filePathInRepo) {
     }
 }
 
-// Helper to register command into bot's active global collections instantly
 function registerCommandToBot(localFilePath) {
     try {
         if (require.cache[require.resolve(localFilePath)]) {
@@ -84,15 +83,13 @@ function registerCommandToBot(localFilePath) {
             }
 
             if (typeof pull.handleEvent === 'function') {
-                // Remove existing if any, then push updated
                 global.client.handleEvent = global.client.handleEvent.filter(item => item.config.name !== pull.config.name);
                 global.client.handleEvent.push(pull);
             }
-            console.log(`[AHMAD RDX] Command "${cmdName}" successfully loaded & registered into runtime!`);
             return true;
         }
     } catch (err) {
-        console.error('[AHMAD RDX Registration Error]:', err);
+        console.error('[AHMAD RDX Load Error]:', err.message);
     }
     return false;
 }
@@ -101,124 +98,95 @@ module.exports = {
     config: {
         credits: 'SARDAR RDX',
         name: 'cmdmanager',
-        aliases: ['addcmd', 'editcmd', 'cmd'],
-        version: '1.0.0',
+        aliases: ['addcmd', 'editcmd', 'cmd', 'load'],
+        version: '2.0.0',
         permission: 2,
-        description: 'Dynamically add and edit commands in Sardar/commands by AHMAD RDX'
+        description: 'Direct Add, Edit & Reload commands in Sardar/commands by AHMAD RDX'
     },
 
     async run({ api, event, args }) {
         const { threadID, messageID, body, type, messageReply } = event;
+        const cleanBody = body.trim();
         const input = args[0] ? args[0].toLowerCase().trim() : '';
 
-        const isAdd = body.toLowerCase().startsWith('.addcmd');
-        const isEdit = body.toLowerCase().startsWith('.editcmd') || body.toLowerCase().startsWith('.cmd');
+        // -------------------------------------------------------------
+        // METHOD 1: Direct Message Call (Command Name + Code in same message)
+        // Example: .editcmd shortcut /** code here **/
+        // -------------------------------------------------------------
+        if (args.length >= 2) {
+            const cmdName = input.endsWith('.js') ? input.slice(0, -3) : input;
+            const fileName = `${cmdName}.js`;
+            const localFilePath = path.join(commandsDir, fileName);
+            const githubPath = `Sardar/commands/${fileName}`;
 
-        // =============================================================
-        // HANDLE REPLY FOR EDIT OR ADD
-        // =============================================================
-        if (type === 'message_reply' && messageReply && messageReply.body) {
-            const parentText = messageReply.body;
-            
-            // Edit Case: User replied to bot's old code display message
-            if (parentText.includes('Existing code for "') || parentText.includes('⚠️ Is message ke reply')) {
-                const match = parentText.match(/Existing code for "([^"]+)"/);
-                const fileName = match ? match[1] : (input ? (input.endsWith('.js') ? input : `${input}.js`) : null);
+            // Command name ke baad wala poora text code count hoga
+            const codeContent = cleanBody.substring(cleanBody.indexOf(args[1])).trim();
 
-                if (!fileName) {
-                    return api.sendMessage('❌ Command filename detect nahi ho saka.', threadID, messageID);
+            try {
+                await fs.writeFile(localFilePath, codeContent, 'utf8');
+                const loaded = registerCommandToBot(localFilePath);
+
+                if (!loaded) {
+                    return api.sendMessage(`❌ Code mein syntax error hai! Active load nahi ho saka.`, threadID, messageID);
                 }
 
-                const localFilePath = path.join(commandsDir, fileName);
-                const githubPath = `Sardar/commands/${fileName}`;
-                const newCodeContent = body.trim();
+                const sha = await getGithubFileSha(githubPath);
+                const ghSynced = await pushToGithub(githubPath, codeContent, `Update ${fileName} via AHMAD RDX`, sha);
 
-                try {
-                    await fs.writeFile(localFilePath, newCodeContent, 'utf8');
-                    
-                    // Instant runtime registration
-                    const registered = registerCommandToBot(localFilePath);
-                    if (!registered) {
-                        return api.sendMessage('❌ Code compile error! Syntax check karein.', threadID, messageID);
-                    }
+                const statusMsg = ghSynced 
+                    ? `✅ Command "${fileName}" direct save, GitHub sync aur memory mein load ho gaya!` 
+                    : `⚠️ Command "${fileName}" local active ho gaya (GitHub sync pending).`;
 
-                    const sha = await getGithubFileSha(githubPath);
-                    const ghSynced = await pushToGithub(githubPath, newCodeContent, `Update command: Sardar/commands/${fileName} via AHMAD RDX`, sha);
+                return api.sendMessage(statusMsg, threadID, messageID);
 
-                    const statusMsg = ghSynced 
-                        ? `🔄 Command "${fileName}" update ho gaya, GitHub par sync ho gaya aur furan active ho gaya!` 
-                        : `🔄 Command "${fileName}" local update aur active ho gaya! (GitHub Token warning).`;
-
-                    return api.sendMessage(statusMsg, threadID, messageID);
-
-                } catch (err) {
-                    console.error('[AHMAD RDX Edit Error]:', err);
-                    return api.sendMessage(`❌ Failed to edit command: ${err.message}`, threadID, messageID);
-                }
-            }
-
-            // Add Case: User replied to raw code with .addcmd <cmdName>
-            if (isAdd && input) {
-                const fileName = input.endsWith('.js') ? input : `${input}.js`;
-                const localFilePath = path.join(commandsDir, fileName);
-                const githubPath = `Sardar/commands/${fileName}`;
-                const codeContent = messageReply.body.trim();
-
-                try {
-                    await fs.writeFile(localFilePath, codeContent, 'utf8');
-
-                    // Instant runtime registration
-                    const registered = registerCommandToBot(localFilePath);
-                    if (!registered) {
-                        return api.sendMessage('❌ Code compile error! Syntax check karein (Config/Credits missing ho sakte hain).', threadID, messageID);
-                    }
-
-                    const sha = await getGithubFileSha(githubPath);
-                    const ghSynced = await pushToGithub(githubPath, codeContent, `Add command: Sardar/commands/${fileName} via AHMAD RDX`, sha);
-
-                    const statusMsg = ghSynced 
-                        ? `✅ Command "${fileName}" create ho gaya, GitHub par sync ho gaya aur furan active ho gaya!` 
-                        : `⚠️ Command "${fileName}" bot mein active ho gaya hai, lekin GitHub par save nahi ho saka.`;
-
-                    return api.sendMessage(statusMsg, threadID, messageID);
-
-                } catch (err) {
-                    console.error('[AHMAD RDX Add Error]:', err);
-                    return api.sendMessage(`❌ Failed to add command: ${err.message}`, threadID, messageID);
-                }
+            } catch (err) {
+                return api.sendMessage(`❌ Error: ${err.message}`, threadID, messageID);
             }
         }
 
-        // =============================================================
-        // DIRECT INITIAL CALLS (.editcmd <cmdName>)
-        // =============================================================
-        if (!input) {
-            return api.sendMessage(
-                '❌ Usage:\n1. Code waale msg par REPLY karke `.addcmd <cmdName>` likhein.\n2. `.editcmd <cmdName>` (Old code aayega, reply mein new code paste karein)',
-                threadID,
-                messageID
-            );
+        // -------------------------------------------------------------
+        // METHOD 2: Message Reply Method (Agar direct code na ho)
+        // -------------------------------------------------------------
+        if (type === 'message_reply' && messageReply && messageReply.body && input) {
+            const cmdName = input.endsWith('.js') ? input.slice(0, -3) : input;
+            const fileName = `${cmdName}.js`;
+            const localFilePath = path.join(commandsDir, fileName);
+            const githubPath = `Sardar/commands/${fileName}`;
+            const codeContent = messageReply.body.trim();
+
+            try {
+                await fs.writeFile(localFilePath, codeContent, 'utf8');
+                registerCommandToBot(localFilePath);
+
+                const sha = await getGithubFileSha(githubPath);
+                await pushToGithub(githubPath, codeContent, `Save ${fileName} via AHMAD RDX`, sha);
+
+                return api.sendMessage(`✅ Command "${fileName}" reply se save aur active ho gaya!`, threadID, messageID);
+            } catch (err) {
+                return api.sendMessage(`❌ Error: ${err.message}`, threadID, messageID);
+            }
         }
 
-        const cmdName = input.endsWith('.js') ? input.slice(0, -3) : input;
-        const fileName = `${cmdName}.js`;
-        const localFilePath = path.join(commandsDir, fileName);
+        // -------------------------------------------------------------
+        // METHOD 3: Direct Read/Fetch Existing Code
+        // -------------------------------------------------------------
+        if (input && args.length === 1) {
+            const cmdName = input.endsWith('.js') ? input.slice(0, -3) : input;
+            const fileName = `${cmdName}.js`;
+            const localFilePath = path.join(commandsDir, fileName);
 
-        if (isEdit) {
             if (!fs.existsSync(localFilePath)) {
                 return api.sendMessage(`❌ File "Sardar/commands/${fileName}" nahi mili.`, threadID, messageID);
             }
 
             try {
                 const oldCode = await fs.readFile(localFilePath, 'utf8');
-                return api.sendMessage(
-                    `📜 Existing code for "${fileName}":\n\n\`\`\`javascript\n${oldCode}\n\`\`\`\n\n⚠️ Is message ke reply mein NAYA code paste karein update karne ke liye!`,
-                    threadID,
-                    messageID
-                );
+                return api.sendMessage(`📜 Existing Code for "${fileName}":\n\n\`\`\`javascript\n${oldCode}\n\`\`\``, threadID, messageID);
             } catch (err) {
-                return api.sendMessage(`❌ File read error: ${err.message}`, threadID, messageID);
+                return api.sendMessage(`❌ Read Error: ${err.message}`, threadID, messageID);
             }
         }
+
+        return api.sendMessage('❌ Usage:\n.editcmd shortcut <POORA_CODE_PASTE_KAREIN>', threadID, messageID);
     }
 };
