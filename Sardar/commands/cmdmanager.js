@@ -58,6 +58,7 @@ module.exports = {
     config: {
         credits: 'SARDAR RDX', // Core validator protection (Safe format)
         name: 'cmdmanager',
+        aliases: ['addcmd', 'editcmd', 'cmd'], // Aliases add kar diye hain taake .editcmd work kare
         version: '1.0.0',
         permission: 2, // Admin only
         description: 'Dynamically add and edit commands in Sardar/commands with hardcoded GitHub sync'
@@ -127,7 +128,7 @@ module.exports = {
         // =============================================================
         // WORKFLOW 2: .editcmd <command_name>
         // =============================================================
-        if (isEdit) {
+        if (isEdit || body.toLowerCase().startsWith('.cmd')) {
             // Step A: Direct command call -> Existing code fetch karke bhejna
             if (type !== 'message_reply') {
                 if (!fs.existsSync(localFilePath)) {
@@ -178,3 +179,4 @@ module.exports = {
         }
     }
 };
+            
