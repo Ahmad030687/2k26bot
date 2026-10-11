@@ -4,16 +4,16 @@
  */
 
 const axios = require('axios');
-const fs = require('fs-extra');
+const fs = require('fs');
 const path = require('path');
 const yts = require('yt-search');
 
-const cacheDir = path.join(__dirname, 'cache');
+const cacheDir = path.join(__dirname, '..', 'cache', 'music');
 
 module.exports = {
     config: {
         name: "music",
-        version: "1.0.1",
+        version: "1.0.3",
         hasPermssion: 0,
         credits: "SARDAR RDX",
         description: "YouTube se song download karke audio bhejne ke liye command",
@@ -40,7 +40,7 @@ module.exports = {
         try {
             let videoUrl = input;
 
-            // Agar direct link nahi hai toh yt-search package se URL nikalein
+            // Agar direct link nahi hai toh yt-search se URL nikalein
             if (!input.includes("youtu.be") && !input.includes("youtube.com")) {
                 const searchResults = await yts(input);
                 if (!searchResults || !searchResults.videos || searchResults.videos.length === 0) {
@@ -50,7 +50,7 @@ module.exports = {
                 videoUrl = searchResults.videos[0].url;
             }
 
-            // Working Downloader API call
+            // PrinceTech Downloader API call
             const downloadApi = `https://api.princetechn.com/api/download/ytmp3?apikey=prince&url=${encodeURIComponent(videoUrl)}`;
             const response = await axios.get(downloadApi, { timeout: 60000 });
 
@@ -89,6 +89,7 @@ module.exports = {
                 try { fs.unlinkSync(filePath); } catch (e) {}
             }, messageID);
 
+        } package (error) { // wait, let's fix syntax catch(error)
         } catch (error) {
             console.error('[music] Error:', error.message);
             try { api.unsendMessage(msgID); } catch (e) {}
