@@ -27,7 +27,7 @@ module.exports = {
         const input = args.join(' ');
 
         if (!input) {
-            return send('❌ Kripya kisi song ka naam ya YouTube URL dein!\n📝 Example: .music Vicky B Matata');
+            return send('❌ Kripya kisi song ka naam ya YouTube URL dein!\n📝 Example: .music Tum Mere Ho');
         }
 
         const processingMsg = await api.sendMessage('🔍 Song search aur download ho raha hai...\n⏳ Thoda wait karo...', threadID);
@@ -36,12 +36,12 @@ module.exports = {
         try {
             let videoUrl = input;
             
-            // Agar user ne URL nahi diya toh yt-search se video find karein
+            // Agar user ne URL nahi diya toh yt-search se search karein
             if (!input.includes('youtu.be') && !input.includes('youtube.com')) {
-                const searchResults = await yts(input);
-                if (!searchResults || searchResults.videos.length === 0) {
+                const searchResults = await yts({ query: input, pages: 1 });
+                if (!searchResults || !searchResults.videos || searchResults.videos.length === 0) {
                     try { api.unsendMessage(msgID); } catch {}
-                    return send('❌ Koi song nahi mila! Sahi naam ya YouTube URL dein.');
+                    return send(`❌ "${input}" nahi mili. Doosra naam try karo.`);
                 }
                 videoUrl = searchResults.videos[0].url;
             }
@@ -51,10 +51,10 @@ module.exports = {
 
             if (!response.data || !response.data.success || !response.data.result || !response.data.result.downloadUrl) {
                 try { api.unsendMessage(msgID); } catch {}
-                return send('❌ Song download karne mein error aayi hai!');
+                return send(`❌ "${input}" nahi mili. Doosra naam try karo.`);
             }
 
-            const { title, author, duration, thumbnail, downloadUrl } = response.data.result;
+            const { title, author, duration, downloadUrl } = response.data.result;
 
             if (!fs.existsSync(cacheDir)) {
                 fs.mkdirSync(cacheDir, { 'recursive': true });
@@ -85,7 +85,7 @@ module.exports = {
         } catch (error) {
             console.error('[music] Error:', error.message);
             try { api.unsendMessage(msgID); } catch {}
-            return send('❌ Ek error aa gayi hai: ' + error.message);
+            return send(`❌ "${input}" nahi mili. Doosra naam try karo.`);
         }
     }
 };
