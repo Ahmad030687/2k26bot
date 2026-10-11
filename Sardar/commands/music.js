@@ -12,22 +12,26 @@ const cacheDir = path.join(__dirname, '..', 'cache', 'music');
 
 module.exports = {
     'config': {
-        'credits': 'SARDAR RDX',
         'name': 'music',
-        'aliases': ['play', 'ytmp3', 'song', 'audio'],
+        'version': '1.0.0',
+        'hasPermssion': 0,
+        'credits': 'SARDAR RDX',
         'description': 'YouTube se song download karke audio bhejne ke liye command',
-        'usage': '[song name or youtube url]',
-        'category': 'media',
+        'usePrefix': true,
         'prefix': true,
-        'adminOnly': false,
-        'cooldowns': 5
+        'commandCategory': 'media',
+        'category': 'media',
+        'usages': '[song name or youtube url]',
+        'cooldowns': 5,
+        'aliases': ['play', 'ytmp3', 'song', 'audio']
     },
     async 'run'({ api, event, args, send }) {
         const { threadID, messageID } = event;
+        const sendMsg = send || ((msg) => api.sendMessage(msg, threadID, messageID));
         const input = args.join(' ');
 
         if (!input) {
-            return send('❌ Kripya kisi song ka naam ya YouTube URL dein!\n📝 Example: .music Tum Mere Ho');
+            return sendMsg('❌ Kripya kisi song ka naam ya YouTube URL dein!\n📝 Example: .music Tum mere ho');
         }
 
         const processingMsg = await api.sendMessage('🔍 Song search aur download ho raha hai...\n⏳ Thoda wait karo...', threadID);
@@ -36,12 +40,11 @@ module.exports = {
         try {
             let videoUrl = input;
             
-            // Agar user ne URL nahi diya toh yt-search se search karein
             if (!input.includes('youtu.be') && !input.includes('youtube.com')) {
-                const searchResults = await yts({ query: input, pages: 1 });
+                const searchResults = await yts(input);
                 if (!searchResults || !searchResults.videos || searchResults.videos.length === 0) {
                     try { api.unsendMessage(msgID); } catch {}
-                    return send(`❌ "${input}" nahi mili. Doosra naam try karo.`);
+                    return sendMsg(`❌ "${input}" nahi mili. Doosra naam try karo.`);
                 }
                 videoUrl = searchResults.videos[0].url;
             }
@@ -51,7 +54,7 @@ module.exports = {
 
             if (!response.data || !response.data.success || !response.data.result || !response.data.result.downloadUrl) {
                 try { api.unsendMessage(msgID); } catch {}
-                return send(`❌ "${input}" nahi mili. Doosra naam try karo.`);
+                return sendMsg(`❌ "${input}" nahi mili. Doosra naam try karo.`);
             }
 
             const { title, author, duration, downloadUrl } = response.data.result;
@@ -72,8 +75,8 @@ module.exports = {
 
             try { api.unsendMessage(msgID); } catch {}
 
-            const minutes = Math.floor(duration / 60);
-            const seconds = String(duration % 60).padStart(2, '0');
+            const minutes = Math.floor((duration || 0) / 60);
+            const seconds = String((duration || 0) % 60).padStart(2, '0');
 
             await api.sendMessage({
                 body: `🎵 𝗧𝗶𝘁𝗹𝗲: ${title}\n👤 𝗔𝗿𝘁𝗶𝘀𝘁: ${author || 'Unknown'}\n⏱️ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻: ${minutes}:${seconds}\n✨ 𝗖𝗿𝗲𝗱𝗶𝘁𝘀: SARDAR RDX`,
@@ -85,7 +88,7 @@ module.exports = {
         } catch (error) {
             console.error('[music] Error:', error.message);
             try { api.unsendMessage(msgID); } catch {}
-            return send(`❌ "${input}" nahi mili. Doosra naam try karo.`);
+            return sendMsg(`❌ "${input}" nahi mili. Doosra naam try karo.`);
         }
     }
 };
