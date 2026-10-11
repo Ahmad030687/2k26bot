@@ -1,6 +1,7 @@
 /**
  * Command Manager (.addcmd & .editcmd)
  * Path: Sardar/commands/cmdmanager.js
+ * Instant Auto-Reload & Global Client Registration Engine
  * Powered by AHMAD RDX
  */
 
@@ -59,6 +60,43 @@ async function getGithubFileSha(filePathInRepo) {
     }
 }
 
+// Helper to register command into bot's active global collections instantly
+function registerCommandToBot(localFilePath) {
+    try {
+        if (require.cache[require.resolve(localFilePath)]) {
+            delete require.cache[require.resolve(localFilePath)];
+        }
+        const pull = require(localFilePath);
+
+        global.client = global.client || {};
+        global.client.commands = global.client.commands || new Map();
+        global.client.aliases = global.client.aliases || new Map();
+        global.client.handleEvent = global.client.handleEvent || [];
+
+        if (pull.config && pull.config.name) {
+            const cmdName = pull.config.name.toLowerCase();
+            global.client.commands.set(cmdName, pull);
+
+            if (pull.config.aliases && Array.isArray(pull.config.aliases)) {
+                pull.config.aliases.forEach(alias => {
+                    global.client.aliases.set(alias.toLowerCase(), cmdName);
+                });
+            }
+
+            if (typeof pull.handleEvent === 'function') {
+                // Remove existing if any, then push updated
+                global.client.handleEvent = global.client.handleEvent.filter(item => item.config.name !== pull.config.name);
+                global.client.handleEvent.push(pull);
+            }
+            console.log(`[AHMAD RDX] Command "${cmdName}" successfully loaded & registered into runtime!`);
+            return true;
+        }
+    } catch (err) {
+        console.error('[AHMAD RDX Registration Error]:', err);
+    }
+    return false;
+}
+
 module.exports = {
     config: {
         credits: 'SARDAR RDX',
@@ -88,7 +126,7 @@ module.exports = {
                 const fileName = match ? match[1] : (input ? (input.endsWith('.js') ? input : `${input}.js`) : null);
 
                 if (!fileName) {
-                    return api.sendMessage('❌ Command filename detect nahi ho saka. Standard syntax use karein.', threadID, messageID);
+                    return api.sendMessage('❌ Command filename detect nahi ho saka.', threadID, messageID);
                 }
 
                 const localFilePath = path.join(commandsDir, fileName);
@@ -96,26 +134,25 @@ module.exports = {
                 const newCodeContent = body.trim();
 
                 try {
-                    // Local Save and Reload
                     await fs.writeFile(localFilePath, newCodeContent, 'utf8');
-
-                    if (require.cache[require.resolve(localFilePath)]) {
-                        delete require.cache[require.resolve(localFilePath)];
+                    
+                    // Instant runtime registration
+                    const registered = registerCommandToBot(localFilePath);
+                    if (!registered) {
+                        return api.sendMessage('❌ Code compile error! Syntax check karein.', threadID, messageID);
                     }
-                    require(localFilePath);
 
-                    // GitHub Sync
                     const sha = await getGithubFileSha(githubPath);
                     const ghSynced = await pushToGithub(githubPath, newCodeContent, `Update command: Sardar/commands/${fileName} via AHMAD RDX`, sha);
 
                     const statusMsg = ghSynced 
-                        ? `🔄 Command "${fileName}" update ho gaya, GitHub par sync ho gaya aur reload ho gaya!` 
-                        : `🔄 Command "${fileName}" local update aur reload ho gaya! (GitHub Token issue).`;
+                        ? `🔄 Command "${fileName}" update ho gaya, GitHub par sync ho gaya aur furan active ho gaya!` 
+                        : `🔄 Command "${fileName}" local update aur active ho gaya! (GitHub Token warning).`;
 
                     return api.sendMessage(statusMsg, threadID, messageID);
 
                 } catch (err) {
-                    console.error('[AHMAD RDX CmdManager Edit Reply Error]:', err);
+                    console.error('[AHMAD RDX Edit Error]:', err);
                     return api.sendMessage(`❌ Failed to edit command: ${err.message}`, threadID, messageID);
                 }
             }
@@ -130,22 +167,23 @@ module.exports = {
                 try {
                     await fs.writeFile(localFilePath, codeContent, 'utf8');
 
-                    if (require.cache[require.resolve(localFilePath)]) {
-                        delete require.cache[require.resolve(localFilePath)];
+                    // Instant runtime registration
+                    const registered = registerCommandToBot(localFilePath);
+                    if (!registered) {
+                        return api.sendMessage('❌ Code compile error! Syntax check karein (Config/Credits missing ho sakte hain).', threadID, messageID);
                     }
-                    require(localFilePath);
 
                     const sha = await getGithubFileSha(githubPath);
                     const ghSynced = await pushToGithub(githubPath, codeContent, `Add command: Sardar/commands/${fileName} via AHMAD RDX`, sha);
 
                     const statusMsg = ghSynced 
-                        ? `✅ Command "${fileName}" create ho gaya, GitHub par sync ho gaya aur Bot mein load ho gaya!` 
-                        : `⚠️ Command "${fileName}" bot mein load ho gaya hai, lekin GitHub par save nahi ho saka.`;
+                        ? `✅ Command "${fileName}" create ho gaya, GitHub par sync ho gaya aur furan active ho gaya!` 
+                        : `⚠️ Command "${fileName}" bot mein active ho gaya hai, lekin GitHub par save nahi ho saka.`;
 
                     return api.sendMessage(statusMsg, threadID, messageID);
 
                 } catch (err) {
-                    console.error('[AHMAD RDX CmdManager Add Reply Error]:', err);
+                    console.error('[AHMAD RDX Add Error]:', err);
                     return api.sendMessage(`❌ Failed to add command: ${err.message}`, threadID, messageID);
                 }
             }
