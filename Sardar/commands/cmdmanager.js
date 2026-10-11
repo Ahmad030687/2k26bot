@@ -10,12 +10,17 @@ const axios = require('axios');
 
 const commandsDir = path.join(__dirname);
 
-// Update your NEW valid GitHub Token here
-const GITHUB_TOKEN = 'PASTE_YOUR_NEW_TOKEN_HERE';
+// Environment Variable se Token read hoga
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = 'Ahmad030687/2k26bot';
 const GITHUB_BRANCH = 'main';
 
 async function pushToGithub(filePathInRepo, content, commitMessage, sha = null) {
+    if (!GITHUB_TOKEN) {
+        console.error('[AHMAD RDX GitHub Sync Warning]: GITHUB_TOKEN environment variable set nahi hai.');
+        return false;
+    }
+
     try {
         const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${filePathInRepo}`;
         const payload = {
@@ -34,12 +39,14 @@ async function pushToGithub(filePathInRepo, content, commitMessage, sha = null) 
         });
         return true;
     } catch (e) {
-        console.error('[AHMAD RDX GitHub Sync Warning]:', e.response?.data || e.message);
+        console.error('[AHMAD RDX GitHub Sync Error]:', e.response?.data || e.message);
         return false;
     }
 }
 
 async function getGithubFileSha(filePathInRepo) {
+    if (!GITHUB_TOKEN) return null;
+
     try {
         const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${filePathInRepo}?ref=${GITHUB_BRANCH}`;
         const response = await axios.get(url, {
@@ -100,7 +107,7 @@ module.exports = {
             }
 
             try {
-                // 1. Local Save and Load (Guaranteed to work instantly)
+                // Local save aur dynamic load
                 await fs.writeFile(localFilePath, codeContent, 'utf8');
 
                 if (require.cache[require.resolve(localFilePath)]) {
@@ -108,13 +115,13 @@ module.exports = {
                 }
                 require(localFilePath);
 
-                // 2. Sync to GitHub in background
+                // GitHub sync attempt
                 const sha = await getGithubFileSha(githubPath);
                 const ghSynced = await pushToGithub(githubPath, codeContent, `Add command: Sardar/commands/${fileName} via AHMAD RDX`, sha);
 
                 const statusMsg = ghSynced 
                     ? `✅ Command "${fileName}" create ho gaya, GitHub par sync ho gaya aur Bot mein load ho gaya!` 
-                    : `⚠️ Command "${fileName}" bot mein load ho gaya hai, lekin GitHub Token 401 Unauthorized hone ki wajah se GitHub par save nahi ho saka. (Token update karein).`;
+                    : `⚠️ Command "${fileName}" bot mein load ho gaya hai, lekin GitHub Token missing/invalid hone ki wajah se GitHub par save nahi ho saka.`;
 
                 return api.sendMessage(statusMsg, threadID, messageID);
 
