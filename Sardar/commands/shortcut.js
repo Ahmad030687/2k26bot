@@ -1,7 +1,6 @@
 /**
  * Shortcut Command Module
  * Path: Sardar/commands/shortcut.js
- * Hardcoded GitHub Credentials & Auto-Reload Engine
  * Powered by AHMAD RDX
  */
 
@@ -11,12 +10,10 @@ const axios = require('axios');
 
 const shortcutsPath = path.join(__dirname, '..', 'cache', 'shortcuts.json');
 
-// Hardcoded GitHub Configuration
-const GITHUB_TOKEN = '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';
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || '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';
 const GITHUB_REPO = 'Ahmad030687/2k26bot';
 const GITHUB_BRANCH = 'main';
 
-// Helper: GitHub par json update push karna
 async function pushShortcutsToGithub(content, commitMessage) {
     try {
         const filePathInRepo = 'Sardar/cache/shortcuts.json';
@@ -53,7 +50,6 @@ async function pushShortcutsToGithub(content, commitMessage) {
     }
 }
 
-// Shortcuts helper functions
 function getShortcuts() {
     try {
         if (!fs.existsSync(shortcutsPath)) {
@@ -81,7 +77,7 @@ function saveShortcuts(data) {
 
 module.exports = {
     config: {
-        credits: 'SARDAR RDX', // Core validator protection
+        credits: 'SARDAR RDX',
         name: 'shortcut',
         aliases: ['short', 'sc'],
         version: '1.0.0',
@@ -90,7 +86,6 @@ module.exports = {
         eventType: 'message'
     },
 
-    // Global listener jo har simple message par trigger hoga aur shortcut check karega
     async handleEvent({ api, event }) {
         const { threadID, messageID, body, senderID } = event;
         if (!body) return;
@@ -105,104 +100,52 @@ module.exports = {
         }
     },
 
-    async run({ api, event }) {
-        const { threadID, messageID, type, messageReply, body } = event;
+    async run({ api, event, args }) {
+        const { threadID, messageID, type, messageReply, body, senderID } = event;
 
-        // Step 3: Jab user response text ka reply kare
-        if (type === 'message_reply' && messageReply) {
-            const replyText = messageReply.body || '';
+        // Step 1: Handling replies directly inside run method for maximum compatibility
+        if (type === 'message_reply' && messageReply && messageReply.body) {
+            const parentMsg = messageReply.body;
 
-            // Agar Step 1 ke reply ka jawaab hai (Shortcut Key)
-            if (replyText.includes('👇 Is message ke reply mein wo Word, Emoji ya Number likho')) {
+            // Reply to Step 1 prompt
+            if (parentMsg.includes('Is message ke reply mein wo Word, Emoji ya Number likho')) {
                 const shortcutKey = body.trim().toLowerCase();
-
-                if (!shortcutKey) {
-                    return api.sendMessage('❌ Invalid shortcut key!', threadID, messageID);
-                }
+                if (!shortcutKey) return api.sendMessage('❌ Invalid shortcut key!', threadID, messageID);
 
                 return api.sendMessage(
-                    `📝 Aapka shortcut key: "${shortcutKey}" select ho gaya hai.\n\n👇 Ab is message ke reply mein wo Text/Syntax likhein jo aap save karwana chahte hain:`,
+                    `📝 Shortcut Key: "${shortcutKey}"\n\n👇 Ab IS MESSAGE ke reply mein wo Text/Syntax write karein jo bot bole:`,
                     threadID,
-                    (err, info) => {
-                        global.client = global.client || {};
-                        global.client.handleReply = global.client.handleReply || [];
-                        global.client.handleReply.push({
-                            name: 'shortcut',
-                            messageID: info.messageID,
-                            author: event.senderID,
-                            step: 2,
-                            key: shortcutKey
-                        });
-                    },
+                    messageID
+                );
+            }
+
+            // Reply to Step 2 prompt
+            if (parentMsg.includes('Ab IS MESSAGE ke reply mein wo Text/Syntax write karein')) {
+                const match = parentMsg.match(/Shortcut Key:\s*"([^"]+)"/);
+                const shortcutKey = match ? match[1] : null;
+                const responseText = body.trim();
+
+                if (!shortcutKey || !responseText) {
+                    return api.sendMessage('❌ Invalid inputs. Procedure dubara start karein.', threadID, messageID);
+                }
+
+                const shortcuts = getShortcuts();
+                shortcuts[shortcutKey] = responseText;
+                saveShortcuts(shortcuts);
+
+                return api.sendMessage(
+                    `✅ Success! Shortcut successfully save ho gaya hai.\n\n🔑 Key: "${shortcutKey}"\n💬 Response: "${responseText}"\n\nAb jab bhi koi "${shortcutKey}" likhega, bot yeh text bolega!`,
+                    threadID,
                     messageID
                 );
             }
         }
 
-        // Step 1: User jab direct .shortcut likhe
+        // Direct Initial Call (.shortcut)
         return api.sendMessage(
             '👇 Is message ke reply mein wo Word, Emoji ya Number likho jiska shortcut banana chahte ho:',
             threadID,
-            (err, info) => {
-                global.client = global.client || {};
-                global.client.handleReply = global.client.handleReply || [];
-                global.client.handleReply.push({
-                    name: 'shortcut',
-                    messageID: info.messageID,
-                    author: event.senderID,
-                    step: 1
-                });
-            },
             messageID
         );
-    },
-
-    // Dynamic reply handler
-    async handleReply({ api, event, handleReply }) {
-        const { threadID, messageID, body, author } = event;
-        if (author !== handleReply.author) return;
-
-        // Step 1 Answer: Shortcut Key receive ho gayi
-        if (handleReply.step === 1) {
-            const shortcutKey = body.trim().toLowerCase();
-            if (!shortcutKey) {
-                return api.sendMessage('❌ Invalid shortcut key!', threadID, messageID);
-            }
-
-            return api.sendMessage(
-                `📝 Shortcut Key: "${shortcutKey}"\n\n👇 Ab is message ke reply mein wo Response/Syntax text likhein jo bot bole:`,
-                threadID,
-                (err, info) => {
-                    global.client.handleReply.push({
-                        name: 'shortcut',
-                        messageID: info.messageID,
-                        author: author,
-                        step: 2,
-                        key: shortcutKey
-                    });
-                },
-                messageID
-            );
-        }
-
-        // Step 2 Answer: Response/Syntax text receive ho gaya
-        if (handleReply.step === 2) {
-            const responseText = body.trim();
-            const shortcutKey = handleReply.key;
-
-            if (!responseText) {
-                return api.sendMessage('❌ Syntax text khali nahi ho sakta!', threadID, messageID);
-            }
-
-            const shortcuts = getShortcuts();
-            shortcuts[shortcutKey] = responseText;
-            saveShortcuts(shortcuts);
-
-            return api.sendMessage(
-                `✅ Success! Shortcut successfully save ho gaya hai.\n\n🔑 Key: "${shortcutKey}"\n💬 Response: "${responseText}"\n\nAb jab bhi koi "${shortcutKey}" likhega, bot yeh text bolega!`,
-                threadID,
-                messageID
-            );
-        }
     }
 };
