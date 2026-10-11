@@ -6,13 +6,14 @@
 const axios = require('axios');
 const fs = require('fs-extra');
 const path = require('path');
+const yts = require('yt-search');
 
 const cacheDir = path.join(__dirname, 'cache');
 
 module.exports = {
     config: {
         name: "music",
-        version: "1.0.0",
+        version: "1.0.1",
         hasPermssion: 0,
         credits: "SARDAR RDX",
         description: "YouTube se song download karke audio bhejne ke liye command",
@@ -39,20 +40,17 @@ module.exports = {
         try {
             let videoUrl = input;
 
-            // Agar direct link nahi hai toh YouTube search API se URL nikalein
+            // Agar direct link nahi hai toh yt-search package se URL nikalein
             if (!input.includes("youtu.be") && !input.includes("youtube.com")) {
-                const searchApi = `https://api.princetechn.com/api/search/ytsearch?apikey=prince&query=${encodeURIComponent(input)}`;
-                const searchRes = await axios.get(searchApi, { timeout: 30000 });
-                
-                if (searchRes.data && searchRes.data.result && searchRes.data.result.length > 0) {
-                    videoUrl = searchRes.data.result[0].url;
-                } else {
+                const searchResults = await yts(input);
+                if (!searchResults || !searchResults.videos || searchResults.videos.length === 0) {
                     try { api.unsendMessage(msgID); } catch (e) {}
                     return api.sendMessage(`❌ "${input}" nahi mili. Doosra naam try karo.`, threadID, messageID);
                 }
+                videoUrl = searchResults.videos[0].url;
             }
 
-            // Downloader API call
+            // Working Downloader API call
             const downloadApi = `https://api.princetechn.com/api/download/ytmp3?apikey=prince&url=${encodeURIComponent(videoUrl)}`;
             const response = await axios.get(downloadApi, { timeout: 60000 });
 
@@ -94,7 +92,7 @@ module.exports = {
         } catch (error) {
             console.error('[music] Error:', error.message);
             try { api.unsendMessage(msgID); } catch (e) {}
-            return api.sendMessage(`❌ Error: Song process nahi ho saka.`, threadID, messageID);
+            return api.sendMessage(`❌ "${input}" nahi mili ya process fail ho gaya.`, threadID, messageID);
         }
     }
 };
