@@ -13,7 +13,7 @@ const cacheDir = path.join(__dirname, '..', 'cache', 'music');
 module.exports = {
     config: {
         name: "music",
-        version: "1.0.3",
+        version: "1.0.4",
         hasPermssion: 0,
         credits: "SARDAR RDX",
         description: "YouTube se song download karke audio bhejne ke liye command",
@@ -40,7 +40,7 @@ module.exports = {
         try {
             let videoUrl = input;
 
-            // Agar direct link nahi hai toh yt-search se URL nikalein
+            // Agar direct link nahi hai toh yt-search se search karein
             if (!input.includes("youtu.be") && !input.includes("youtube.com")) {
                 const searchResults = await yts(input);
                 if (!searchResults || !searchResults.videos || searchResults.videos.length === 0) {
@@ -50,7 +50,7 @@ module.exports = {
                 videoUrl = searchResults.videos[0].url;
             }
 
-            // PrinceTech Downloader API call
+            // Downloader API call
             const downloadApi = `https://api.princetechn.com/api/download/ytmp3?apikey=prince&url=${encodeURIComponent(videoUrl)}`;
             const response = await axios.get(downloadApi, { timeout: 60000 });
 
@@ -89,11 +89,10 @@ module.exports = {
                 try { fs.unlinkSync(filePath); } catch (e) {}
             }, messageID);
 
-        } package (error) { // wait, let's fix syntax catch(error)
         } catch (error) {
             console.error('[music] Error:', error.message);
             try { api.unsendMessage(msgID); } catch (e) {}
-            return api.sendMessage(`❌ "${input}" nahi mili ya process fail ho gaya.`, threadID, messageID);
+            return api.sendMessage(`❌ "${input}" process karte hue error aa gayi.`, threadID, messageID);
         }
     }
 };
