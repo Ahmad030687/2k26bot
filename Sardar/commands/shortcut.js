@@ -1,7 +1,7 @@
 /**
  * Shortcut Command Module
  * Path: Sardar/commands/shortcut.js
- * Credits: SARDAR RDX (Validator Approved)
+ * Credits: SARDAR RDX
  * Powered by AHMAD RDX
  */
 
@@ -47,7 +47,7 @@ async function pushShortcutsToGithub(content, commitMessage) {
             }
         });
     } catch (err) {
-        console.error('[AHMAD RDX Shortcut GitHub Sync Error]:', err.message);
+        console.error('[AHMAD RDX Shortcut GitHub Push Error]:', err.message);
     }
 }
 
@@ -78,16 +78,16 @@ function saveShortcuts(data) {
 
 module.exports = {
     config: {
-        credits: 'SARDAR RDX', // Core validator requirement
+        credits: 'SARDAR RDX', // Core validator strict requirement
         name: 'shortcut',
         aliases: ['short', 'sc'],
-        version: '1.0.0',
+        version: '3.0.0',
         permission: 0,
-        description: 'Shortcut manager by AHMAD RDX',
+        description: 'Multi-step & direct shortcut engine by AHMAD RDX',
         eventType: 'message'
     },
 
-    // Global Event Listener: Automatically matches saved triggers in chat
+    // Global Event Listener: Chat mein saved word catch karke response bhejega
     async handleEvent({ api, event }) {
         const { threadID, messageID, body, senderID } = event;
         if (!body) return;
@@ -102,12 +102,11 @@ module.exports = {
         }
     },
 
+    // Main Run Trigger
     async run({ api, event, args }) {
-        const { threadID, messageID, type, messageReply, body } = event;
+        const { threadID, messageID, type, messageReply, body, senderID } = event;
 
-        // -------------------------------------------------------------
-        // OPTION 1: Direct Command (e.g. .shortcut hi Hello World)
-        // -------------------------------------------------------------
+        // Mode 1: Fast Direct Mode (.shortcut <key> <response>)
         if (args.length >= 2) {
             const key = args[0].toLowerCase().trim();
             const responseText = args.slice(1).join(' ').trim();
@@ -117,37 +116,34 @@ module.exports = {
             saveShortcuts(shortcuts);
 
             return api.sendMessage(
-                `✅ Shortcut successfully saved!\n\n🔑 Key: "${key}"\n💬 Response: "${responseText}"`,
+                `✅ Shortcut saved successfully!\n\n🔑 Key: "${key}"\n💬 Response: "${responseText}"`,
                 threadID,
                 messageID
             );
         }
 
-        // -------------------------------------------------------------
-        // OPTION 2: Interactive Reply Steps
-        // -------------------------------------------------------------
+        // Mode 2: Multi-step reply parsing directly in run
         if (type === 'message_reply' && messageReply && messageReply.body) {
             const parentMsg = messageReply.body;
-            const inputBody = (body || '').trim();
+            // Agar messenger ka Thumbs Up (👍) ho toh fallback to emoji string
+            const inputBody = (body && body.trim()) ? body.trim() : '👍';
 
             if (parentMsg.includes('Is message ke reply mein wo Word, Emoji ya Number likho')) {
-                if (!inputBody) {
-                    return api.sendMessage('❌ Invalid input! Text ya standard emoji likhein.', threadID, messageID);
-                }
+                const shortcutKey = inputBody.toLowerCase();
 
                 return api.sendMessage(
-                    `📝 Shortcut Key: "${inputBody.toLowerCase()}"\n\n👇 Ab IS MESSAGE ke reply mein response text likhein:`,
+                    `📝 Shortcut Key: "${shortcutKey}"\n\n👇 Ab IS MESSAGE ke reply mein wo Text/Syntax write karein:`,
                     threadID,
                     messageID
                 );
             }
 
-            if (parentMsg.includes('Ab IS MESSAGE ke reply mein response text likhein')) {
+            if (parentMsg.includes('Ab IS MESSAGE ke reply mein wo Text/Syntax write karein')) {
                 const match = parentMsg.match(/Shortcut Key:\s*"([^"]+)"/);
                 const shortcutKey = match ? match[1] : null;
 
                 if (!shortcutKey || !inputBody) {
-                    return api.sendMessage('❌ Error! Setup dubara start karein.', threadID, messageID);
+                    return api.sendMessage('❌ Error! Setup procedure dubara start karein.', threadID, messageID);
                 }
 
                 const shortcuts = getShortcuts();
@@ -155,16 +151,16 @@ module.exports = {
                 saveShortcuts(shortcuts);
 
                 return api.sendMessage(
-                    `✅ Success! Shortcut saved.\n\n🔑 Key: "${shortcutKey}"\n💬 Response: "${inputBody}"`,
+                    `✅ Success! Shortcut successfully save ho gaya hai.\n\n🔑 Key: "${shortcutKey}"\n💬 Response: "${inputBody}"\n\nAb jab bhi koi "${shortcutKey}" likhega, bot yeh text bolega!`,
                     threadID,
                     messageID
                 );
             }
         }
 
-        // Direct Initial Prompt
+        // Direct Call Prompt
         return api.sendMessage(
-            '👇 Is message ke reply mein wo Word, Emoji ya Number likho jiska shortcut banana chahte ho:\n\n💡 Ya direct likhein: .shortcut <key> <response>',
+            '👇 Is message ke reply mein wo Word, Emoji ya Number likho jiska shortcut banana chahte ho:\n\n💡 Direct Method: .shortcut <key> <response>',
             threadID,
             messageID
         );
